@@ -1,6 +1,21 @@
-[gd_scene format=3 uid="uid://dxrcpw8iawlix"]
+[gd_scene format=4 uid="uid://dxrcpw8iawlix"]
 
 [ext_resource type="Script" uid="uid://b28s06qg8dvwj" path="res://scripts/room.gd" id="1_kw4qs"]
+[ext_resource type="PackedScene" uid="uid://bn8jajapq0rwr" path="res://scenes/tilemap/tilemap.tscn" id="2_s01xr"]
+[ext_resource type="PackedScene" uid="uid://14eq36mrlu5n" path="res://scenes/camera/camera.tscn" id="3_bffnh"]
 
 [node name="Game" type="Node2D" unique_id=851709545]
 script = ExtResource("1_kw4qs")
+metadata/_edit_vertical_guides_ = [-160.0, 160.0]
+metadata/_edit_horizontal_guides_ = [-120.0, 120.0]
+
+[node name="Camera" parent="." unique_id=1004403640 instance=ExtResource("3_bffnh")]
+
+[node name="Background" type="TextureRect" parent="." unique_id=2075770701]
+offset_left = -160.0
+offset_top = -120.0
+offset_right = 160.0
+offset_bottom = 120.0
+
+[node name="TileMap" parent="." unique_id=1693310646 instance=ExtResource("2_s01xr")]
+tile_map_data = PackedByteArray("AAD9//z/AAABAAAAAAD8//3/AAABAAAAAAD7//7/AAABAAAAAAD6////AAABAAAAAAD6/wAAAAABAAAAAAD7/wAAAAABAAAAAAD8/wAAAAABAAAAAAD9/wAAAAABAAAAAAD+/wAAAAABAAAAAAD/////AAABAAAAAAD+////AAABAAAAAAD+/wEAAAABAAAAAAD//wEAAAABAAAAAAAAAAEAAAABAAAAAAAAAAAAAAABAAAAAAAAAP//AAABAAAAAAD9////AAABAAAAAAD9/wEAAAABAAAAAAD+/wIAAAABAAAAAAD//wIAAAABAAAAAAD//wMAAAABAAAAAAAAAAMAAAABAAAAAAABAAMAAAABAAAAAAACAAIAAAABAAAAAAACAAEAAAABAAAAAAADAAMAAAABAAAAAAAEAAMAAAABAAAAAAAEAAIAAAABAAAAAAAFAAEAAAABAAAAAAAEAAAAAAABAAAAAAAEAP//AAABAAAAAAADAP7/AAABAAAAAAACAP3/AAABAAAAAAABAPz/AAABAAAAAAACAPz/AAABAAAAAAACAPv/AAABAAAAAAADAPv/AAABAAAAAAAEAPv/AAABAAAAAAAEAPz/AAABAAAAAAAFAP3/AAABAAAAAAA=")

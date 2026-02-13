@@ -14,5 +14,4 @@ func set_color_palette(new_palette: Texture2D = null):
 		palette = new_palette
 
 	print("color palette changed to " + palette.resource_path)
-
 	$ColorRect.material.set_shader_parameter("palette_out", palette)
