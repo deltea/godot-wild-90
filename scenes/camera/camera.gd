@@ -1,5 +1,6 @@
 class_name Camera extends Camera2D
 
+@export var follow: Node2D
 @export var follow_enabled = false
 @export var follow_speed = 3.0
 # @export var player_strength = 0.1
@@ -21,6 +22,8 @@ func _process(delta: float) -> void:
 	# 		position = position.lerp(RoomManager.current_room.player.position, follow_speed * delta)
 	# 	else:
 	# 		rotation_degrees = -(RoomManager.current_room.player.position.x - position.x) * tilt_magnitude
+	if follow_enabled:
+		position = position.lerp(follow.position, follow_speed * delta)
 
 	if shake_duration > 0:
 		shake_offset = Vector2.from_angle(randf_range(0, PI*2)) * shake_magnitude
