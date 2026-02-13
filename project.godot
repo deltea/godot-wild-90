@@ -11,9 +11,16 @@ config_version=5
 [application]
 
 config/name="godot wild #90"
-run/main_scene="uid://cyqgtcei5v6ba"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
+
+[autoload]
+
+Clock="*uid://dhsp8aynk0h0x"
+Dynamics="*uid://e8xmwqm43x7m"
+AudioManager="*uid://duvxwx4noaarj"
+RoomManager="*uid://cds57uumr6bdu"
+PaletteFilter="*uid://cj11c6ibk83kj"
 
 [display]
 
