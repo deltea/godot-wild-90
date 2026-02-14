@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://chcyns7jlpwto" path="res://scripts/level.gd" id="1_tibj6"]
 [ext_resource type="PackedScene" uid="uid://14eq36mrlu5n" path="res://scenes/camera/camera.tscn" id="2_dg3qb"]
+[ext_resource type="PackedScene" uid="uid://dxa2q2it134ps" path="res://scenes/player/player.tscn" id="4_ar4t0"]
 
 [node name="Level" type="Node2D" unique_id=851709545]
 script = ExtResource("1_tibj6")
@@ -9,3 +10,8 @@ metadata/_edit_vertical_guides_ = [-160.0, 160.0]
 metadata/_edit_horizontal_guides_ = [-120.0, 120.0]
 
 [node name="Camera" parent="." unique_id=1004403640 instance=ExtResource("2_dg3qb")]
+position_smoothing_enabled = true
+
+[node name="player" parent="." unique_id=333898608 instance=ExtResource("4_ar4t0")]
+position = Vector2(5, -3)
+speed = 3000

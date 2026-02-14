@@ -1,22 +1,19 @@
 extends CharacterBody2D
+
 var lookingRight = true
 @export var speed = 10
 @export var dashTime = 20
 var dashing = false
 var dashSpeed = 20
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
 	
 func _physics_process(delta: float) -> void:
+	#simple movement
 	var InputDir = Input.get_vector("left","right", "up", "down")
 	velocity += InputDir * speed
+	
+	#when dashing
 	if(dashTime > 7 || dashing == false):
 		velocity*=0.9
 	if Input.is_action_just_pressed("right"):
@@ -26,7 +23,6 @@ func _physics_process(delta: float) -> void:
 		
 	
 	if(Input.is_action_just_pressed("dash") && dashing == false):
-		$dashSFX.play()
 		dashing = true
 	
 	if(dashing == true):
