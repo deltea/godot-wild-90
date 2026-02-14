@@ -1,8 +1,9 @@
-extends CollisionShape2D
+extends CharacterBody2D
 var lookingRight = true
 @export var speed = 10
-@export var DashTime = 20
+@export var dashTime = 20
 var dashing = false
+var dashSpeed = 20
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -14,29 +15,29 @@ func _process(delta: float) -> void:
 	pass
 	
 func _physics_process(delta: float) -> void:
-	var InputDir = Input.get_vector("Left","Right", "Up", "Down")
+	var InputDir = Input.get_vector("left","right", "up", "down")
 	velocity += InputDir * speed
-	if(DashTime > 7 || Dashing == false):
+	if(dashTime > 7 || dashing == false):
 		velocity*=0.9
-	if Input.is_action_just_pressed("Right"):
+	if Input.is_action_just_pressed("right"):
 		lookingRight = true
-	if Input.is_action_just_pressed("Left"):
+	if Input.is_action_just_pressed("left"):
 		lookingRight = false
 		
 	
-	if(Input.is_action_just_pressed("Dash") && Dashing == false):
+	if(Input.is_action_just_pressed("dash") && dashing == false):
 		$dashSFX.play()
-		Dashing = true
+		dashing = true
 	
-	if(Dashing == true):
-		if(DashTime == 0):
-			velocity*=DashSpeed
-		DashTime+=1
-	if(DashTime == 40):
-		DashTime = 0
-		Dashing = false
+	if(dashing == true):
+		if(dashTime == 0):
+			velocity*=dashSpeed
+		dashTime+=1
+	if(dashTime == 40):
+		dashTime = 0
+		dashing = false
 		
-	if(Dashing == true && DashTime <= 15):
+	if(dashing == true && dashTime <= 15):
 		$Sprite.self_modulate.a = 0.5
 	else:
 		$Sprite.self_modulate.a = 1
