@@ -18,10 +18,10 @@ func _process(dt: float) -> void:
 	var dir = (get_global_mouse_position() - position).normalized()
 	pivot.rotation = dir.angle() - PI/2
 
-	if Input.is_action_just_pressed("click") and raycast.is_colliding():
-		var mask = mask_scene.instantiate() as PointLight2D
-		mask.position = raycast.get_collision_point()
-		RoomManager.current_room.add_child(mask)
+	# if Input.is_action_just_pressed("click") and raycast.is_colliding():
+	# 	var mask = mask_scene.instantiate() as PointLight2D
+	# 	mask.position = raycast.get_collision_point()
+	# 	RoomManager.current_room.add_child(mask)
 
 func _physics_process(delta):
 	var input = Input.get_vector("left", "right", "up", "down")
