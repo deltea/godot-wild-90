@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://cie82jur2cx08"]
+
+[ext_resource type="Script" uid="uid://dri5r3a0tax50" path="res://scenes/drone/drone.gd" id="1_pae44"]
+[ext_resource type="Texture2D" uid="uid://bksnvs60s5uuc" path="res://assets/drone.png" id="2_ws74u"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ws74u"]
+size = Vector2(16, 10)
+
+[node name="Drone" type="CharacterBody2D" unique_id=129656812]
+motion_mode = 1
+script = ExtResource("1_pae44")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1007431892]
+modulate = Color(0, 0, 1, 1)
+texture = ExtResource("2_ws74u")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=341058347]
+shape = SubResource("RectangleShape2D_ws74u")

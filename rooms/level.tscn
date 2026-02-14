@@ -1,9 +1,10 @@
 [gd_scene format=4 uid="uid://dxrcpw8iawlix"]
 
-[ext_resource type="Script" uid="uid://b28s06qg8dvwj" path="res://scripts/room.gd" id="1_tibj6"]
+[ext_resource type="Script" uid="uid://chcyns7jlpwto" path="res://scripts/level.gd" id="1_tibj6"]
 [ext_resource type="PackedScene" uid="uid://14eq36mrlu5n" path="res://scenes/camera/camera.tscn" id="2_dg3qb"]
 [ext_resource type="PackedScene" uid="uid://bn8jajapq0rwr" path="res://scenes/tilemap/tilemap.tscn" id="3_x0uc3"]
 [ext_resource type="PackedScene" uid="uid://csl5q0f08lfe3" path="res://scenes/player/player.tscn" id="4_ar4t0"]
+[ext_resource type="PackedScene" uid="uid://cie82jur2cx08" path="res://scenes/drone/drone.tscn" id="5_dg3qb"]
 
 [node name="Level" type="Node2D" unique_id=851709545]
 script = ExtResource("1_tibj6")
@@ -17,3 +18,6 @@ z_index = 1
 tile_map_data = PackedByteArray("AAD7/wEAAAABAAAAAAD8/wEAAAABAAAAAAD9/wEAAAABAAAAAAD+/wEAAAABAAAAAAD//wEAAAABAAAAAAAAAAEAAAABAAAAAAABAAEAAAABAAAAAAACAAEAAAABAAAAAAACAAIAAAABAAAAAAADAAIAAAABAAAAAAAEAAIAAAABAAAAAAAFAAIAAAABAAAAAAA=")
 
 [node name="Player" parent="." unique_id=966508919 instance=ExtResource("4_ar4t0")]
+
+[node name="Drone" parent="." unique_id=129656812 instance=ExtResource("5_dg3qb")]
+position = Vector2(40, -8)
