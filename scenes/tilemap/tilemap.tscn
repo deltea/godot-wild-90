@@ -1,12 +1,6 @@
 [gd_scene format=3 uid="uid://bn8jajapq0rwr"]
 
 [ext_resource type="Texture2D" uid="uid://djdjoopmoau0j" path="res://assets/tileset.png" id="1_1eosy"]
-[ext_resource type="Shader" uid="uid://dxg7l2q07cqm5" path="res://shaders/mask.gdshader" id="1_nlxlh"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_nlxlh"]
-shader = ExtResource("1_nlxlh")
-shader_parameter/mask_scale = Vector2(1, 1)
-shader_parameter/mask_offset = Vector2(0, 0)
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_1eosy"]
 friction = 0.0
@@ -328,5 +322,4 @@ sources/0 = SubResource("TileSetAtlasSource_1eosy")
 
 [node name="TileMap" type="TileMapLayer" unique_id=1693310646]
 z_index = 1
-material = SubResource("ShaderMaterial_nlxlh")
 tile_set = SubResource("TileSet_pr8jm")
