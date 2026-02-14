@@ -5,6 +5,7 @@ const big_xp_scene = preload("res://scenes/xp/big_xp.tscn")
 
 @export var xpDropMin = 8
 @export var xpDropMax = 15
+@export var damage = 10
 
 var health = 3
 var xp_drop = 0
@@ -33,3 +34,8 @@ func drop_xp():
 		var xp = scene.instantiate() as XP
 		xp.position = position
 		RoomManager.current_room.add_child(xp)
+
+func _on_body_entered(body: Node) -> void:
+	if body is Player:
+		body.takeDamage(damage)
+		knockback((position - body.position).normalized() * 200)

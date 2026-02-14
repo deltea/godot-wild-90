@@ -70,3 +70,8 @@ func stateUpdate() -> void:
 func attackOver() -> void:
 	linear_velocity = Vector2.ZERO
 	state="recover"
+
+func _on_body_entered(body: Node) -> void:
+	if body is Player and state == "attackActive":
+		body.takeDamage(damage)
+		knockback((position - body.position).normalized() * 200)
