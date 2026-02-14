@@ -2,9 +2,9 @@ extends CharacterBody2D
 
 var lookingRight = true
 @export var speed = 10
-@export var dashTime = 20
+var dashTime = 0
 var dashing = false
-var dashSpeed = 20
+@export var dashSpeed = 2
 
 
 	
