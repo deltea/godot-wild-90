@@ -14,11 +14,15 @@ var health = 100
 @onready var hitArea := $Anchor/HitArea
 @onready var weaponSprite := $Anchor/WeaponAnchor/Sprite2D
 @onready var particles := $MoveParticles
+@onready var hpBar := $CanvasLayer/hpBar
 
 @onready var weaponRotDynamics: DynamicsSolver = Dynamics.create_dynamics(8.0, 0.8, 2.0)
 
 func _enter_tree() -> void:
 	RoomManager.current_room.player = self
+
+func _ready() -> void:
+	hpBar.value = 100
 
 func _process(dt: float) -> void:
 	var dir = (get_global_mouse_position() - position).normalized()
@@ -31,6 +35,7 @@ func _process(dt: float) -> void:
 
 func takeDamage(damage):
 	health -= damage
+	hpBar.value = health
 
 func _physics_process(delta: float) -> void:
 	# simple movement

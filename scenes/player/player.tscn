@@ -67,4 +67,13 @@ texture = ExtResource("3_gmlin")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CollectArea" unique_id=1212373618]
 shape = SubResource("CircleShape2D_lvxji")
 
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=2143524551]
+
+[node name="hpBar" type="ProgressBar" parent="CanvasLayer" unique_id=1786251931]
+offset_left = 2.0
+offset_top = 3.0
+offset_right = 193.0
+offset_bottom = 11.0
+show_percentage = false
+
 [connection signal="area_entered" from="CollectArea" to="." method="_on_collect_area_area_entered"]
