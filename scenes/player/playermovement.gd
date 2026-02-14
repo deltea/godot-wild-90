@@ -76,7 +76,7 @@ func _physics_process(delta: float) -> void:
 func attack():
 	var collisions = hitArea.get_overlapping_bodies()
 	for body in collisions:
-		if not body.has_method("take_damage"): continue
+		if not body is Enemy: continue
 		var dist = body.position.distance_to(weaponSprite.global_position)
 
 		await Clock.wait(dist / 2000.0)
