@@ -20,3 +20,5 @@ texture = ExtResource("3_hmegc")
 
 [node name="StateUpdate" type="Timer" parent="." index="2" unique_id=1914001966]
 autostart = true
+
+[connection signal="timeout" from="StateUpdate" to="." method="stateUpdate"]
