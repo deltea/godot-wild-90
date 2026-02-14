@@ -4,7 +4,11 @@
 [ext_resource type="PackedScene" uid="uid://14eq36mrlu5n" path="res://scenes/camera/camera.tscn" id="2_dg3qb"]
 [ext_resource type="PackedScene" uid="uid://dxa2q2it134ps" path="res://scenes/player/player.tscn" id="4_ar4t0"]
 [ext_resource type="Script" uid="uid://b47ks02542yxv" path="res://scenes/MountainCenter/mountain_center.gd" id="4_tibj6"]
-[ext_resource type="Texture2D" uid="uid://bxtc5illu43wy" path="res://assets/generic/circle-big.png" id="5_dg3qb"]
+[ext_resource type="Texture2D" uid="uid://byi4yw732e6d1" path="res://assets/generic/circle-huge.png" id="5_dg3qb"]
+[ext_resource type="PackedScene" uid="uid://bxlrwbflwh83k" path="res://scenes/enemies/basic/basic-enemy.tscn" id="6_x0uc3"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_x0uc3"]
+radius = 32.0
 
 [node name="Level" type="Node2D" unique_id=851709545]
 script = ExtResource("1_tibj6")
@@ -14,23 +18,30 @@ metadata/_edit_horizontal_guides_ = [-120.0, 120.0]
 [node name="Camera" parent="." unique_id=1004403640 instance=ExtResource("2_dg3qb")]
 position_smoothing_enabled = true
 
-[node name="player" parent="." unique_id=333898608 instance=ExtResource("4_ar4t0")]
+[node name="Player" parent="." unique_id=333898608 instance=ExtResource("4_ar4t0")]
 position = Vector2(-88, 0)
 speed = 15
 dashSpeed = 4
 
-[node name="MountainCenter" type="Node2D" parent="." unique_id=809817917]
+[node name="MountainCenter" type="StaticBody2D" parent="." unique_id=307295969 node_paths=PackedStringArray("elevationBar")]
 script = ExtResource("4_tibj6")
+elevationBar = NodePath("../CanvasLayer/ElevationBar")
 
 [node name="Sprite2D" type="Sprite2D" parent="MountainCenter" unique_id=1072567491]
 texture = ExtResource("5_dg3qb")
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MountainCenter" unique_id=1702525510]
+shape = SubResource("CircleShape2D_x0uc3")
+
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=508570387]
 
-[node name="elevation bar" type="ProgressBar" parent="CanvasLayer" unique_id=529861572]
+[node name="ElevationBar" type="ProgressBar" parent="CanvasLayer" unique_id=529861572]
 offset_left = 299.0
 offset_top = 13.0
 offset_right = 311.0
 offset_bottom = 222.0
 fill_mode = 3
 show_percentage = false
+
+[node name="BasicEnemy" parent="." unique_id=544114418 instance=ExtResource("6_x0uc3")]
+position = Vector2(-64, 64)

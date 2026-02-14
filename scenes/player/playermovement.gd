@@ -1,4 +1,4 @@
-extends CharacterBody2D
+class_name Player extends CharacterBody2D
 
 @export var speed = 10
 @export var dashSpeed = 2
@@ -11,6 +11,11 @@ var weaponDir = 1
 @onready var anchor: Node2D = $Anchor
 @onready var weaponAnchor: Node2D = $Anchor/WeaponAnchor
 @onready var weaponRotDynamics: DynamicsSolver = Dynamics.create_dynamics(8.0, 0.8, 2.0)
+@onready var hitArea: Area2D = $Anchor/HitArea
+@onready var weaponSprite: Sprite2D = $Anchor/WeaponAnchor/Sprite2D
+
+func _enter_tree() -> void:
+	RoomManager.current_room.player = self
 
 func _process(dt: float) -> void:
 	var dir = (get_global_mouse_position() - position).normalized()
@@ -19,6 +24,7 @@ func _process(dt: float) -> void:
 
 	if Input.is_action_just_pressed("click"):
 		weaponDir *= -1
+		attack()
 
 func _physics_process(delta: float) -> void:
 	# simple movement
@@ -51,3 +57,17 @@ func _physics_process(delta: float) -> void:
 		$Sprite.self_modulate.a = 1
 
 	move_and_slide()
+
+func attack():
+	var collisions = hitArea.get_overlapping_bodies()
+	for body in collisions:
+		if not body.has_method("take_damage"): continue
+		var dist = body.position.distance_to(weaponSprite.global_position)
+
+		await Clock.wait(dist / 2000.0)
+
+		Clock.hitstop(0.07)
+		# RoomManager.current_room.camera.shake(0.5, 5)
+		RoomManager.current_room.camera.jerk_direction(position - get_global_mouse_position(), 5.0)
+		body.knockback((body.position - global_position).normalized() * 200)
+		body.take_damage(1)

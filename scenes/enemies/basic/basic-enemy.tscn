@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://bxlrwbflwh83k"]
+
+[ext_resource type="PackedScene" uid="uid://dhd5p1lp3cmre" path="res://scenes/enemy/enemy.tscn" id="1_vai6y"]
+[ext_resource type="Texture2D" uid="uid://7qru5twwl775" path="res://assets/generic/square.png" id="2_t1k8n"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t1k8n"]
+size = Vector2(16, 16)
+
+[node name="BasicEnemy" unique_id=544114418 instance=ExtResource("1_vai6y")]
+linear_damp = 10.247
+
+[node name="CollisionShape2D" parent="." index="0" unique_id=1018922626]
+shape = SubResource("RectangleShape2D_t1k8n")
+
+[node name="Sprite2D" parent="." index="1" unique_id=1780433657]
+texture = ExtResource("2_t1k8n")

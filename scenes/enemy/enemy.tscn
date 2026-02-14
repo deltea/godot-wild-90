@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://dhd5p1lp3cmre"]
+
+[ext_resource type="Script" uid="uid://c4y6pk6a12csg" path="res://scenes/enemy/enemy.gd" id="1_4a83h"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_4a83h"]
+friction = 0.0
+bounce = 1.0
+
+[node name="Enemy" type="RigidBody2D" unique_id=544114418]
+physics_material_override = SubResource("PhysicsMaterial_4a83h")
+gravity_scale = 0.0
+script = ExtResource("1_4a83h")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1018922626]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1780433657]
