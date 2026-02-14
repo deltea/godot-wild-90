@@ -6,8 +6,14 @@ var agroRange = 200
 var attackRange = 60
 
 var speed = 20
+var mood = 0
 
 var idlePosition = Vector2.ZERO
+
+func _ready() -> void:
+	super._ready()
+	mood = randi_range(-10,10)
+	speed += randi_range(-10,10)
 
 func _physics_process(delta: float) -> void:
 	var playerPos = RoomManager.current_room.get_node("Player").position
@@ -34,7 +40,7 @@ func attack():
 	$attackTimer.start()
 
 func stateUpdate() -> void:
-	var moodSwing = randi_range(0,100)
+	var moodSwing = randi_range(0,100+mood)
 	var playerPos = RoomManager.current_room.get_node("Player").position
 	if state == "attackInactive":
 		if moodSwing < 50:
@@ -50,7 +56,6 @@ func stateUpdate() -> void:
 			if state == "agro":
 				#just entered attack
 				linear_velocity = Vector2.ZERO
-			
 			state = "attackInactive"
 	else:
 		if moodSwing < 80:
