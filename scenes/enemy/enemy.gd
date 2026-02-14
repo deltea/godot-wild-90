@@ -12,6 +12,7 @@ var xp_drop = 0
 func _ready() -> void:
 	xp_drop = randi_range(xpDropMin, xpDropMax)
 
+
 func take_damage(damage: int):
 	health -= damage
 	if health <= 0:

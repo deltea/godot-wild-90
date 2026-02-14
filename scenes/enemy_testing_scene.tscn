@@ -1,15 +1,15 @@
 [gd_scene format=3 uid="uid://c7ec01kwjd6ip"]
 
 [ext_resource type="Script" uid="uid://chcyns7jlpwto" path="res://scripts/level.gd" id="1_0fqcd"]
+[ext_resource type="PackedScene" uid="uid://dkxwnjdaghed1" path="res://scenes/enemies/mountainLion/mountainLion.tscn" id="2_0fqcd"]
 [ext_resource type="PackedScene" uid="uid://dxa2q2it134ps" path="res://scenes/player/player.tscn" id="2_3teur"]
-[ext_resource type="PackedScene" uid="uid://dhd5p1lp3cmre" path="res://scenes/enemy/enemy.tscn" id="3_u2380"]
 [ext_resource type="PackedScene" uid="uid://14eq36mrlu5n" path="res://scenes/camera/camera.tscn" id="4_t1ofk"]
 
 [node name="enemyTestingScene" type="Node2D" unique_id=339533915]
 script = ExtResource("1_0fqcd")
 
-[node name="Player" parent="." unique_id=333898608 instance=ExtResource("2_3teur")]
+[node name="mountain lion" parent="." unique_id=544114418 instance=ExtResource("2_0fqcd")]
 
-[node name="Enemy" parent="." unique_id=544114418 instance=ExtResource("3_u2380")]
+[node name="Player" parent="." unique_id=333898608 instance=ExtResource("2_3teur")]
 
 [node name="Camera" parent="." unique_id=1004403640 instance=ExtResource("4_t1ofk")]

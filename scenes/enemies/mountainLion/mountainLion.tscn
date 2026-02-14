@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://dkxwnjdaghed1"]
+
+[ext_resource type="PackedScene" uid="uid://dhd5p1lp3cmre" path="res://scenes/enemy/enemy.tscn" id="1_ibbdd"]
+[ext_resource type="Script" uid="uid://bx5jsdmmj27po" path="res://scenes/enemies/mountainLion/mountainLion.gd" id="2_hmegc"]
+[ext_resource type="Texture2D" uid="uid://cdnunui18bx10" path="res://assets/generic/pixel.png" id="3_hmegc"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hmegc"]
+
+[node name="mountain lion" unique_id=544114418 instance=ExtResource("1_ibbdd")]
+mass = 30.0
+script = ExtResource("2_hmegc")
+
+[node name="CollisionShape2D" parent="." index="0" unique_id=1018922626]
+shape = SubResource("CircleShape2D_hmegc")
+
+[node name="Sprite2D" parent="." index="1" unique_id=1780433657]
+position = Vector2(0, -0.5000005)
+scale = Vector2(30, 27.000002)
+texture = ExtResource("3_hmegc")
