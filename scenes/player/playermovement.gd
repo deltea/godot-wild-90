@@ -37,3 +37,5 @@ func _physics_process(delta: float) -> void:
 		$Sprite.self_modulate.a = 0.5
 	else:
 		$Sprite.self_modulate.a = 1
+		
+	move_and_slide()
