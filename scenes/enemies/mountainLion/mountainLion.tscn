@@ -5,9 +5,10 @@
 [ext_resource type="Texture2D" uid="uid://cdnunui18bx10" path="res://assets/generic/pixel.png" id="3_hmegc"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hmegc"]
+radius = 15.0
 
 [node name="mountain lion" unique_id=544114418 instance=ExtResource("1_ibbdd")]
-mass = 30.0
+mass = 10.0
 script = ExtResource("2_hmegc")
 
 [node name="CollisionShape2D" parent="." index="0" unique_id=1018922626]
