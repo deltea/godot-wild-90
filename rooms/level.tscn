@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://14eq36mrlu5n" path="res://scenes/camera/camera.tscn" id="2_dg3qb"]
 [ext_resource type="PackedScene" uid="uid://dxa2q2it134ps" path="res://scenes/player/player.tscn" id="4_ar4t0"]
 [ext_resource type="Script" uid="uid://b47ks02542yxv" path="res://scenes/MountainCenter/mountain_center.gd" id="4_tibj6"]
+[ext_resource type="Texture2D" uid="uid://bxtc5illu43wy" path="res://assets/generic/circle-big.png" id="5_dg3qb"]
 
 [node name="Level" type="Node2D" unique_id=851709545]
 script = ExtResource("1_tibj6")
@@ -20,3 +21,6 @@ dashSpeed = 4
 
 [node name="MountainCenter" type="Node2D" parent="." unique_id=809817917]
 script = ExtResource("4_tibj6")
+
+[node name="Sprite2D" type="Sprite2D" parent="MountainCenter" unique_id=1072567491]
+texture = ExtResource("5_dg3qb")

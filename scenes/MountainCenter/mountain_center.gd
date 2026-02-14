@@ -27,5 +27,4 @@ func _process(delta: float) -> void:
 		fullRotations-=1
 		
 	elevation = theta+(360*fullRotations)
-	print(elevation)
 	
