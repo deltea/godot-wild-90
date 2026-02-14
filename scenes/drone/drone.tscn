@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bksnvs60s5uuc" path="res://assets/drone.png" id="2_ws74u"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ws74u"]
-size = Vector2(16, 10)
+size = Vector2(16, 16)
 
 [sub_resource type="Curve" id="Curve_ws74u"]
 _limits = [0.0, 3.0, 0.0, 1.0]
