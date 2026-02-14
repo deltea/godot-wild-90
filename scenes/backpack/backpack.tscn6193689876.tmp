@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://bktodku2kdn6l"]
+
+[ext_resource type="Script" uid="uid://wl130fh0ww28" path="res://scenes/backpack/backpackManager.gd" id="1_dcodl"]
+
+[node name="backpack" type="Node2D" unique_id=858809275]
+script = ExtResource("1_dcodl")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=753230540]
