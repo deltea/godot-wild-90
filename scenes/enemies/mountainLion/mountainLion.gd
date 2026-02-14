@@ -38,7 +38,8 @@ func knockback(force):
 func attack():
 	state = "attackActive"
 	var playerPos = RoomManager.current_room.player.position
-	linear_velocity += (playerPos-position).normalized() * speed * 10
+	# linear_velocity += (playerPos-position).normalized() * speed * 10
+	apply_central_impulse((playerPos-position).normalized() * speed * 10 * mass)
 	$attackTimer.start()
 
 func stateUpdate() -> void:
