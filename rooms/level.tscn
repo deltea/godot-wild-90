@@ -4,14 +4,15 @@
 [ext_resource type="PackedScene" uid="uid://14eq36mrlu5n" path="res://scenes/camera/camera.tscn" id="2_dg3qb"]
 [ext_resource type="PackedScene" uid="uid://dxa2q2it134ps" path="res://scenes/player/player.tscn" id="4_ar4t0"]
 [ext_resource type="Script" uid="uid://b47ks02542yxv" path="res://scenes/MountainCenter/mountain_center.gd" id="4_tibj6"]
-[ext_resource type="Texture2D" uid="uid://byi4yw732e6d1" path="res://assets/generic/circle-huge.png" id="5_dg3qb"]
+[ext_resource type="Texture2D" uid="uid://vp31m8gq7ufe" path="res://assets/arena-center.png" id="5_ar4t0"]
 [ext_resource type="PackedScene" uid="uid://bxlrwbflwh83k" path="res://scenes/enemies/basic/basic-enemy.tscn" id="6_x0uc3"]
+[ext_resource type="Texture2D" uid="uid://dp56cr7scgx58" path="res://assets/arena.png" id="7_ar4t0"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x0uc3"]
 bg_color = Color(1, 1, 1, 1)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_x0uc3"]
-radius = 32.0
+radius = 64.0
 
 [node name="Level" type="Node2D" unique_id=851709545]
 script = ExtResource("1_tibj6")
@@ -29,31 +30,43 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_x0uc3")
 fill_mode = 3
 show_percentage = false
 
-[node name="Camera" parent="." unique_id=1004403640 instance=ExtResource("2_dg3qb")]
+[node name="Camera" parent="." unique_id=1004403640 node_paths=PackedStringArray("follow") instance=ExtResource("2_dg3qb")]
 position_smoothing_enabled = true
+follow = NodePath("../Player")
+follow_enabled = true
+follow_speed = 5.0
 
 [node name="Player" parent="." unique_id=333898608 instance=ExtResource("4_ar4t0")]
-position = Vector2(-88, 0)
+position = Vector2(-160, 0)
 dashSpeed = 4
 
-[node name="MountainCenter" type="StaticBody2D" parent="." unique_id=307295969 node_paths=PackedStringArray("elevationBar")]
+[node name="Mountain" type="StaticBody2D" parent="." unique_id=307295969 node_paths=PackedStringArray("elevationBar")]
 script = ExtResource("4_tibj6")
 elevationBar = NodePath("../CanvasLayer/ElevationBar")
 
-[node name="Sprite2D" type="Sprite2D" parent="MountainCenter" unique_id=1072567491]
-texture = ExtResource("5_dg3qb")
+[node name="Center" type="Sprite2D" parent="Mountain" unique_id=1072567491]
+texture = ExtResource("5_ar4t0")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="MountainCenter" unique_id=1702525510]
+[node name="Outer" type="Sprite2D" parent="Mountain" unique_id=778382136]
+z_index = -10
+texture = ExtResource("7_ar4t0")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Mountain" unique_id=1702525510]
 shape = SubResource("CircleShape2D_x0uc3")
 
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Mountain" unique_id=339612402]
+build_mode = 1
+polygon = PackedVector2Array(0, -320, 64, -312, 128, -296, 192, -256, 256, -192, 296, -120, 312, -64, 320, 0, 312, 64, 296, 120, 256, 192, 192, 256, 128, 296, 64, 312, 0, 320, -64, 312, -160, 280, -256, 192, -296, 128, -312, 64, -320, 0, -312, -64, -296, -120, -256, -192, -192, -256, -128, -296, -64, -312)
+
 [node name="BasicEnemy" parent="." unique_id=544114418 instance=ExtResource("6_x0uc3")]
-position = Vector2(-64, 64)
+position = Vector2(-120, 88)
 
 [node name="BasicEnemy2" parent="." unique_id=1354156260 instance=ExtResource("6_x0uc3")]
-position = Vector2(-32, 64)
+position = Vector2(-88, 88)
 
 [node name="BasicEnemy3" parent="." unique_id=1930179462 instance=ExtResource("6_x0uc3")]
-position = Vector2(-96, 80)
+position = Vector2(-152, 104)
 
 [node name="BasicEnemy4" parent="." unique_id=405138132 instance=ExtResource("6_x0uc3")]
-position = Vector2(-56, 96)
+position = Vector2(-112, 120)
