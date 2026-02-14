@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://b7pxtjwcm4gk6"]
+
+[ext_resource type="Texture2D" uid="uid://c8vebnkhtxxr6" path="res://assets/generic/circle.png" id="1_jlvus"]
+
+[node name="Mask" type="PointLight2D" unique_id=21382602]
+z_index = 2
+energy = 16.0
+blend_mode = 2
+texture = ExtResource("1_jlvus")

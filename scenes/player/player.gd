@@ -61,16 +61,16 @@ func _physics_process(delta: float) -> void:
 	else:
 		sprite.rotation_degrees = 0
 
-	if (Input.is_action_just_pressed("jump") or buffer_timer < buffer_time) and not jumped and can_move:
+	if (Input.is_action_just_pressed("space") or buffer_timer < buffer_time) and not jumped and can_move:
 		if is_on_floor() or coyote_timer < coyote_time:
 			velocity.y = -jump_velocity
 			scale_dynamics.set_value(Vector2.ONE + Vector2(-stretch, stretch))
 			jumped = true
 
-	if Input.is_action_just_released("jump") and velocity.y < 0.0:
+	if Input.is_action_just_released("space") and velocity.y < 0.0:
 		velocity.y *= jump_cut_multiplier
 
-	if Input.is_action_just_pressed("jump") and not is_on_floor():
+	if Input.is_action_just_pressed("space") and not is_on_floor():
 		buffer_timer = 0.0
 
 	# if Input.is_action_just_pressed("down"):

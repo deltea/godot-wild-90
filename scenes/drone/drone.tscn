@@ -27,8 +27,10 @@ shape = SubResource("RectangleShape2D_ws74u")
 z_index = -1
 
 [node name="RayCast2D" type="RayCast2D" parent="Pivot" unique_id=139901153]
+target_position = Vector2(0, 1000)
 
 [node name="Line2D" type="Line2D" parent="Pivot" unique_id=600902069]
+light_mask = 0
 points = PackedVector2Array(0, 0, 0, 50)
 width_curve = SubResource("Curve_ws74u")
 default_color = Color(0.26666668, 0.26666668, 0.26666668, 1)
