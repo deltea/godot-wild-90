@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://cg2jchr05de3r"]
+
+[ext_resource type="PackedScene" uid="uid://b1c6ectotm28d" path="res://scenes/xp/xp.tscn" id="1_cnbv1"]
+[ext_resource type="Texture2D" uid="uid://cksxfuuaid0ll" path="res://assets/generic/circle-small.png" id="2_judkt"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_i5c8b"]
+radius = 5.0990195
+
+[node name="BigXP" unique_id=291407418 instance=ExtResource("1_cnbv1")]
+value = 5
+
+[node name="CollisionShape2D" parent="." index="0" unique_id=1377407198]
+shape = SubResource("CircleShape2D_i5c8b")
+
+[node name="Sprite2D" parent="." index="1" unique_id=673740571]
+texture = ExtResource("2_judkt")
