@@ -17,3 +17,6 @@ shape = SubResource("CircleShape2D_hmegc")
 position = Vector2(0, -0.5000005)
 scale = Vector2(30, 27.000002)
 texture = ExtResource("3_hmegc")
+
+[node name="StateUpdate" type="Timer" parent="." index="2" unique_id=1914001966]
+autostart = true
