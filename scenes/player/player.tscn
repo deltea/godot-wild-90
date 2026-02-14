@@ -20,6 +20,9 @@ point_count = 3
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gmlin"]
 size = Vector2(18, 30)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_lvxji"]
+radius = 5.0990195
+
 [node name="Player" type="CharacterBody2D" unique_id=333898608]
 collision_layer = 2
 script = ExtResource("1_8afob")
@@ -57,3 +60,10 @@ rotation = -1.5707964
 [node name="Sprite2D" type="Sprite2D" parent="Anchor/WeaponAnchor" unique_id=301695647]
 position = Vector2(0, -17)
 texture = ExtResource("3_gmlin")
+
+[node name="CollectArea" type="Area2D" parent="." unique_id=1732441913]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollectArea" unique_id=1212373618]
+shape = SubResource("CircleShape2D_lvxji")
+
+[connection signal="area_entered" from="CollectArea" to="." method="_on_collect_area_area_entered"]

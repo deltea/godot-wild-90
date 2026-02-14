@@ -77,3 +77,7 @@ func attack():
 		RoomManager.current_room.camera.jerk_direction(position - get_global_mouse_position(), 5.0)
 		body.knockback((body.position - global_position).normalized() * 200)
 		body.take_damage(1)
+
+func _on_collect_area_area_entered(area: Area2D) -> void:
+	if area is XP:
+		area.queue_free()
