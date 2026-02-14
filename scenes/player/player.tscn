@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bnubv7s17h176" path="res://scenes/player/playermovement.gd" id="1_8afob"]
 [ext_resource type="Texture2D" uid="uid://dvswndekc2mop" path="res://assets/player.png" id="2_dovo2"]
+[ext_resource type="Texture2D" uid="uid://c7timy3lxj480" path="res://assets/stick.png" id="3_gmlin"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x7p2l"]
 size = Vector2(16, 22)
@@ -14,3 +15,12 @@ shape = SubResource("RectangleShape2D_x7p2l")
 
 [node name="Sprite" type="Sprite2D" parent="." unique_id=1980901228]
 texture = ExtResource("2_dovo2")
+
+[node name="Anchor" type="Node2D" parent="." unique_id=1396503887]
+
+[node name="WeaponAnchor" type="Node2D" parent="Anchor" unique_id=91929302]
+rotation = -1.5707964
+
+[node name="Sprite2D" type="Sprite2D" parent="Anchor/WeaponAnchor" unique_id=301695647]
+position = Vector2(0, -17)
+texture = ExtResource("3_gmlin")

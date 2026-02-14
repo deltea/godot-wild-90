@@ -15,7 +15,7 @@ metadata/_edit_horizontal_guides_ = [-120.0, 120.0]
 position_smoothing_enabled = true
 
 [node name="player" parent="." unique_id=333898608 instance=ExtResource("4_ar4t0")]
-position = Vector2(5, -3)
+position = Vector2(-88, 0)
 speed = 15
 dashSpeed = 4
 

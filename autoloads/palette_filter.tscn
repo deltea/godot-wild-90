@@ -13,7 +13,6 @@ shader_parameter/precision = 0.1
 
 [node name="PaletteFilter" type="CanvasLayer" unique_id=1361322869]
 layer = 100
-visible = false
 script = ExtResource("1_adh26")
 default_palette = ExtResource("2_lvugl")
 
