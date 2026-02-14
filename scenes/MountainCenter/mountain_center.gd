@@ -7,6 +7,7 @@ var theta = 0
 var elevation = 0
 var maxElevation = 1000
 var fullRotations = 0
+var maxRotations = 10
 
 
 func _ready() -> void:
@@ -27,4 +28,6 @@ func _process(delta: float) -> void:
 		fullRotations-=1
 		
 	elevation = theta+(360*fullRotations)
+	var adjustedElevation = (elevation/(360.0*maxRotations))*100.0
+	get_parent().get_node("CanvasLayer").get_node("elevation bar").value = adjustedElevation
 	
