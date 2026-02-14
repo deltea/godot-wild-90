@@ -7,6 +7,7 @@ var lookingRight = true
 var dashTime = 0
 var dashing = false
 var weaponDir = 1
+var health = 100
 
 @onready var anchor := $Anchor
 @onready var weaponAnchor := $Anchor/WeaponAnchor
@@ -27,6 +28,9 @@ func _process(dt: float) -> void:
 	if Input.is_action_just_pressed("click"):
 		weaponDir *= -1
 		attack()
+
+func takeDamage(damage):
+	health -= damage
 
 func _physics_process(delta: float) -> void:
 	# simple movement
