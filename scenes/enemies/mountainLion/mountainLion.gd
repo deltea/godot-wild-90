@@ -19,19 +19,19 @@ func _physics_process(delta: float) -> void:
 	var playerPos = RoomManager.current_room.get_node("Player").position
 	if state == "agro":
 		var distanceToPlayer =  playerPos.distance_to(position)
-		
-		
+
+
 		if distanceToPlayer > attackRange:
 			#get closer
 			linear_velocity = (playerPos-position).normalized() * speed
 	elif state == "recover":
-		linear_velocity = -(playerPos-position).normalized() * speed 
-		
+		linear_velocity = -(playerPos-position).normalized() * speed
+
 
 func knockback(force):
 	super.knockback(force)
 	state = "recover"
-	
+
 
 func attack():
 	state = "attackActive"
@@ -60,8 +60,8 @@ func stateUpdate() -> void:
 	else:
 		if moodSwing < 80:
 			state = "idle"
-	
-		
+
+
 
 
 func attackOver() -> void:
