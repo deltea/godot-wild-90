@@ -23,9 +23,11 @@ func _physics_process(delta: float) -> void:
 
 		if distanceToPlayer > attackRange:
 			#get closer
-			linear_velocity = (playerPos-position).normalized() * speed
+			# linear_velocity = (playerPos-position).normalized() * speed
+			apply_central_force((playerPos-position).normalized() * speed * mass)
 	elif state == "recover":
-		linear_velocity = -(playerPos-position).normalized() * speed
+		# linear_velocity = -(playerPos-position).normalized() * speed
+		apply_central_force(-(playerPos-position).normalized() * speed * mass)
 
 
 func knockback(force):
@@ -35,13 +37,13 @@ func knockback(force):
 
 func attack():
 	state = "attackActive"
-	var playerPos = RoomManager.current_room.get_node("Player").position
+	var playerPos = RoomManager.current_room.player.position
 	linear_velocity += (playerPos-position).normalized() * speed * 10
 	$attackTimer.start()
 
 func stateUpdate() -> void:
 	var moodSwing = randi_range(0,100+mood)
-	var playerPos = RoomManager.current_room.get_node("Player").position
+	var playerPos = RoomManager.current_room.player.position
 	if state == "attackInactive":
 		if moodSwing < 50:
 			attack()
