@@ -2,17 +2,7 @@
 
 [ext_resource type="Script" uid="uid://chcyns7jlpwto" path="res://scripts/level.gd" id="1_tibj6"]
 [ext_resource type="PackedScene" uid="uid://14eq36mrlu5n" path="res://scenes/camera/camera.tscn" id="2_dg3qb"]
-[ext_resource type="PackedScene" uid="uid://mu7w5n3s2t0k" path="res://assets/models/bottle.blend" id="3_4ve75"]
-
-[sub_resource type="Environment" id="Environment_4ve75"]
-ambient_light_source = 2
-ambient_light_color = Color(0.42365062, 0.42365065, 0.42365062, 1)
-
-[sub_resource type="World3D" id="World3D_4ve75"]
-environment = SubResource("Environment_4ve75")
-
-[sub_resource type="ViewportTexture" id="ViewportTexture_4ve75"]
-viewport_path = NodePath("SubViewport")
+[ext_resource type="PackedScene" uid="uid://dxa2q2it134ps" path="res://scenes/player/player.tscn" id="4_ar4t0"]
 
 [node name="Level" type="Node2D" unique_id=851709545]
 script = ExtResource("1_tibj6")
@@ -20,23 +10,8 @@ metadata/_edit_vertical_guides_ = [-160.0, 160.0]
 metadata/_edit_horizontal_guides_ = [-120.0, 120.0]
 
 [node name="Camera" parent="." unique_id=1004403640 instance=ExtResource("2_dg3qb")]
+position_smoothing_enabled = true
 
-[node name="SubViewport" type="SubViewport" parent="." unique_id=112606268]
-world_3d = SubResource("World3D_4ve75")
-transparent_bg = true
-
-[node name="bottle" parent="SubViewport" unique_id=430378427 instance=ExtResource("3_4ve75")]
-
-[node name="Camera3D" type="Camera3D" parent="SubViewport" unique_id=1141610089]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7264924, 6.099245)
-projection = 1
-current = true
-size = 8.986
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="SubViewport" unique_id=1617827282]
-transform = Transform3D(0.0017929486, -0.6615999, 0.749855, 0.0015819208, 0.7498571, 0.66159797, -0.99999714, 1.1641565e-10, 0.0023910536, 4.874511, 5.052956, -0.34914494)
-
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1528127670]
-position = Vector2(-8.0000305, -7.9999847)
-scale = Vector2(0.15625, 0.15625)
-texture = SubResource("ViewportTexture_4ve75")
+[node name="player" parent="." unique_id=333898608 instance=ExtResource("4_ar4t0")]
+position = Vector2(5, -3)
+speed = 3000

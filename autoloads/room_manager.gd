@@ -32,4 +32,3 @@ func change_room_from_scene(scene: PackedScene):
 	await Clock.wait(0.5)
 
 	player.play("transition")
-
