@@ -1,6 +1,6 @@
 class_name Player extends CharacterBody2D
 
-@export var speed = 10
+@export var speed = 20
 @export var dashSpeed = 2
 
 var lookingRight = true
@@ -8,11 +8,13 @@ var dashTime = 0
 var dashing = false
 var weaponDir = 1
 
-@onready var anchor: Node2D = $Anchor
-@onready var weaponAnchor: Node2D = $Anchor/WeaponAnchor
+@onready var anchor := $Anchor
+@onready var weaponAnchor := $Anchor/WeaponAnchor
+@onready var hitArea := $Anchor/HitArea
+@onready var weaponSprite := $Anchor/WeaponAnchor/Sprite2D
+@onready var particles := $MoveParticles
+
 @onready var weaponRotDynamics: DynamicsSolver = Dynamics.create_dynamics(8.0, 0.8, 2.0)
-@onready var hitArea: Area2D = $Anchor/HitArea
-@onready var weaponSprite: Sprite2D = $Anchor/WeaponAnchor/Sprite2D
 
 func _enter_tree() -> void:
 	RoomManager.current_room.player = self
@@ -28,17 +30,21 @@ func _process(dt: float) -> void:
 
 func _physics_process(delta: float) -> void:
 	# simple movement
-	var InputDir = Input.get_vector("left","right", "up", "down")
-	velocity += InputDir * speed
+	var input = Input.get_vector("left", "right", "up", "down")
+	velocity += input * speed
+
+	if input != Vector2.ZERO:
+		particles.emitting = true
+	else:
+		particles.emitting = false
 
 	# when dashing
 	if (dashTime > 7 || dashing == false):
-		velocity *= 0.9
+		velocity *= 0.8
 	if (Input.is_action_just_pressed("right")):
 		lookingRight = true
 	if (Input.is_action_just_pressed("left")):
 		lookingRight = false
-
 
 	if (Input.is_action_just_pressed("dash") && dashing == false):
 		dashing = true

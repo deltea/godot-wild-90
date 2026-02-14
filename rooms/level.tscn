@@ -20,7 +20,6 @@ position_smoothing_enabled = true
 
 [node name="Player" parent="." unique_id=333898608 instance=ExtResource("4_ar4t0")]
 position = Vector2(-88, 0)
-speed = 15
 dashSpeed = 4
 
 [node name="MountainCenter" type="StaticBody2D" parent="." unique_id=307295969 node_paths=PackedStringArray("elevationBar")]
@@ -45,3 +44,12 @@ show_percentage = false
 
 [node name="BasicEnemy" parent="." unique_id=544114418 instance=ExtResource("6_x0uc3")]
 position = Vector2(-64, 64)
+
+[node name="BasicEnemy2" parent="." unique_id=1354156260 instance=ExtResource("6_x0uc3")]
+position = Vector2(-32, 64)
+
+[node name="BasicEnemy3" parent="." unique_id=1930179462 instance=ExtResource("6_x0uc3")]
+position = Vector2(-96, 80)
+
+[node name="BasicEnemy4" parent="." unique_id=405138132 instance=ExtResource("6_x0uc3")]
+position = Vector2(-56, 96)
