@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://icq5bb82c28o"]
+
+[ext_resource type="Texture2D" uid="uid://bc5yda7m85tvb" path="res://assets/folliage.png" id="1_et1nb"]
+
+[node name="folliage" type="Sprite2D" unique_id=583853511]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("1_et1nb")
+vframes = 2
