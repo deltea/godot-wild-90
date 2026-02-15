@@ -1,11 +1,12 @@
 extends Enemy
 
 var state = "idle"
+var agroMove = "straight"
 
 var agroRange = 200
 var attackRange = 60
 
-var speed = 20
+var speed = 100
 var mood = 0
 
 var idlePosition = Vector2.ZERO
@@ -20,11 +21,19 @@ func _physics_process(delta: float) -> void:
 	if state == "agro":
 		var distanceToPlayer =  playerPos.distance_to(position)
 
-
+		
 		if distanceToPlayer > attackRange:
-			#get closer
-			# linear_velocity = (playerPos-position).normalized() * speed
-			apply_central_force((playerPos-position).normalized() * speed * mass)
+			var playerVector = (playerPos-position).normalized()
+			if agroMove == "straight":
+				#get closer
+				# linear_velocity = (playerPos-position).normalized() * speed
+				apply_central_force(playerVector * speed * mass)
+			elif agroMove == "strafe":
+				var dir = Vector2(-playerVector.y,playerVector.x)
+				if randi_range(0,100) < 50:
+					apply_central_force(dir * speed * mass)
+				else:
+					apply_central_force(-dir * speed * mass)
 	elif state == "recover":
 		# linear_velocity = -(playerPos-position).normalized() * speed
 		apply_central_force(-(playerPos-position).normalized() * speed * mass)
@@ -39,12 +48,19 @@ func attack():
 	state = "attackActive"
 	var playerPos = RoomManager.current_room.player.position
 	# linear_velocity += (playerPos-position).normalized() * speed * 10
-	apply_central_impulse((playerPos-position).normalized() * speed * 10 * mass)
+	apply_central_impulse((playerPos-position).normalized() * 200 * mass)
 	$attackTimer.start()
 
 func stateUpdate() -> void:
 	var moodSwing = randi_range(0,100+mood)
 	var playerPos = RoomManager.current_room.player.position
+	if state == "agro":
+		if moodSwing < 30:
+			agroMove = "strafe"
+			linear_velocity = Vector2.ZERO
+		else:
+			agroMove = "straight"
+		
 	if state == "attackInactive":
 		if moodSwing < 50:
 			attack()

@@ -10,6 +10,8 @@ var cellWidth = 21
 
 var square = [[1,1],[1,1]]
 
+var top = 50
+var left = 50
 
 func _ready() -> void:
 	var row = [0, 0, 0, 0]
@@ -22,15 +24,22 @@ func _ready() -> void:
 		for c in range(columns):
 			var cell = bpCell.instantiate()
 			$CanvasLayer.add_child(cell)
-			cell.position = Vector2(c*cellWidth,r*cellWidth)
+			cell.position = Vector2(c*cellWidth + left,r*cellWidth + top)
 			newRow.append(cell)
 		backpackCells.append(newRow)
 			
 func _process(delta: float) -> void:
 	var mousePos = get_global_mouse_position()
-	for r in backpackCells:
-		for cell in r:
+	for r in range(len(backpackCells)):
+		for c in range(len(backpackCells[0])):
+			var cell = backpackCells[r][c]
 			var cellPos = Vector2(cell.position.x + cellWidth/2, cell.position.y + cellWidth/2)
+			
+			
 			if cellPos.distance_to(mousePos) < 10:
-				cell.color = Color.RED
+				var highlightedCells = [cell]
+				for hCell in highlightedCells:
+					hCell.color.a = 1
+			else:
+				cell.color.a = 0.1
 	
