@@ -25,7 +25,7 @@ func _ready() -> void:
 func spawnFolliage(num, angle):
 	for i in range(num):
 		var r = 380
-		var oppositeAngle = deg_to_rad(-(angle+180))
+		var oppositeAngle = deg_to_rad(-(angle))
 		var color = Color.DARK_SEA_GREEN
 		var newPlant = folliage.instantiate()
 		
