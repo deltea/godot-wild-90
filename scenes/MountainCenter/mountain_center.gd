@@ -17,11 +17,15 @@ var recordTheta = 0
 
 func _ready() -> void:
 	player = RoomManager.current_room.player
+	
+	#spawn initial folliage
+	for i in range(60):
+		spawnFolliage(10,i*6)
 
-func spawnFolliage(num):
+func spawnFolliage(num, angle):
 	for i in range(num):
 		var r = 380
-		var oppositeAngle = deg_to_rad(-(theta+180))
+		var oppositeAngle = deg_to_rad(-(angle+180))
 		var color = Color.DARK_SEA_GREEN
 		var newPlant = folliage.instantiate()
 		
@@ -77,5 +81,5 @@ func _process(delta: float) -> void:
 
 func folliageCheck() -> void:
 	if abs(recordTheta-theta)>3:
-		spawnFolliage(10)
+		spawnFolliage(10,theta)
 	recordTheta=theta
