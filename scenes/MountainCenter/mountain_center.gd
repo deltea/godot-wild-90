@@ -12,6 +12,8 @@ var fullRotations = 0
 var maxRotations = 10
 
 var folliage = preload("res://scenes/folliage/folliage.tscn")
+var folliageList = []
+var recordTheta = 0
 
 func _ready() -> void:
 	player = RoomManager.current_room.player
@@ -34,9 +36,18 @@ func spawnFolliage(num):
 		newPlant.modulate = color
 		if randi_range(0,1) == 1:
 			newPlant.flip_h = true
-
+		
+		#set folliage position
 		newPlant.global_position.x = cos(oppositeAngle)*r
 		newPlant.global_position.y = sin(oppositeAngle)*r
+		
+		#old folliage culling
+		if len(folliageList) > 1000:
+			folliageList[0].queue_free()
+			folliageList.remove_at(0)
+		folliageList.append(newPlant)
+		
+		
 
 func _process(delta: float) -> void:
 	#print(theta)
@@ -45,10 +56,12 @@ func _process(delta: float) -> void:
 
 	var lastTheta = theta
 	
-	if Input.is_action_just_pressed("dash"):
-		spawnFolliage(10)
+	
 
 	theta = int(rad_to_deg(-atan2(dy, dx)) + 180)
+	
+	
+		
 
 	if theta < 10 and (lastTheta > 180):
 		fullRotations += 1
@@ -60,3 +73,9 @@ func _process(delta: float) -> void:
 	elevationBar.value = adjustedElevation
 
 	scale = Vector2.ONE * ((100.0 - adjustedElevation) / 100.0)
+
+
+func folliageCheck() -> void:
+	if abs(recordTheta-theta)>3:
+		spawnFolliage(10)
+	recordTheta=theta

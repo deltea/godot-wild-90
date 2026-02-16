@@ -59,8 +59,14 @@ shape = SubResource("CircleShape2D_x0uc3")
 build_mode = 1
 polygon = PackedVector2Array(0, -480, 32, -480, 96, -472, 152, -456, 192, -440, 224, -424, 264, -400, 328, -352, 384, -288, 416, -240, 440, -192, 464, -128, 480, -40, 480, 0, 480, 32, 472, 88, 464, 120, 448, 176, 408, 256, 384, 288, 360, 320, 320, 360, 288, 384, 256, 408, 192, 440, 128, 464, 40, 480, 0, 480, -40, 480, -128, 464, -192, 440, -256, 408, -320, 360, -360, 320, -384, 288, -408, 256, -440, 192, -464, 128, -472, 80, -480, 32, -480, 0, -480, -40, -472, -88, -464, -120, -448, -176, -408, -256, -360, -320, -320, -360, -288, -384, -240, -416, -192, -440, -128, -464, -88, -472, -32, -480)
 
+[node name="folliageCheck" type="Timer" parent="Mountain" unique_id=1387650442]
+wait_time = 0.5
+autostart = true
+
 [node name="mountain lion" parent="." unique_id=235047221 instance=ExtResource("8_ianyd")]
 position = Vector2(-376, 186)
 
 [node name="mountain lion2" parent="." unique_id=1602830153 instance=ExtResource("8_ianyd")]
 position = Vector2(-375, 112)
+
+[connection signal="timeout" from="Mountain/folliageCheck" to="Mountain" method="folliageCheck"]
