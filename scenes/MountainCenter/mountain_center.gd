@@ -17,19 +17,23 @@ func _ready() -> void:
 	player = RoomManager.current_room.player
 
 func spawnFolliage(num):
-	print("plant")
 	for i in range(num):
-		var oppositeAngle = deg_to_rad(-(theta+180))
-		var newPlant = folliage.instantiate()
-		add_child(newPlant)
 		var r = 380
+		var oppositeAngle = deg_to_rad(-(theta+180))
+		var color = Color.DARK_SEA_GREEN
+		var newPlant = folliage.instantiate()
+		
+		add_child(newPlant)
 		
 		#randomize
 		r += randf_range(-80,80)
 		oppositeAngle += randf_range(-0.15,0.15)
 		newPlant.frame = randi_range(0,1)
+		color.r += randf_range(-0.2,0.2)
+		
+		newPlant.modulate = color
 		if randi_range(0,1) == 1:
-			newPlant.flip_H = true
+			newPlant.flip_h = true
 
 		newPlant.global_position.x = cos(oppositeAngle)*r
 		newPlant.global_position.y = sin(oppositeAngle)*r
@@ -42,7 +46,7 @@ func _process(delta: float) -> void:
 	var lastTheta = theta
 	
 	if Input.is_action_just_pressed("dash"):
-		spawnFolliage(20)
+		spawnFolliage(10)
 
 	theta = int(rad_to_deg(-atan2(dy, dx)) + 180)
 
