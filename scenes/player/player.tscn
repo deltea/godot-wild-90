@@ -94,7 +94,7 @@ texture = ExtResource("2_p47bc")
 shape = SubResource("RectangleShape2D_x7p2l")
 
 [node name="MoveParticles" type="CPUParticles2D" parent="." unique_id=590307884]
-self_modulate = Color(0.2, 0.2, 0.2, 1)
+self_modulate = Color(0.33963948, 0.28094265, 0.24269599, 1)
 position = Vector2(0, 7)
 amount = 4
 texture = ExtResource("2_lvxji")
