@@ -40,6 +40,7 @@ follow_speed = 5.0
 position = Vector2(-374, -47)
 
 [node name="Mountain" type="StaticBody2D" parent="." unique_id=307295969 node_paths=PackedStringArray("elevationBar")]
+z_index = -10
 script = ExtResource("4_tibj6")
 elevationBar = NodePath("../CanvasLayer/ElevationBar")
 
@@ -50,7 +51,7 @@ texture = ExtResource("5_ar4t0")
 
 [node name="Outer" type="Sprite2D" parent="Mountain" unique_id=778382136]
 modulate = Color(0.5108868, 0.42963496, 0.38208055, 1)
-z_index = -10
+z_index = -100
 scale = Vector2(2, 2)
 texture = ExtResource("6_ar4t0")
 

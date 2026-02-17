@@ -11,7 +11,7 @@ var scaleMod = 1.0
 
 var maxElevation = 1000
 var fullRotations = 0
-var maxRotations = 2
+var maxRotations = 10
 
 var folliage = preload("res://scenes/folliage/folliage.tscn")
 var folliageList = []
