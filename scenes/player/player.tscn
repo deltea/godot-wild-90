@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bnubv7s17h176" path="res://scenes/player/playermovement.gd" id="1_8afob"]
 [ext_resource type="Texture2D" uid="uid://b5362yjd0ra6i" path="res://assets/generic/square-small.png" id="2_lvxji"]
+[ext_resource type="Texture2D" uid="uid://c8vebnkhtxxr6" path="res://assets/generic/circle.png" id="2_p47bc"]
 [ext_resource type="Texture2D" uid="uid://c7timy3lxj480" path="res://assets/stick.png" id="3_gmlin"]
 [ext_resource type="Texture2D" uid="uid://uv5kctjj6oxd" path="res://assets/Hiker_Sprite_Sheet.png" id="3_lvxji"]
 
@@ -49,7 +50,7 @@ tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.103918046, 0.2030871, 0.30225617),
+"times": PackedFloat32Array(0, 0.16666667, 0.33333334, 0.5),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
 "values": [12, 13, 14, 15]
@@ -82,6 +83,12 @@ _data = {
 [node name="Player" type="CharacterBody2D" unique_id=333898608]
 collision_layer = 2
 script = ExtResource("1_8afob")
+
+[node name="shadow" type="Sprite2D" parent="." unique_id=1644291307]
+modulate = Color(0.25490198, 0.20392157, 0.2784314, 0.42745098)
+position = Vector2(-3, 7)
+scale = Vector2(1, 0.375)
+texture = ExtResource("2_p47bc")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2132917874]
 shape = SubResource("RectangleShape2D_x7p2l")
