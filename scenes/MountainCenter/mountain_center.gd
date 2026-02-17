@@ -7,6 +7,8 @@ var player
 # in degrees
 var theta = 0
 var elevation = 0.0
+var scaleMod = 1.0
+
 var maxElevation = 1000
 var fullRotations = 0
 var maxRotations = 10
@@ -75,8 +77,9 @@ func _process(delta: float) -> void:
 	elevation = theta + (360 * fullRotations)
 	var adjustedElevation = (elevation / (360.0 * maxRotations)) * 100.0
 	elevationBar.value = adjustedElevation
-
-	scale = Vector2.ONE * ((100.0 - adjustedElevation) / 100.0)
+	
+	scaleMod = (100.0 - adjustedElevation)/100.0
+	scale = Vector2.ONE * scaleMod
 
 
 func folliageCheck() -> void:
