@@ -11,7 +11,7 @@ var scaleMod = 1.0
 
 var maxElevation = 1000
 var fullRotations = 0
-var maxRotations = 10
+var maxRotations = 2
 
 var folliage = preload("res://scenes/folliage/folliage.tscn")
 var folliageList = []
@@ -39,6 +39,7 @@ func spawnFolliage(num, angle):
 		newPlant.frame = randi_range(0,1)
 		color.r += randf_range(-0.2,0.2)
 		
+		r*=scaleMod
 		newPlant.modulate = color
 		if randi_range(0,1) == 1:
 			newPlant.flip_h = true
