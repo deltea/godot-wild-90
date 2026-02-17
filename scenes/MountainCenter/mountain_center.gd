@@ -78,7 +78,7 @@ func _process(delta: float) -> void:
 	var adjustedElevation = (elevation / (360.0 * maxRotations)) * 100.0
 	elevationBar.value = adjustedElevation
 	
-	scaleMod = (100.0 - adjustedElevation)/100.0
+	scaleMod = 	(2.0-(adjustedElevation/100.0))/2
 	scale = Vector2.ONE * scaleMod
 
 
