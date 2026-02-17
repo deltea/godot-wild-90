@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://dxa2q2it134ps" path="res://scenes/player/player.tscn" id="4_ar4t0"]
 [ext_resource type="Script" uid="uid://b47ks02542yxv" path="res://scenes/MountainCenter/mountain_center.gd" id="4_tibj6"]
 [ext_resource type="Texture2D" uid="uid://7r4yubch4rfr" path="res://assets/generic/white-gradient-circle-png.webp" id="5_ar4t0"]
-[ext_resource type="Texture2D" uid="uid://byi4yw732e6d1" path="res://assets/generic/circle-huge.png" id="6_ar4t0"]
+[ext_resource type="Texture2D" uid="uid://calyli6bepv51" path="res://assets/circle-512.png" id="6_ar4t0"]
 [ext_resource type="PackedScene" uid="uid://dkxwnjdaghed1" path="res://scenes/enemies/mountainLion/mountainLion.tscn" id="8_ianyd"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x0uc3"]
@@ -49,9 +49,9 @@ position = Vector2(0.5000038, -1.0000305)
 texture = ExtResource("5_ar4t0")
 
 [node name="Outer" type="Sprite2D" parent="Mountain" unique_id=778382136]
-modulate = Color(0.45775133, 0.4607526, 0.34430748, 1)
+modulate = Color(0.5108868, 0.42963496, 0.38208055, 1)
 z_index = -10
-scale = Vector2(15, 15)
+scale = Vector2(2, 2)
 texture = ExtResource("6_ar4t0")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Mountain" unique_id=1702525510]
