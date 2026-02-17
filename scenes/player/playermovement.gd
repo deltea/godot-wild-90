@@ -70,6 +70,7 @@ func _physics_process(delta: float) -> void:
 	if (dashTime == 40):
 		dashTime = 0
 		dashing = false
+		isInvincible = false
 
 	if (dashing == true && dashTime <= 15):
 		$SpriteContainer/Sprite.self_modulate.a = 0.5
