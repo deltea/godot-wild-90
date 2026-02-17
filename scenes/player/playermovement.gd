@@ -54,7 +54,7 @@ func _physics_process(delta: float) -> void:
 		lookingRight = true
 	if (Input.is_action_just_pressed("left")):
 		lookingRight = false
-	$Sprite.flip_h = !lookingRight
+	
 	if (Input.is_action_just_pressed("dash") && dashing == false):
 		dashing = true
 
@@ -67,14 +67,19 @@ func _physics_process(delta: float) -> void:
 		dashing = false
 
 	if (dashing == true && dashTime <= 15):
-		$Sprite.self_modulate.a = 0.5
+		$SpriteContainer/Sprite.self_modulate.a = 0.5
 	else:
-		$Sprite.self_modulate.a = 1
+		$SpriteContainer/Sprite.self_modulate.a = 1
 	
 	if velocity.length() < 3:
 		$playerAnimations.play("idle")
 	else:
 		$playerAnimations.play("walking")
+	if !lookingRight:
+		$SpriteContainer.scale.x = -1
+	else:
+		$SpriteContainer.scale.x = 1
+	
 
 	move_and_slide()
 
