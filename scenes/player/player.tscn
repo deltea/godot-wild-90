@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://dxa2q2it134ps"]
 
 [ext_resource type="Script" uid="uid://bnubv7s17h176" path="res://scenes/player/playermovement.gd" id="1_8afob"]
-[ext_resource type="Texture2D" uid="uid://dvswndekc2mop" path="res://assets/player.png" id="2_dovo2"]
 [ext_resource type="Texture2D" uid="uid://b5362yjd0ra6i" path="res://assets/generic/square-small.png" id="2_lvxji"]
 [ext_resource type="Texture2D" uid="uid://c7timy3lxj480" path="res://assets/stick.png" id="3_gmlin"]
+[ext_resource type="Texture2D" uid="uid://uv5kctjj6oxd" path="res://assets/Hiker_Sprite_Sheet.png" id="3_lvxji"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x7p2l"]
 size = Vector2(10, 16)
@@ -22,6 +22,44 @@ size = Vector2(24, 42)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_lvxji"]
 radius = 5.0990195
+
+[sub_resource type="Animation" id="Animation_lvxji"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [12]
+}
+
+[sub_resource type="Animation" id="Animation_p47bc"]
+resource_name = "idle"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.103918046, 0.2030871, 0.30225617),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [12, 13, 14, 15]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_75vfm"]
+_data = {
+&"RESET": SubResource("Animation_lvxji"),
+&"idle": SubResource("Animation_p47bc")
+}
 
 [node name="Player" type="CharacterBody2D" unique_id=333898608]
 collision_layer = 2
@@ -43,7 +81,12 @@ angle_curve = SubResource("Curve_lvxji")
 scale_amount_curve = SubResource("Curve_p47bc")
 
 [node name="Sprite" type="Sprite2D" parent="." unique_id=1980901228]
-texture = ExtResource("2_dovo2")
+position = Vector2(-1.9999999, -3.0000005)
+scale = Vector2(0.8125, 0.75)
+texture = ExtResource("3_lvxji")
+hframes = 4
+vframes = 4
+frame = 12
 
 [node name="Anchor" type="Node2D" parent="." unique_id=1396503887]
 
@@ -75,5 +118,8 @@ offset_top = 3.0
 offset_right = 193.0
 offset_bottom = 11.0
 show_percentage = false
+
+[node name="playerAnimations" type="AnimationPlayer" parent="." unique_id=756382177]
+libraries/ = SubResource("AnimationLibrary_75vfm")
 
 [connection signal="area_entered" from="CollectArea" to="." method="_on_collect_area_area_entered"]
