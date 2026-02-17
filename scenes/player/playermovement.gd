@@ -8,6 +8,7 @@ var dashTime = 0
 var dashing = false
 var weaponDir = 1
 var health = 100
+var isInvincible = false
 
 @onready var anchor := $Anchor
 @onready var weaponAnchor := $Anchor/WeaponAnchor
@@ -15,6 +16,7 @@ var health = 100
 @onready var weaponSprite := $Anchor/WeaponAnchor/Sprite2D
 @onready var particles := $MoveParticles
 @onready var hpBar := $CanvasLayer/hpBar
+@onready var collider := $CollisionShape2D
 
 @onready var weaponRotDynamics: DynamicsSolver = Dynamics.create_dynamics(8.0, 0.8, 2.0)
 
@@ -34,6 +36,8 @@ func _process(dt: float) -> void:
 		attack()
 
 func takeDamage(damage):
+	if isInvincible:
+		return
 	health -= damage
 	hpBar.value = health
 
@@ -54,9 +58,10 @@ func _physics_process(delta: float) -> void:
 		lookingRight = true
 	if (Input.is_action_just_pressed("left")):
 		lookingRight = false
-	
+
 	if (Input.is_action_just_pressed("dash") && dashing == false):
 		dashing = true
+		isInvincible = true
 
 	if (dashing == true):
 		if (dashTime == 0):
@@ -65,12 +70,13 @@ func _physics_process(delta: float) -> void:
 	if (dashTime == 40):
 		dashTime = 0
 		dashing = false
+		isInvincible = false
 
 	if (dashing == true && dashTime <= 15):
 		$SpriteContainer/Sprite.self_modulate.a = 0.5
 	else:
 		$SpriteContainer/Sprite.self_modulate.a = 1
-	
+
 	if velocity.length() < 3:
 		$playerAnimations.play("idle")
 	else:
@@ -79,7 +85,7 @@ func _physics_process(delta: float) -> void:
 		$SpriteContainer.scale.x = -1
 	else:
 		$SpriteContainer.scale.x = 1
-	
+
 
 	move_and_slide()
 
