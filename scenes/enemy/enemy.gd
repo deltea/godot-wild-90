@@ -25,6 +25,7 @@ func die():
 	explosion.position = position
 	explosion.emitting = true
 	RoomManager.current_room.add_child(explosion)
+	RoomManager.current_room.camera.shake(0.1, 2)
 
 func knockback(force: Vector2):
 	apply_central_impulse(force)
