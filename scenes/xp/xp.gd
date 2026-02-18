@@ -3,11 +3,12 @@ class_name XP extends Area2D
 @export var value = 1
 
 var velocity = Vector2.ZERO
-var speed = 200
+var speed = 300
 var attractSpeed = 380
 
 func _ready() -> void:
-	velocity = Vector2(randf_range(-200, 200), randf_range(-200, 200))
+	var dir = Vector2(randf_range(-1, 1), randf_range(-1, 1)).normalized()
+	velocity = dir * speed
 
 func _process(dt: float) -> void:
 	# move towards the player
