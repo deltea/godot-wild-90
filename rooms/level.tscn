@@ -40,7 +40,6 @@ follow_speed = 5.0
 
 [node name="Player" parent="." unique_id=333898608 instance=ExtResource("4_ar4t0")]
 position = Vector2(-374, -47)
-speed = 80
 
 [node name="Mountain" type="StaticBody2D" parent="." unique_id=307295969 node_paths=PackedStringArray("elevationBar")]
 z_index = -10
@@ -74,6 +73,27 @@ position = Vector2(-376, 186)
 
 [node name="mountain lion2" parent="." unique_id=1602830153 instance=ExtResource("8_ianyd")]
 position = Vector2(-375, 112)
+
+[node name="mountain lion3" parent="." unique_id=544114418 instance=ExtResource("8_ianyd")]
+position = Vector2(-295, 124)
+
+[node name="mountain lion4" parent="." unique_id=159042470 instance=ExtResource("8_ianyd")]
+position = Vector2(-431, 86)
+
+[node name="mountain lion5" parent="." unique_id=1855257150 instance=ExtResource("8_ianyd")]
+position = Vector2(-368, 47)
+
+[node name="mountain lion6" parent="." unique_id=1816182979 instance=ExtResource("8_ianyd")]
+position = Vector2(-445, -4)
+
+[node name="mountain lion7" parent="." unique_id=1396995177 instance=ExtResource("8_ianyd")]
+position = Vector2(-314, -41)
+
+[node name="mountain lion8" parent="." unique_id=427402489 instance=ExtResource("8_ianyd")]
+position = Vector2(-421, -87)
+
+[node name="mountain lion9" parent="." unique_id=1370067740 instance=ExtResource("8_ianyd")]
+position = Vector2(-308, -103)
 
 [node name="folliageContainer" type="Node2D" parent="." unique_id=1991227421]
 
