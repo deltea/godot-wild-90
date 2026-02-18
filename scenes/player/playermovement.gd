@@ -17,8 +17,10 @@ var isInvincible = false
 @onready var particles := $MoveParticles
 @onready var hpBar := $CanvasLayer/hpBar
 @onready var collider := $CollisionShape2D
+@onready var sprite := $SpriteContainer/Sprite
 
 @onready var weaponRotDynamics: DynamicsSolver = Dynamics.create_dynamics(8.0, 0.8, 2.0)
+@onready var spriteScaleDynamics: DynamicsSolverVector = Dynamics.create_dynamics_vector(2.0, 0.5, 2.0)
 
 func _enter_tree() -> void:
 	RoomManager.current_room.player = self
@@ -30,6 +32,7 @@ func _process(dt: float) -> void:
 	var dir = (get_global_mouse_position() - position).normalized()
 	anchor.rotation = dir.angle() + PI/2
 	weaponAnchor.rotation_degrees = weaponRotDynamics.update(weaponDir * 120)
+	sprite.scale = spriteScaleDynamics.update(Vector2.ONE)
 
 	if Input.is_action_just_pressed("click"):
 		weaponDir *= -1
@@ -60,8 +63,7 @@ func _physics_process(delta: float) -> void:
 		lookingRight = false
 
 	if (Input.is_action_just_pressed("dash") && dashing == false):
-		dashing = true
-		isInvincible = true
+		start_dash()
 
 	if (dashing == true):
 		if (dashTime == 0):
@@ -88,6 +90,11 @@ func _physics_process(delta: float) -> void:
 
 
 	move_and_slide()
+
+func start_dash():
+	dashing = true
+	isInvincible = true
+	spriteScaleDynamics.set_value(Vector2(1.5, 0.5))
 
 func attack():
 	var collisions = hitArea.get_overlapping_bodies()
