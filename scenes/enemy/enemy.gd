@@ -2,6 +2,7 @@ class_name Enemy extends RigidBody2D
 
 const basic_xp_scene = preload("res://scenes/xp/basic_xp.tscn")
 const big_xp_scene = preload("res://scenes/xp/big_xp.tscn")
+const explosion_scene = preload("res://scenes/particles/enemy_explosion.tscn")
 
 @export var xpDropMin = 8
 @export var xpDropMax = 15
@@ -13,12 +14,17 @@ var xp_drop = 0
 func _ready() -> void:
 	xp_drop = randi_range(xpDropMin, xpDropMax)
 
-
 func take_damage(damage: int):
 	health -= damage
-	if health <= 0:
-		queue_free()
-		drop_xp()
+	if health <= 0: die()
+
+func die():
+	queue_free()
+	drop_xp()
+	var explosion = explosion_scene.instantiate() as CPUParticles2D
+	explosion.position = position
+	explosion.emitting = true
+	RoomManager.current_room.add_child(explosion)
 
 func knockback(force: Vector2):
 	apply_central_impulse(force)

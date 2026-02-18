@@ -31,7 +31,9 @@ fill_mode = 3
 show_percentage = false
 
 [node name="Camera" parent="." unique_id=1004403640 node_paths=PackedStringArray("follow") instance=ExtResource("2_dg3qb")]
+position = Vector2(-374, -47)
 position_smoothing_enabled = true
+position_smoothing_speed = 7.0
 follow = NodePath("../Player")
 follow_enabled = true
 follow_speed = 5.0
