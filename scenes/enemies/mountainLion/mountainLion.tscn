@@ -8,6 +8,7 @@
 size = Vector2(22, 16)
 
 [node name="mountain lion" unique_id=544114418 instance=ExtResource("1_ibbdd")]
+mass = 2.0
 linear_damp = 4.0
 angular_damp = 50.0
 script = ExtResource("2_hmegc")
