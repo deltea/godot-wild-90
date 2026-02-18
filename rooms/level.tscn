@@ -40,6 +40,7 @@ follow_speed = 5.0
 
 [node name="Player" parent="." unique_id=333898608 instance=ExtResource("4_ar4t0")]
 position = Vector2(-374, -47)
+speed = 80
 
 [node name="Mountain" type="StaticBody2D" parent="." unique_id=307295969 node_paths=PackedStringArray("elevationBar")]
 z_index = -10
@@ -73,5 +74,7 @@ position = Vector2(-376, 186)
 
 [node name="mountain lion2" parent="." unique_id=1602830153 instance=ExtResource("8_ianyd")]
 position = Vector2(-375, 112)
+
+[node name="folliageContainer" type="Node2D" parent="." unique_id=1991227421]
 
 [connection signal="timeout" from="Mountain/folliageCheck" to="Mountain" method="folliageCheck"]

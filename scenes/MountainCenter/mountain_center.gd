@@ -31,7 +31,7 @@ func spawnFolliage(num, angle):
 		var color = Color.DARK_SEA_GREEN
 		var newPlant = folliage.instantiate()
 		
-		add_child(newPlant)
+		get_parent().get_node("folliageContainer").add_child(newPlant)
 		
 		#randomize
 		r += randf_range(-80,80)
