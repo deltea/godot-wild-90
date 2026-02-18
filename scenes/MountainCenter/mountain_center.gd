@@ -49,9 +49,15 @@ func spawnFolliage(num, angle):
 		newPlant.global_position.y = sin(oppositeAngle)*r
 		
 		#old folliage culling
-		if len(folliageList) > 1000:
-			folliageList[0].queue_free()
-			folliageList.remove_at(0)
+		if len(folliageList) > 100:
+			for plant in folliageList:
+				var plantAngle = 0
+				if is_instance_valid(plant):
+					plantAngle = rad_to_deg(atan2(plant.position.y-position.y,plant.position.x-position.x))+180
+					#if plant is on the other side
+					if abs((360+plantAngle)-(360+theta)) > 160:
+						plant.queue_free()
+						break
 		folliageList.append(newPlant)
 		
 		
