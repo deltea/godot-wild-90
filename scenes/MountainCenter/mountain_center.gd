@@ -8,7 +8,7 @@ var player
 var theta = 0
 var elevation = 0.0
 var scaleMod = 1.0
-var kRad = 500
+var kRad = 340
 
 var maxElevation = 1000
 var fullRotations = 0
@@ -27,7 +27,7 @@ func _ready() -> void:
 
 func spawnFolliage(num, angle):
 	for i in range(num):
-		var r = 380
+		var r = 360
 		var oppositeAngle = deg_to_rad(-(angle))
 		var color = Color.DARK_SEA_GREEN
 		var newPlant = folliage.instantiate()
@@ -35,7 +35,7 @@ func spawnFolliage(num, angle):
 		get_parent().get_node("folliageContainer").add_child(newPlant)
 		
 		#randomize
-		r += randf_range(-80,80)
+		r += randf_range(-80,100)
 		oppositeAngle += randf_range(-0.15,0.15)
 		newPlant.frame = randi_range(0,1)
 		color.r += randf_range(-0.2,0.2)
