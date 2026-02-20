@@ -8,12 +8,47 @@
 [ext_resource type="Texture2D" uid="uid://cdnunui18bx10" path="res://assets/generic/pixel.png" id="5_ianyd"]
 [ext_resource type="Texture2D" uid="uid://calyli6bepv51" path="res://assets/circle-512.png" id="6_ar4t0"]
 [ext_resource type="PackedScene" uid="uid://bcdrlg12rduqj" path="res://scenes/enemySpawner/enemy_spawner.tscn" id="9_knkn0"]
+[ext_resource type="Shader" uid="uid://b640okxl8hi36" path="res://shaders/clouds.gdshader" id="9_yhl0x"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x0uc3"]
 bg_color = Color(1, 1, 1, 1)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_x0uc3"]
 radius = 271.1494
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_knkn0"]
+frequency = 0.0313
+fractal_octaves = 3
+fractal_weighted_strength = 0.63
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_knkn0"]
+noise = SubResource("FastNoiseLite_knkn0")
+seamless = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2cqxi"]
+shader = ExtResource("9_yhl0x")
+shader_parameter/color = Color(1, 1, 1, 1)
+shader_parameter/scroll_speed = -0.01
+shader_parameter/merge_speed = 0.003
+shader_parameter/noise = SubResource("NoiseTexture2D_knkn0")
+shader_parameter/looseness = 0.2
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_yhl0x"]
+frequency = 0.0511
+fractal_octaves = 3
+fractal_weighted_strength = 1.0
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_2cqxi"]
+noise = SubResource("FastNoiseLite_yhl0x")
+seamless = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_at2w1"]
+shader = ExtResource("9_yhl0x")
+shader_parameter/color = Color(0.678034, 0.7865168, 0.8034777, 1)
+shader_parameter/scroll_speed = -0.005
+shader_parameter/merge_speed = 0.003
+shader_parameter/noise = SubResource("NoiseTexture2D_2cqxi")
+shader_parameter/looseness = 0.2
 
 [node name="Level" type="Node2D" unique_id=851709545]
 script = ExtResource("1_tibj6")
@@ -58,7 +93,7 @@ scale = Vector2(1020.00006, 1280)
 texture = ExtResource("5_ianyd")
 
 [node name="Center" type="Sprite2D" parent="Mountain" unique_id=1072567491]
-modulate = Color(0, 0, 0, 1)
+modulate = Color(0.30588236, 0.30588236, 0.30588236, 1)
 position = Vector2(0.5000038, -1.0000305)
 texture = ExtResource("5_ar4t0")
 
@@ -80,5 +115,17 @@ wait_time = 0.5
 autostart = true
 
 [node name="enemySpawner" parent="." unique_id=1692701726 instance=ExtResource("9_knkn0")]
+
+[node name="Background" type="Sprite2D" parent="." unique_id=585385898]
+z_index = -100
+material = SubResource("ShaderMaterial_2cqxi")
+scale = Vector2(3222, 3162)
+texture = ExtResource("5_ianyd")
+
+[node name="Background2" type="Sprite2D" parent="." unique_id=1574471566]
+z_index = -101
+material = SubResource("ShaderMaterial_at2w1")
+scale = Vector2(3222, 3162)
+texture = ExtResource("5_ianyd")
 
 [connection signal="timeout" from="Mountain/folliageCheck" to="Mountain" method="folliageCheck"]
