@@ -8,6 +8,7 @@ var player
 var theta = 0
 var elevation = 0.0
 var scaleMod = 1.0
+var kRad = 500
 
 var maxElevation = 1000
 var fullRotations = 0
@@ -51,13 +52,10 @@ func spawnFolliage(num, angle):
 		#old folliage culling
 		if len(folliageList) > 100:
 			for plant in folliageList:
-				var plantAngle = 0
 				if is_instance_valid(plant):
-					plantAngle = rad_to_deg(atan2(plant.position.y-position.y,plant.position.x-position.x))+180
-					#if plant is on the other side
-					if abs((360+plantAngle)-(360+theta)) > 160:
+					if plant.position.distance_to(position) > scale.length()*kRad:
 						plant.queue_free()
-						break
+					
 		folliageList.append(newPlant)
 		
 		
