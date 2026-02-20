@@ -64,8 +64,10 @@ func environmentalUpdate():
 		var dy = env.position.y-position.y
 		var dx = env.position.x-position.x
 		var angle = int(rad_to_deg(-atan2(dy, dx))+180)
-		
-		if abs((angle%180 - theta%180)) > 160:
+		var difference = abs(angle-theta)
+		if difference >= 180:
+			difference = abs(difference-360)
+		if difference > 150:
 			env.updateSprite(false)
 
 func _process(delta: float) -> void:
