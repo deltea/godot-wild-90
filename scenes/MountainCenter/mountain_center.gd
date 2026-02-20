@@ -59,7 +59,10 @@ func spawnFolliage(num, angle):
 		folliageList.append(newPlant)
 
 func environmentalUpdate():
-	pass
+	print("hi")
+	for env in $"../environmentContainer".get_children():
+		
+		env.updateSprite(false)
 
 func _process(delta: float) -> void:
 	#print(theta)
@@ -91,6 +94,7 @@ func _process(delta: float) -> void:
 func folliageCheck() -> void:
 	if abs(recordTheta-theta)>3:
 		spawnFolliage(10,theta)
+		environmentalUpdate()
 	recordTheta=theta
 
 func spawnEnemy(scene):
