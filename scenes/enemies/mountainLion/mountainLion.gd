@@ -17,6 +17,7 @@ func _ready() -> void:
 	speed += randi_range(-10,10)
 
 func _physics_process(delta: float) -> void:
+	rotation = 0
 	var playerPos = RoomManager.current_room.get_node("Player").position
 	if state == "agro":
 		var distanceToPlayer =  playerPos.distance_to(position)
