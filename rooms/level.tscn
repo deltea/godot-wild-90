@@ -21,6 +21,9 @@ script = ExtResource("1_tibj6")
 metadata/_edit_vertical_guides_ = [-160.0, 160.0]
 metadata/_edit_horizontal_guides_ = [-120.0, 120.0]
 
+[node name="folliageContainer" type="Node2D" parent="." unique_id=1991227421]
+z_index = -1
+
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=508570387]
 
 [node name="ElevationBar" type="ProgressBar" parent="CanvasLayer" unique_id=529861572]
@@ -103,8 +106,6 @@ position = Vector2(-421, -87)
 
 [node name="mountain lion9" parent="." unique_id=1370067740 instance=ExtResource("8_ianyd")]
 position = Vector2(-308, -103)
-
-[node name="folliageContainer" type="Node2D" parent="." unique_id=1991227421]
 
 [node name="enemySpawner" parent="." unique_id=1692701726 instance=ExtResource("9_knkn0")]
 
