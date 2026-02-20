@@ -32,7 +32,7 @@ func _process(dt: float) -> void:
 	var dir = (get_global_mouse_position() - position).normalized()
 	anchor.rotation = dir.angle() + PI/2
 	weaponAnchor.rotation_degrees = weaponRotDynamics.update(weaponDir * 120)
-	sprite.scale = spriteScaleDynamics.update(Vector2.ONE)
+	sprite.scale = spriteScaleDynamics.update(Vector2.ONE)*0.9
 
 	if Input.is_action_just_pressed("click"):
 		weaponDir *= -1
@@ -94,7 +94,7 @@ func _physics_process(delta: float) -> void:
 func start_dash():
 	dashing = true
 	isInvincible = true
-	spriteScaleDynamics.set_value(Vector2(1.5, 0.5))
+	#spriteScaleDynamics.set_value(Vector2(1.5, 0.5))
 
 func attack():
 	var collisions = hitArea.get_overlapping_bodies()

@@ -106,11 +106,11 @@ angle_curve = SubResource("Curve_lvxji")
 scale_amount_curve = SubResource("Curve_p47bc")
 
 [node name="SpriteContainer" type="Node2D" parent="." unique_id=1716253322]
-position = Vector2(0, -4)
+position = Vector2(0, -1)
 
 [node name="Sprite" type="Sprite2D" parent="SpriteContainer" unique_id=1980901228]
 position = Vector2(1.0000001, -3.0000002)
-scale = Vector2(0.8125, 0.75)
+scale = Vector2(0.9, 0.833)
 texture = ExtResource("3_lvxji")
 hframes = 4
 vframes = 4
