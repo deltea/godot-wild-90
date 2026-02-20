@@ -61,8 +61,12 @@ func spawnFolliage(num, angle):
 func environmentalUpdate():
 	print("hi")
 	for env in $"../environmentContainer".get_children():
+		var dy = env.position.y-position.y
+		var dx = env.position.x-position.x
+		var angle = int(rad_to_deg(-atan2(dy, dx))+180)
 		
-		env.updateSprite(false)
+		if abs((angle%180 - theta%180)) > 160:
+			env.updateSprite(false)
 
 func _process(delta: float) -> void:
 	#print(theta)
