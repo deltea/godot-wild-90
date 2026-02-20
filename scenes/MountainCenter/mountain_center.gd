@@ -58,7 +58,8 @@ func spawnFolliage(num, angle):
 		newPlant.z_index = -9
 		folliageList.append(newPlant)
 
-
+func environmentalUpdate():
+	pass
 
 func _process(delta: float) -> void:
 	#print(theta)
