@@ -55,7 +55,7 @@ func spawnFolliage(num, angle):
 				if is_instance_valid(plant):
 					if plant.position.distance_to(position) > scale.length()*kRad:
 						plant.queue_free()
-					
+		newPlant.z_index = -9
 		folliageList.append(newPlant)
 		
 		
@@ -95,3 +95,15 @@ func folliageCheck() -> void:
 func spawnEnemy(scene):
 	var enemy = scene.instantiate()
 	add_child(enemy)
+	var r = 360
+	var oppositeAngle = deg_to_rad(-(theta))
+	
+	#randomize
+	r += randf_range(-80,100)
+	oppositeAngle += randf_range(-0.15,0.15)
+	
+	r*=scaleMod
+	
+	#set folliage position
+	enemy.global_position.x = cos(oppositeAngle)*r
+	enemy.global_position.y = sin(oppositeAngle)*r
