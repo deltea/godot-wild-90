@@ -4,3 +4,8 @@
 
 [node name="enemySpawner" type="Node2D" unique_id=1692701726]
 script = ExtResource("1_op38u")
+
+[node name="spawnCD" type="Timer" parent="." unique_id=1170989040]
+autostart = true
+
+[connection signal="timeout" from="spawnCD" to="." method="_on_spawn_cd_timeout"]

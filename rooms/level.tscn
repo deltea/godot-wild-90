@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://cdnunui18bx10" path="res://assets/generic/pixel.png" id="5_ianyd"]
 [ext_resource type="Texture2D" uid="uid://calyli6bepv51" path="res://assets/circle-512.png" id="6_ar4t0"]
 [ext_resource type="PackedScene" uid="uid://dkxwnjdaghed1" path="res://scenes/enemies/mountainLion/mountainLion.tscn" id="8_ianyd"]
+[ext_resource type="PackedScene" uid="uid://bcdrlg12rduqj" path="res://scenes/enemySpawner/enemy_spawner.tscn" id="9_knkn0"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x0uc3"]
 bg_color = Color(1, 1, 1, 1)
@@ -104,5 +105,7 @@ position = Vector2(-421, -87)
 position = Vector2(-308, -103)
 
 [node name="folliageContainer" type="Node2D" parent="." unique_id=1991227421]
+
+[node name="enemySpawner" parent="." unique_id=1692701726 instance=ExtResource("9_knkn0")]
 
 [connection signal="timeout" from="Mountain/folliageCheck" to="Mountain" method="folliageCheck"]

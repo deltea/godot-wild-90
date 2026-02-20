@@ -91,3 +91,7 @@ func folliageCheck() -> void:
 	if abs(recordTheta-theta)>3:
 		spawnFolliage(10,theta)
 	recordTheta=theta
+	
+func spawnEnemy(scene):
+	var enemy = scene.instantiate()
+	add_child(enemy)
