@@ -53,8 +53,8 @@ elevationBar = NodePath("../CanvasLayer/ElevationBar")
 [node name="lowerMountain" type="Sprite2D" parent="Mountain" unique_id=1973323450]
 modulate = Color(0.30569223, 0.3056922, 0.30569223, 1)
 z_index = -20
-position = Vector2(-1, 653)
-scale = Vector2(1014, 1280)
+position = Vector2(2.0000162, 653)
+scale = Vector2(1020.00006, 1280)
 texture = ExtResource("5_ianyd")
 
 [node name="Center" type="Sprite2D" parent="Mountain" unique_id=1072567491]
