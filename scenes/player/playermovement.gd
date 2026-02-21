@@ -14,6 +14,7 @@ var xp = 0
 var maxXp = 100
 var lvl = 0
 var attackCD = false
+var attackCDtime = 0.2
 
 @onready var anchor := $Anchor
 @onready var weaponAnchor := $Anchor/WeaponAnchor
@@ -38,6 +39,7 @@ func levelUp(attribute,magnitude):
 	#0 = health
 	#1 = speed
 	#2 = dashSpeed
+	#3 = attackCooldown
 	match attribute:
 		0:
 			maxHealth += 10*magnitude
@@ -47,6 +49,9 @@ func levelUp(attribute,magnitude):
 			dashSpeed -= 0.3 * magnitude
 		2:
 			dashSpeed += 0.2 * magnitude
+		3:
+			attackCDtime *= 0.9
+			$attack.wait_time = attackCDtime
 
 func _ready() -> void:
 	hpBar.value = maxHealth
