@@ -171,6 +171,5 @@ position = Vector2(-376, 42)
 position = Vector2(-334, -2)
 
 [node name="UpgradePanel" parent="." unique_id=1901511673 instance=ExtResource("12_at2w1")]
-visible = false
 
 [connection signal="timeout" from="Mountain/folliageCheck" to="Mountain" method="folliageCheck"]
