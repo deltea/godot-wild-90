@@ -19,7 +19,7 @@ _data = [Vector2(0, 0.19168103), 0.0, 0.0, 0, 0, Vector2(0.090725794, 0.7045455)
 point_count = 3
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gmlin"]
-size = Vector2(24, 42)
+size = Vector2(24, 28)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_lvxji"]
 radius = 5.0990195
@@ -132,14 +132,15 @@ position = Vector2(0, -14)
 rotation = -1.5707964
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Anchor/HitArea" unique_id=1694967610]
-position = Vector2(2, 1.3113436e-07)
+position = Vector2(2, 8.742279e-08)
 shape = SubResource("RectangleShape2D_gmlin")
 
 [node name="WeaponAnchor" type="Node2D" parent="Anchor" unique_id=91929302]
 rotation = 0.2617994
 
 [node name="Sprite2D" type="Sprite2D" parent="Anchor/WeaponAnchor" unique_id=301695647]
-position = Vector2(0, -17)
+position = Vector2(-4.399924, -16.42074)
+rotation = -0.26461536
 texture = ExtResource("3_gmlin")
 
 [node name="CollectArea" type="Area2D" parent="." unique_id=1732441913]
@@ -193,5 +194,11 @@ one_shot = true
 wait_time = 3.0
 one_shot = true
 
+[node name="swing" type="Timer" parent="." unique_id=914425758]
+wait_time = 0.05
+one_shot = true
+
+[connection signal="body_entered" from="Anchor/HitArea" to="." method="_on_hit_area_body_entered"]
 [connection signal="area_entered" from="CollectArea" to="." method="_on_collect_area_area_entered"]
 [connection signal="timeout" from="attack" to="." method="_on_attack_timeout"]
+[connection signal="timeout" from="swing" to="." method="_on_swing_timeout"]

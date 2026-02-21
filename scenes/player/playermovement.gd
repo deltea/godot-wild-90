@@ -15,6 +15,8 @@ var maxXp = 100
 var lvl = 0
 var attackCD = false
 var attackCDtime = 0.2
+var attacking = false
+var secondhit = false
 
 @onready var anchor := $Anchor
 @onready var weaponAnchor := $Anchor/WeaponAnchor
@@ -57,23 +59,37 @@ func _ready() -> void:
 	hpBar.value = maxHealth
 	xpBar.value = 0
 
+var weaponPullback = 0
+var winding = false
 func _process(dt: float) -> void:
 	
 	var dir = (get_global_mouse_position() - position).normalized()
 	anchor.rotation = dir.angle() + PI/2
-	weaponAnchor.rotation_degrees = weaponRotDynamics.update(weaponDir * 120)
+	weaponAnchor.rotation_degrees = weaponRotDynamics.update(weaponDir * 120 + weaponPullback)
 	sprite.scale = spriteScaleDynamics.update(Vector2.ONE)*0.9
+	if winding:
+		weaponPullback = (3.0-$heavy.time_left)*20*weaponDir
 	if Input.is_action_just_pressed("click") and !attackCD:
+		winding = true
 		$heavy.start()
 	if Input.is_action_just_released("click") and !attackCD:
-		var windUp = (3.0-$heavy.time_left)*300
+		winding = false
+		weaponPullback = 0
+		var windUp = (3.0-$heavy.time_left)
 		var dirAngle = (atan2(get_global_mouse_position().y-position.y,get_global_mouse_position().x-position.x))
 		var dirVector = Vector2(cos(dirAngle),sin(dirAngle))
-		print(dirVector)
-		velocity += dirVector*windUp
+		
+		weaponRotDynamics = Dynamics.create_dynamics(8.0-windUp*1.5, 0.8, 2.0)
+		
+		velocity += dirVector*windUp*400
 		weaponDir *= -1
+		
 		$attack.start()
+		$swing.start()
+		$Anchor/HitArea.visible=true
+		attacking = true
 		attackCD = true
+		
 		attack()
 
 func takeDamage(damage):
@@ -135,9 +151,10 @@ func start_dash():
 	spriteScaleDynamics.set_value(Vector2(1.5, 0.5))
 
 func attack():
+	var hitEnemy=false
 	var collisions = hitArea.get_overlapping_bodies()
 	for body in collisions:
-		if not body is Enemy: continue
+		if not body is Enemy:continue
 		var dist = body.position.distance_to(weaponSprite.global_position)
 
 		await Clock.wait(dist / 2000.0)
@@ -148,6 +165,9 @@ func attack():
 		RoomManager.current_room.camera.tilt_impact()
 		body.knockback((body.position - global_position).normalized() * 200)
 		body.take_damage(1)
+		hitEnemy=true
+	if !hitEnemy:
+		secondhit=true
 
 func _on_collect_area_area_entered(area: Area2D) -> void:
 	if area is XP:
@@ -164,3 +184,10 @@ func _on_collect_area_area_entered(area: Area2D) -> void:
 
 func _on_attack_timeout() -> void:
 	attackCD = false
+
+func _on_swing_timeout() -> void:
+	attacking=false
+	if secondhit:
+		attack()
+		secondhit=false
+	$Anchor/HitArea.visible=false

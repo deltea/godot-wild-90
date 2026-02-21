@@ -6,7 +6,7 @@ var agroMove = "straight"
 var agroRange = 200
 var attackRange = 60
 
-var speed = 100
+var speed = 200
 var mood = 0
 
 var idlePosition = Vector2.ZERO
@@ -15,7 +15,7 @@ func _ready() -> void:
 	super._ready()
 	mood = randi_range(-10,10)
 	speed += randi_range(-10,10)
-
+var moodswing
 func _physics_process(delta: float) -> void:
 	rotation = 0
 	var playerPos = RoomManager.current_room.get_node("Player").position
@@ -32,9 +32,9 @@ func _physics_process(delta: float) -> void:
 			elif agroMove == "strafe":
 				var dir = Vector2(-playerVector.y,playerVector.x)
 				if randi_range(0,100) < 50:
-					apply_central_force(dir * speed * mass)
+					apply_central_force(dir * speed * mass * 30)
 				else:
-					apply_central_force(-dir * speed * mass)
+					apply_central_force(-dir * speed * mass * 30)
 	elif state == "recover":
 		# linear_velocity = -(playerPos-position).normalized() * speed
 		apply_central_force(-(playerPos-position).normalized() * speed * mass)
@@ -53,7 +53,7 @@ func attack():
 	$attackTimer.start()
 
 func stateUpdate() -> void:
-	var moodSwing = randi_range(0,100+mood)
+	moodSwing = randi_range(0,100+mood)
 	var playerPos = RoomManager.current_room.player.position
 	if state == "agro":
 		if moodSwing < 30:
