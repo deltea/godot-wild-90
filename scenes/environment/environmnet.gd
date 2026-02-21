@@ -6,10 +6,11 @@ var mountain
 func _ready() -> void:
 	mountain = get_parent().get_parent().get_node("Mountain")
 	startDist = position.distance_to(mountain.position)
-	startVector = abs(position-mountain.position)
+	startVector = (position-mountain.position).normalized()
+	position = Vector2.ZERO
 	
 func _process(delta: float) -> void:
-	pass
+	position = startVector*startDist*mountain.scaleMod
 	
 func updateSprite(snow):
 	if !snow:
