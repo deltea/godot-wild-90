@@ -15,7 +15,7 @@ func _ready() -> void:
 	super._ready()
 	mood = randi_range(-10,10)
 	speed += randi_range(-10,10)
-var moodswing
+var moodSwing
 func _physics_process(delta: float) -> void:
 	rotation = 0
 	var playerPos = RoomManager.current_room.get_node("Player").position
@@ -31,10 +31,10 @@ func _physics_process(delta: float) -> void:
 				apply_central_force(playerVector * speed * mass)
 			elif agroMove == "strafe":
 				var dir = Vector2(-playerVector.y,playerVector.x)
-				if randi_range(0,100) < 50:
-					apply_central_force(dir * speed * mass * 30)
+				if moodSwing< 50:
+					apply_central_force(dir * speed * mass * 0.8)
 				else:
-					apply_central_force(-dir * speed * mass * 30)
+					apply_central_force(-dir * speed * mass * 0.8)
 	elif state == "recover":
 		# linear_velocity = -(playerPos-position).normalized() * speed
 		apply_central_force(-(playerPos-position).normalized() * speed * mass)
