@@ -59,15 +59,22 @@ func _ready() -> void:
 	hpBar.value = maxHealth
 	xpBar.value = 0
 
+var weaponPullback = 0
+var winding = false
 func _process(dt: float) -> void:
 	
 	var dir = (get_global_mouse_position() - position).normalized()
 	anchor.rotation = dir.angle() + PI/2
-	weaponAnchor.rotation_degrees = weaponRotDynamics.update(weaponDir * 120)
+	weaponAnchor.rotation_degrees = weaponRotDynamics.update(weaponDir * 120 + weaponPullback)
 	sprite.scale = spriteScaleDynamics.update(Vector2.ONE)*0.9
+	if winding:
+		weaponPullback = (3.0-$heavy.time_left)*20*weaponDir
 	if Input.is_action_just_pressed("click") and !attackCD:
+		winding = true
 		$heavy.start()
 	if Input.is_action_just_released("click") and !attackCD:
+		winding = false
+		weaponPullback = 0
 		var windUp = (3.0-$heavy.time_left)
 		var dirAngle = (atan2(get_global_mouse_position().y-position.y,get_global_mouse_position().x-position.x))
 		var dirVector = Vector2(cos(dirAngle),sin(dirAngle))
