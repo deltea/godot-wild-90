@@ -176,10 +176,9 @@ text = "Level:"
 
 [node name="num" type="RichTextLabel" parent="CanvasLayer/xpBar/levelLabel" unique_id=1273364601]
 layout_mode = 0
-offset_left = 22.0
-offset_top = 7.0
-offset_right = 171.0
-offset_bottom = 28.0
+offset_left = 27.0
+offset_right = 176.0
+offset_bottom = 21.0
 theme_override_font_sizes/normal_font_size = 10
 text = "0"
 

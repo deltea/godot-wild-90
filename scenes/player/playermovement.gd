@@ -58,7 +58,8 @@ func _process(dt: float) -> void:
 	weaponAnchor.rotation_degrees = weaponRotDynamics.update(weaponDir * 120)
 	sprite.scale = spriteScaleDynamics.update(Vector2.ONE)*0.9
 
-	if Input.is_action_just_pressed("click"):
+	if Input.is_action_just_released("click"):
+		print("attack")
 		weaponDir *= -1
 		attack()
 
