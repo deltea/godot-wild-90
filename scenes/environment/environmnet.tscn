@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://uv5kctjj6oxd" path="res://assets/Hiker_Sprite_Sheet.png" id="2_u17xs"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xc2yt"]
+size = Vector2(23, 25)
 
 [node name="environmnet" type="StaticBody2D" unique_id=2142600750]
 script = ExtResource("1_ng7c6")
@@ -12,6 +13,8 @@ script = ExtResource("1_ng7c6")
 position = Vector2(0, -54)
 texture = ExtResource("2_u17xs")
 hframes = 5
+frame = 4
 
 [node name="collider" type="CollisionShape2D" parent="." unique_id=1875486073]
+position = Vector2(-1.5, -2.5)
 shape = SubResource("RectangleShape2D_xc2yt")

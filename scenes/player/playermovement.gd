@@ -10,7 +10,7 @@ var weaponDir = 1
 var health = 100
 var isInvincible = false
 var xp = 0
-var maxXp = 20
+var maxXp = 100
 
 @onready var anchor := $Anchor
 @onready var weaponAnchor := $Anchor/WeaponAnchor
@@ -117,11 +117,10 @@ func attack():
 
 func _on_collect_area_area_entered(area: Area2D) -> void:
 	if area is XP:
-		xp+=1
+		xp+=10
 		if xp>maxXp:
-			maxXp*=1.02
-			maxXp+=2
-			xp=xp%int(maxXp)
+			maxXp+=10
+			xp=xp%maxXp
 			
 		area.queue_free()
-	$CanvasLayer/xpBar.value = xp/int(maxXp) * 100
+		xpBar.value = xp/(maxXp*1.0)*100
