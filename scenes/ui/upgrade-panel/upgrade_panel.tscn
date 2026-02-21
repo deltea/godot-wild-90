@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://f2q2chn51sf6"]
+
+[ext_resource type="Script" uid="uid://d4bljirpghhad" path="res://scenes/ui/upgrade-panel/upgrade_panel.gd" id="1_722xc"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vs65a"]
+bg_color = Color(0.2, 0.2, 0.2, 0.32941177)
+
+[node name="UpgradePanel" type="CanvasLayer" unique_id=1901511673]
+layer = 2
+script = ExtResource("1_722xc")
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=1336246167]
+offset_right = 320.0
+offset_bottom = 240.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_vs65a")
+
+[node name="CenterContainer" type="CenterContainer" parent="PanelContainer" unique_id=1647484896]
+layout_mode = 2
+
+[node name="UpgradeCardContainer" type="HBoxContainer" parent="PanelContainer/CenterContainer" unique_id=1932365711]
+layout_mode = 2
+theme_override_constants/separation = 16
+alignment = 1
