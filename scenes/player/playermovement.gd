@@ -9,6 +9,8 @@ var dashing = false
 var weaponDir = 1
 var health = 100
 var isInvincible = false
+var xp = 0
+var maxXp = 20
 
 @onready var anchor := $Anchor
 @onready var weaponAnchor := $Anchor/WeaponAnchor
@@ -113,4 +115,7 @@ func attack():
 
 func _on_collect_area_area_entered(area: Area2D) -> void:
 	if area is XP:
+		xp+=1
+		if xp>maxXp:
+			xp=xp%maxXp
 		area.queue_free()

@@ -155,6 +155,21 @@ theme_override_styles/background = SubResource("StyleBoxFlat_75vfm")
 theme_override_styles/fill = SubResource("StyleBoxFlat_p47bc")
 show_percentage = false
 
+[node name="xpBar" type="ProgressBar" parent="CanvasLayer" unique_id=1799636186]
+offset_left = 3.0
+offset_top = 225.0
+offset_right = 278.0
+offset_bottom = 238.0
+show_percentage = false
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/xpBar" unique_id=1140914675]
+layout_mode = 0
+offset_right = 275.0
+offset_bottom = 27.0
+theme_override_font_sizes/normal_font_size = 10
+text = "XP"
+horizontal_alignment = 1
+
 [node name="playerAnimations" type="AnimationPlayer" parent="." unique_id=756382177]
 libraries/ = SubResource("AnimationLibrary_75vfm")
 
