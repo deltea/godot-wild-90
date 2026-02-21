@@ -15,14 +15,14 @@ func _ready() -> void:
 	super._ready()
 	mood = randi_range(-10,10)
 	speed += randi_range(-10,10)
-var moodswing
+var moodSwing
 func _physics_process(delta: float) -> void:
 	rotation = 0
 	var playerPos = RoomManager.current_room.get_node("Player").position
 	if state == "agro":
 		var distanceToPlayer =  playerPos.distance_to(position)
 
-		
+
 		if distanceToPlayer > attackRange:
 			var playerVector = (playerPos-position).normalized()
 			if agroMove == "straight":
@@ -61,7 +61,7 @@ func stateUpdate() -> void:
 			linear_velocity = Vector2.ZERO
 		else:
 			agroMove = "straight"
-		
+
 	if state == "attackInactive":
 		if moodSwing < 50:
 			attack()
