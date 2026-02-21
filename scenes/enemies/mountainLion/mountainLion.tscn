@@ -12,6 +12,9 @@ mass = 2.0
 linear_damp = 4.0
 angular_damp = 100.0
 script = ExtResource("2_hmegc")
+xpDropMin = null
+xpDropMax = null
+damage = null
 
 [node name="CollisionShape2D" parent="." index="0" unique_id=1018922626]
 shape = SubResource("RectangleShape2D_hmegc")
