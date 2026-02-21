@@ -15,6 +15,7 @@ var maxXp = 100
 var lvl = 0
 var attackCD = false
 var attackCDtime = 0.2
+var attacking = false
 
 @onready var anchor := $Anchor
 @onready var weaponAnchor := $Anchor/WeaponAnchor
@@ -66,15 +67,20 @@ func _process(dt: float) -> void:
 	if Input.is_action_just_pressed("click") and !attackCD:
 		$heavy.start()
 	if Input.is_action_just_released("click") and !attackCD:
-		var windUp = (3.0-$heavy.time_left)*300
+		var windUp = (3.0-$heavy.time_left)
 		var dirAngle = (atan2(get_global_mouse_position().y-position.y,get_global_mouse_position().x-position.x))
 		var dirVector = Vector2(cos(dirAngle),sin(dirAngle))
-		print(dirVector)
-		velocity += dirVector*windUp
+		
+		weaponRotDynamics = Dynamics.create_dynamics(8.0-windUp*1.5, 0.8, 2.0)
+		
+		velocity += dirVector*windUp*400
 		weaponDir *= -1
+		
 		$attack.start()
+		$swing.start()
+		$Anchor/HitArea.visible=true
+		attacking = true
 		attackCD = true
-		attack()
 
 func takeDamage(damage):
 	if isInvincible:
@@ -164,3 +170,8 @@ func _on_collect_area_area_entered(area: Area2D) -> void:
 
 func _on_attack_timeout() -> void:
 	attackCD = false
+
+func _on_swing_timeout() -> void:
+	attacking=false
+	attack()
+	$Anchor/HitArea.visible=false
