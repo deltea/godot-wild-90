@@ -5,7 +5,7 @@ class_name Camera extends Camera2D
 @export var follow_speed = 3.0
 # @export var player_strength = 0.1
 @export var tilt_magnitude = 0
-@export var impact_rotation = 5.0
+@export var impact_rotation = 1.0
 @export var shake_damping_speed = 1.0
 @export var jerk_damping_speed = 150.0
 
@@ -15,6 +15,7 @@ var shake_offset = Vector2.ZERO
 var player_offset = Vector2.ZERO
 var target_jerk = Vector2.ZERO
 var jerk = Vector2.ZERO
+var tilt_impact_dir = 1
 
 func _enter_tree() -> void:
 	RoomManager.current_room.camera = self
@@ -49,3 +50,9 @@ func jerk_direction(direction: Vector2, magnitude: float):
 	target_jerk = direction.normalized() * magnitude
 	await Clock.wait(0.1)
 	target_jerk = Vector2.ZERO
+
+func tilt_impact():
+	rotation_degrees = impact_rotation * tilt_impact_dir
+	await Clock.wait(0.08)
+	rotation_degrees = 0
+	tilt_impact_dir = -tilt_impact_dir

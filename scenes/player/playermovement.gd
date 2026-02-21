@@ -94,7 +94,7 @@ func _physics_process(delta: float) -> void:
 func start_dash():
 	dashing = true
 	isInvincible = true
-	#spriteScaleDynamics.set_value(Vector2(1.5, 0.5))
+	spriteScaleDynamics.set_value(Vector2(1.5, 0.5))
 
 func attack():
 	var collisions = hitArea.get_overlapping_bodies()
@@ -107,6 +107,7 @@ func attack():
 		Clock.hitstop(0.07)
 		# RoomManager.current_room.camera.shake(0.5, 5)
 		RoomManager.current_room.camera.jerk_direction(position - get_global_mouse_position(), 5.0)
+		RoomManager.current_room.camera.tilt_impact()
 		body.knockback((body.position - global_position).normalized() * 200)
 		body.take_damage(1)
 
