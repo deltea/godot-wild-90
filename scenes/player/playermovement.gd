@@ -13,6 +13,7 @@ var isInvincible = false
 var xp = 0
 var maxXp = 100
 var lvl = 0
+var attackCD = false
 
 @onready var anchor := $Anchor
 @onready var weaponAnchor := $Anchor/WeaponAnchor
@@ -57,10 +58,11 @@ func _process(dt: float) -> void:
 	anchor.rotation = dir.angle() + PI/2
 	weaponAnchor.rotation_degrees = weaponRotDynamics.update(weaponDir * 120)
 	sprite.scale = spriteScaleDynamics.update(Vector2.ONE)*0.9
-
-	if Input.is_action_just_released("click"):
-		print("attack")
+	
+	if Input.is_action_just_released("click") and !attackCD:
 		weaponDir *= -1
+		$attack.start()
+		attackCD = true
 		attack()
 
 func takeDamage(damage):
@@ -147,3 +149,7 @@ func _on_collect_area_area_entered(area: Area2D) -> void:
 			
 		area.queue_free()
 		xpBar.value = xp/(maxXp*1.0)*100
+
+
+func _on_attack_timeout() -> void:
+	attackCD = false

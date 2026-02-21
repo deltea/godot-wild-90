@@ -185,4 +185,8 @@ text = "0"
 [node name="playerAnimations" type="AnimationPlayer" parent="." unique_id=756382177]
 libraries/ = SubResource("AnimationLibrary_75vfm")
 
+[node name="attack" type="Timer" parent="." unique_id=1297494555]
+wait_time = 0.2
+
 [connection signal="area_entered" from="CollectArea" to="." method="_on_collect_area_area_entered"]
+[connection signal="timeout" from="attack" to="." method="_on_attack_timeout"]
