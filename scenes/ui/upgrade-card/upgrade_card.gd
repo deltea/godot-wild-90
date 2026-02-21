@@ -1,4 +1,4 @@
-class_name UpgradeCard extends PanelContainer
+class_name UpgradeCard extends Control
 
 @export var float_speed = 2
 
@@ -7,6 +7,7 @@ class_name UpgradeCard extends PanelContainer
 
 var offset = 0
 var is_hovering = false
+var shadow: TextureRect
 
 func _process(dt: float) -> void:
 	var target_y = position.y
@@ -20,6 +21,9 @@ func _process(dt: float) -> void:
 
 	position.y = position_dynamics.update(target_y)
 	rotation_degrees = rotation_dynamics.update(target_rot)
+
+	if shadow:
+		shadow.scale = Vector2.ONE * (1 + position.y / 150.0)
 
 func _on_mouse_entered() -> void:
 	is_hovering = true
