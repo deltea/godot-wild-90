@@ -8,6 +8,7 @@ var dashTime = 0
 var dashing = false
 var weaponDir = 1
 var health = 100
+var maxHealth = 100
 var isInvincible = false
 var xp = 0
 var maxXp = 100
@@ -29,6 +30,15 @@ var lvl = 0
 
 func _enter_tree() -> void:
 	RoomManager.current_room.player = self
+	
+func levelUp(attribute,magnitude):
+	#attribute value key:
+	#0 = health
+	#1 = speed
+	#2 = dashSpeed
+	match attribute:
+		0:
+			maxHealth += 10*magnitude
 
 func _ready() -> void:
 	hpBar.value = 100
