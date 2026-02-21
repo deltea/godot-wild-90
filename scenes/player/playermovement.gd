@@ -11,6 +11,7 @@ var health = 100
 var isInvincible = false
 var xp = 0
 var maxXp = 100
+var lvl = 0
 
 @onready var anchor := $Anchor
 @onready var weaponAnchor := $Anchor/WeaponAnchor
@@ -21,6 +22,7 @@ var maxXp = 100
 @onready var collider := $CollisionShape2D
 @onready var sprite := $SpriteContainer/Sprite
 @onready var xpBar := $CanvasLayer/xpBar
+@onready var levelNum := $CanvasLayer/xpBar/levelLabel/num
 
 @onready var weaponRotDynamics: DynamicsSolver = Dynamics.create_dynamics(8.0, 0.8, 2.0)
 @onready var spriteScaleDynamics: DynamicsSolverVector = Dynamics.create_dynamics_vector(2.0, 0.5, 2.0)
@@ -121,6 +123,8 @@ func _on_collect_area_area_entered(area: Area2D) -> void:
 		if xp>maxXp:
 			maxXp+=10
 			xp=xp%maxXp
+			lvl += 1
+			levelNum.text = str(lvl)
 			
 		area.queue_free()
 		xpBar.value = xp/(maxXp*1.0)*100

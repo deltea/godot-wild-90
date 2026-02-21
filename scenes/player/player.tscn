@@ -160,19 +160,27 @@ show_percentage = false
 
 [node name="xpBar" type="ProgressBar" parent="CanvasLayer" unique_id=1799636186]
 offset_left = 3.0
-offset_top = 225.0
-offset_right = 278.0
+offset_top = 234.0
+offset_right = 153.0
 offset_bottom = 238.0
 theme_override_styles/fill = SubResource("StyleBoxFlat_0owmy")
 show_percentage = false
 
-[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/xpBar" unique_id=1140914675]
+[node name="levelLabel" type="RichTextLabel" parent="CanvasLayer/xpBar" unique_id=1140914675]
 layout_mode = 0
-offset_right = 275.0
-offset_bottom = 27.0
+offset_top = -13.0
+offset_right = 149.0
+offset_bottom = 9.0
 theme_override_font_sizes/normal_font_size = 10
-text = "XP"
-horizontal_alignment = 1
+text = "Level:"
+
+[node name="num" type="RichTextLabel" parent="CanvasLayer/xpBar/levelLabel" unique_id=1273364601]
+layout_mode = 0
+offset_left = 29.0
+offset_right = 178.0
+offset_bottom = 21.0
+theme_override_font_sizes/normal_font_size = 10
+text = "0"
 
 [node name="playerAnimations" type="AnimationPlayer" parent="." unique_id=756382177]
 libraries/ = SubResource("AnimationLibrary_75vfm")
