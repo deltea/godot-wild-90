@@ -14,4 +14,4 @@ func _process(delta: float) -> void:
 	
 func updateSprite(snow):
 	if !snow:
-		$sprite.frame = randi_range(1,5)
+		$sprite.frame = randi_range(0,4)

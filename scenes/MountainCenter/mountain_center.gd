@@ -59,7 +59,6 @@ func spawnFolliage(num, angle):
 		folliageList.append(newPlant)
 
 func environmentalUpdate():
-	print("hi")
 	for env in $"../environmentContainer".get_children():
 		var dy = env.position.y-position.y
 		var dx = env.position.x-position.x
