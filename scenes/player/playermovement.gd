@@ -117,5 +117,8 @@ func _on_collect_area_area_entered(area: Area2D) -> void:
 	if area is XP:
 		xp+=1
 		if xp>maxXp:
-			xp=xp%maxXp
+			maxXp*=1.02
+			maxXp+=2
+			xp=xp%int(maxXp)
+			
 		area.queue_free()
