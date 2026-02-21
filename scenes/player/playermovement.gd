@@ -9,6 +9,8 @@ var dashing = false
 var weaponDir = 1
 var health = 100
 var isInvincible = false
+var xp = 0
+var maxXp = 20
 
 @onready var anchor := $Anchor
 @onready var weaponAnchor := $Anchor/WeaponAnchor
@@ -18,6 +20,7 @@ var isInvincible = false
 @onready var hpBar := $CanvasLayer/hpBar
 @onready var collider := $CollisionShape2D
 @onready var sprite := $SpriteContainer/Sprite
+@onready var xpBar := $CanvasLayer/xpBar
 
 @onready var weaponRotDynamics: DynamicsSolver = Dynamics.create_dynamics(8.0, 0.8, 2.0)
 @onready var spriteScaleDynamics: DynamicsSolverVector = Dynamics.create_dynamics_vector(2.0, 0.5, 2.0)
@@ -27,6 +30,7 @@ func _enter_tree() -> void:
 
 func _ready() -> void:
 	hpBar.value = 100
+	xpBar.value = 0
 
 func _process(dt: float) -> void:
 	var dir = (get_global_mouse_position() - position).normalized()
@@ -113,4 +117,11 @@ func attack():
 
 func _on_collect_area_area_entered(area: Area2D) -> void:
 	if area is XP:
+		xp+=1
+		if xp>maxXp:
+			maxXp*=1.02
+			maxXp+=2
+			xp=xp%int(maxXp)
+			
 		area.queue_free()
+	$CanvasLayer/xpBar.value = xp/int(maxXp) * 100
