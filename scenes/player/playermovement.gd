@@ -63,8 +63,14 @@ func _process(dt: float) -> void:
 	anchor.rotation = dir.angle() + PI/2
 	weaponAnchor.rotation_degrees = weaponRotDynamics.update(weaponDir * 120)
 	sprite.scale = spriteScaleDynamics.update(Vector2.ONE)*0.9
-	
+	if Input.is_action_just_pressed("click") and !attackCD:
+		$heavy.start()
 	if Input.is_action_just_released("click") and !attackCD:
+		var windUp = (3.0-$heavy.time_left)*300
+		var dirAngle = (atan2(get_global_mouse_position().y-position.y,get_global_mouse_position().x-position.x))
+		var dirVector = Vector2(cos(dirAngle),sin(dirAngle))
+		print(dirVector)
+		velocity += dirVector*windUp
 		weaponDir *= -1
 		$attack.start()
 		attackCD = true
