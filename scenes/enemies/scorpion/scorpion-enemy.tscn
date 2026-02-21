@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://bobp0f0vgvc6m"]
+
+[ext_resource type="PackedScene" uid="uid://dhd5p1lp3cmre" path="res://scenes/enemy/enemy.tscn" id="1_8ixl3"]
+[ext_resource type="Texture2D" uid="uid://7qru5twwl775" path="res://assets/generic/square.png" id="2_5lr0y"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8ixl3"]
+size = Vector2(16, 16)
+
+[node name="ScorpionEnemy" unique_id=544114418 instance=ExtResource("1_8ixl3")]
+mass = 2.0
+linear_damp = 1.543
+
+[node name="CollisionShape2D" parent="." index="0" unique_id=1018922626]
+shape = SubResource("RectangleShape2D_8ixl3")
+
+[node name="Sprite2D" parent="." index="1" unique_id=1780433657]
+texture = ExtResource("2_5lr0y")
