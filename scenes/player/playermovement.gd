@@ -16,6 +16,7 @@ var lvl = 0
 var attackCD = false
 var attackCDtime = 0.2
 var attacking = false
+var secondhit = false
 
 @onready var anchor := $Anchor
 @onready var weaponAnchor := $Anchor/WeaponAnchor
@@ -81,6 +82,8 @@ func _process(dt: float) -> void:
 		$Anchor/HitArea.visible=true
 		attacking = true
 		attackCD = true
+		
+		attack()
 
 func takeDamage(damage):
 	if isInvincible:
@@ -141,9 +144,10 @@ func start_dash():
 	spriteScaleDynamics.set_value(Vector2(1.5, 0.5))
 
 func attack():
+	var hitEnemy=false
 	var collisions = hitArea.get_overlapping_bodies()
 	for body in collisions:
-		if not body is Enemy: continue
+		if not body is Enemy:continue
 		var dist = body.position.distance_to(weaponSprite.global_position)
 
 		await Clock.wait(dist / 2000.0)
@@ -154,6 +158,9 @@ func attack():
 		RoomManager.current_room.camera.tilt_impact()
 		body.knockback((body.position - global_position).normalized() * 200)
 		body.take_damage(1)
+		hitEnemy=true
+	if !hitEnemy:
+		secondhit=true
 
 func _on_collect_area_area_entered(area: Area2D) -> void:
 	if area is XP:
@@ -173,5 +180,7 @@ func _on_attack_timeout() -> void:
 
 func _on_swing_timeout() -> void:
 	attacking=false
-	attack()
+	if secondhit:
+		attack()
+		secondhit=false
 	$Anchor/HitArea.visible=false
