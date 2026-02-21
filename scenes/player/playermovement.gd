@@ -43,14 +43,16 @@ func levelUp(attribute,magnitude):
 			hpBar.max_value = maxHealth
 		1:
 			speed += 2*magnitude
+			dashSpeed -= 0.3 * magnitude
 		2:
-			dashSpeed += 0.05 * magnitude
+			dashSpeed += 0.2 * magnitude
 
 func _ready() -> void:
 	hpBar.value = maxHealth
 	xpBar.value = 0
 
 func _process(dt: float) -> void:
+	
 	var dir = (get_global_mouse_position() - position).normalized()
 	anchor.rotation = dir.angle() + PI/2
 	weaponAnchor.rotation_degrees = weaponRotDynamics.update(weaponDir * 120)
