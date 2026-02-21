@@ -39,9 +39,10 @@ func levelUp(attribute,magnitude):
 	match attribute:
 		0:
 			maxHealth += 10*magnitude
+			hpBar.max_value = maxHealth
 
 func _ready() -> void:
-	hpBar.value = 100
+	hpBar.value = maxHealth
 	xpBar.value = 0
 
 func _process(dt: float) -> void:
