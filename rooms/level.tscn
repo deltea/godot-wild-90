@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://cdnunui18bx10" path="res://assets/generic/pixel.png" id="5_ianyd"]
 [ext_resource type="Texture2D" uid="uid://calyli6bepv51" path="res://assets/circle-512.png" id="6_ar4t0"]
 [ext_resource type="PackedScene" uid="uid://bcdrlg12rduqj" path="res://scenes/enemySpawner/enemy_spawner.tscn" id="9_knkn0"]
-[ext_resource type="Shader" uid="uid://b640okxl8hi36" path="res://shaders/clouds.gdshader" id="9_yhl0x"]
+[ext_resource type="Shader" path="res://shaders/clouds.gdshader" id="9_yhl0x"]
 [ext_resource type="PackedScene" uid="uid://dryv8xfc6662h" path="res://scenes/environment/environmnet.tscn" id="10_yhl0x"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x0uc3"]
@@ -137,25 +137,25 @@ position = Vector2(-453, 212)
 [node name="environmnet" parent="environmentContainer" unique_id=2142600750 instance=ExtResource("10_yhl0x")]
 position = Vector2(-486, 94)
 
-[node name="environmnet" parent="." unique_id=1177779893 instance=ExtResource("10_yhl0x")]
+[node name="environmnet3" parent="environmentContainer" unique_id=1177779893 instance=ExtResource("10_yhl0x")]
 position = Vector2(-130, 478)
 
-[node name="environmnet2" parent="." unique_id=464561450 instance=ExtResource("10_yhl0x")]
+[node name="environmnet4" parent="environmentContainer" unique_id=464561450 instance=ExtResource("10_yhl0x")]
 position = Vector2(432, 238)
 
-[node name="environmnet3" parent="." unique_id=1776886439 instance=ExtResource("10_yhl0x")]
+[node name="environmnet5" parent="environmentContainer" unique_id=1776886439 instance=ExtResource("10_yhl0x")]
 position = Vector2(457, -205)
 
-[node name="environmnet4" parent="." unique_id=178727794 instance=ExtResource("10_yhl0x")]
+[node name="environmnet6" parent="environmentContainer" unique_id=178727794 instance=ExtResource("10_yhl0x")]
 position = Vector2(237, -440)
 
-[node name="environmnet5" parent="." unique_id=2032098308 instance=ExtResource("10_yhl0x")]
+[node name="environmnet7" parent="environmentContainer" unique_id=2032098308 instance=ExtResource("10_yhl0x")]
 position = Vector2(-59, -497)
 
-[node name="environmnet6" parent="." unique_id=1320824817 instance=ExtResource("10_yhl0x")]
+[node name="environmnet8" parent="environmentContainer" unique_id=1320824817 instance=ExtResource("10_yhl0x")]
 position = Vector2(-294, -404)
 
-[node name="environmnet7" parent="." unique_id=797053587 instance=ExtResource("10_yhl0x")]
+[node name="environmnet9" parent="environmentContainer" unique_id=797053587 instance=ExtResource("10_yhl0x")]
 position = Vector2(-454, -209)
 
 [connection signal="timeout" from="Mountain/folliageCheck" to="Mountain" method="folliageCheck"]
