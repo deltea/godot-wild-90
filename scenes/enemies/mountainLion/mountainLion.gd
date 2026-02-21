@@ -31,10 +31,10 @@ func _physics_process(delta: float) -> void:
 				apply_central_force(playerVector * speed * mass)
 			elif agroMove == "strafe":
 				var dir = Vector2(-playerVector.y,playerVector.x)
-				if randi_range(0,100) < 50:
-					apply_central_force(dir * speed * mass * 30)
+				if moodSwing< 50:
+					apply_central_force(dir * speed * mass * 0.8)
 				else:
-					apply_central_force(-dir * speed * mass * 30)
+					apply_central_force(-dir * speed * mass * 0.8)
 	elif state == "recover":
 		# linear_velocity = -(playerPos-position).normalized() * speed
 		apply_central_force(-(playerPos-position).normalized() * speed * mass)
