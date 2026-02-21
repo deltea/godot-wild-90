@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://calyli6bepv51" path="res://assets/circle-512.png" id="6_ar4t0"]
 [ext_resource type="PackedScene" uid="uid://dkxwnjdaghed1" path="res://scenes/enemies/mountainLion/mountainLion.tscn" id="8_ianyd"]
 [ext_resource type="PackedScene" uid="uid://bcdrlg12rduqj" path="res://scenes/enemySpawner/enemy_spawner.tscn" id="9_knkn0"]
-[ext_resource type="Shader" path="res://shaders/clouds.gdshader" id="9_yhl0x"]
+[ext_resource type="Shader" uid="uid://b640okxl8hi36" path="res://shaders/clouds.gdshader" id="9_yhl0x"]
 [ext_resource type="PackedScene" uid="uid://dryv8xfc6662h" path="res://scenes/environment/environmnet.tscn" id="10_yhl0x"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x0uc3"]
@@ -109,6 +109,7 @@ texture = ExtResource("6_ar4t0")
 shape = SubResource("CircleShape2D_x0uc3")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Mountain" unique_id=339612402]
+scale = Vector2(1.065, 1.065)
 build_mode = 1
 polygon = PackedVector2Array(0, -480, 32, -480, 96, -472, 152, -456, 192, -440, 224, -424, 264, -400, 328, -352, 384, -288, 416, -240, 440, -192, 464, -128, 480, -40, 480, 0, 480, 32, 472, 88, 464, 120, 448, 176, 408, 256, 384, 288, 360, 320, 320, 360, 288, 384, 256, 408, 192, 440, 128, 464, 40, 480, 0, 480, -40, 480, -128, 464, -192, 440, -256, 408, -320, 360, -360, 320, -384, 288, -408, 256, -440, 192, -464, 128, -472, 80, -480, 32, -480, 0, -480, -40, -472, -88, -464, -120, -448, -176, -408, -256, -360, -320, -320, -360, -288, -384, -240, -416, -192, -440, -128, -464, -88, -472, -32, -480)
 
