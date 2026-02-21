@@ -30,7 +30,8 @@ var lvl = 0
 
 func _enter_tree() -> void:
 	RoomManager.current_room.player = self
-	
+
+
 func levelUp(attribute,magnitude):
 	#attribute value key:
 	#0 = health
@@ -39,9 +40,14 @@ func levelUp(attribute,magnitude):
 	match attribute:
 		0:
 			maxHealth += 10*magnitude
+			hpBar.max_value = maxHealth
+		1:
+			speed += 2*magnitude
+		2:
+			dashSpeed += 0.05 * magnitude
 
 func _ready() -> void:
-	hpBar.value = 100
+	hpBar.value = maxHealth
 	xpBar.value = 0
 
 func _process(dt: float) -> void:
