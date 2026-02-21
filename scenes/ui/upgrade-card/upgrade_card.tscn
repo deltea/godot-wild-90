@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://cuchkd1bb0ruu"]
+
+[ext_resource type="Script" uid="uid://mudgnftdwdja" path="res://scenes/ui/upgrade-card/upgrade_card.gd" id="1_4nc74"]
+[ext_resource type="Texture2D" uid="uid://b8c7nwojwfvd8" path="res://assets/generic/9-rect.png" id="1_dvvti"]
+[ext_resource type="FontFile" uid="uid://ce3pxfpd38a3y" path="res://assets/fonts/monogram.ttf" id="3_jp4y4"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8yngg"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_4nc74"]
+font = ExtResource("3_jp4y4")
+
+[node name="UpgradeCard" type="PanelContainer" unique_id=43758888]
+custom_minimum_size = Vector2(80, 120)
+offset_right = 88.0
+offset_bottom = 120.0
+pivot_offset = Vector2(44, 60)
+theme_override_styles/panel = SubResource("StyleBoxEmpty_8yngg")
+script = ExtResource("1_4nc74")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="." unique_id=1130804198]
+self_modulate = Color(0.2231029, 0.2231029, 0.22310287, 1)
+layout_mode = 2
+texture = ExtResource("1_dvvti")
+patch_margin_left = 16
+patch_margin_top = 16
+patch_margin_right = 16
+patch_margin_bottom = 16
+
+[node name="CenterContainer" type="CenterContainer" parent="NinePatchRect" unique_id=363744742]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="NinePatchRect/CenterContainer" unique_id=1490700207]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="NinePatchRect/CenterContainer/HBoxContainer" unique_id=630579275]
+layout_mode = 2
+text = "hey sup"
+label_settings = SubResource("LabelSettings_4nc74")
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
