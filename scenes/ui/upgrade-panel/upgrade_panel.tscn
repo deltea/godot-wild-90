@@ -9,15 +9,17 @@ bg_color = Color(0.2, 0.2, 0.2, 0.32941177)
 layer = 2
 script = ExtResource("1_722xc")
 
-[node name="PanelContainer" type="PanelContainer" parent="." unique_id=1336246167]
+[node name="Panel" type="Panel" parent="." unique_id=520108235]
 offset_right = 320.0
 offset_bottom = 240.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_vs65a")
 
-[node name="CenterContainer" type="CenterContainer" parent="PanelContainer" unique_id=1647484896]
-layout_mode = 2
+[node name="CenterContainer" type="CenterContainer" parent="Panel" unique_id=1647484896]
+layout_mode = 0
+offset_right = 320.0
+offset_bottom = 240.0
 
-[node name="UpgradeCardContainer" type="HBoxContainer" parent="PanelContainer/CenterContainer" unique_id=1932365711]
+[node name="UpgradeCardContainer" type="HBoxContainer" parent="Panel/CenterContainer" unique_id=1932365711]
 layout_mode = 2
-theme_override_constants/separation = 16
+theme_override_constants/separation = 12
 alignment = 1

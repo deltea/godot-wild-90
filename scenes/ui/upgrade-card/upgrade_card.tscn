@@ -4,22 +4,23 @@
 [ext_resource type="Texture2D" uid="uid://b8c7nwojwfvd8" path="res://assets/generic/9-rect.png" id="1_dvvti"]
 [ext_resource type="FontFile" uid="uid://ce3pxfpd38a3y" path="res://assets/fonts/monogram.ttf" id="3_jp4y4"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8yngg"]
-
 [sub_resource type="LabelSettings" id="LabelSettings_4nc74"]
 font = ExtResource("3_jp4y4")
 
-[node name="UpgradeCard" type="PanelContainer" unique_id=43758888]
-custom_minimum_size = Vector2(80, 120)
+[node name="UpgradeCard" type="Control" unique_id=122037931]
+custom_minimum_size = Vector2(88, 120)
+layout_mode = 3
+anchors_preset = 0
 offset_right = 88.0
 offset_bottom = 120.0
 pivot_offset = Vector2(44, 60)
-theme_override_styles/panel = SubResource("StyleBoxEmpty_8yngg")
 script = ExtResource("1_4nc74")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="." unique_id=1130804198]
 self_modulate = Color(0.2231029, 0.2231029, 0.22310287, 1)
-layout_mode = 2
+layout_mode = 0
+offset_right = 88.0
+offset_bottom = 120.0
 texture = ExtResource("1_dvvti")
 patch_margin_left = 16
 patch_margin_top = 16
