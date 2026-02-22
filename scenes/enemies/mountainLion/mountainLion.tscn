@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://dhd5p1lp3cmre" path="res://scenes/enemy/enemy.tscn" id="1_ibbdd"]
 [ext_resource type="Script" uid="uid://bx5jsdmmj27po" path="res://scenes/enemies/mountainLion/mountainLion.gd" id="2_hmegc"]
 [ext_resource type="Texture2D" uid="uid://dxc2fnkekmo2x" path="res://assets/mountain_lion_sprte_sheet.png" id="3_hmegc"]
+[ext_resource type="Texture2D" uid="uid://calyli6bepv51" path="res://assets/circle-512.png" id="3_kbvtl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hmegc"]
 size = Vector2(43, 17)
@@ -87,26 +88,32 @@ linear_damp = 4.0
 angular_damp = 100.0
 script = ExtResource("2_hmegc")
 
-[node name="CollisionShape2D" parent="." index="0" unique_id=1018922626]
+[node name="Sprite2D2" type="Sprite2D" parent="." index="0" unique_id=1593755742]
+modulate = Color(0.27959782, 0.18015906, 0.21478415, 0.4392157)
+position = Vector2(0, 7)
+scale = Vector2(0.1, 0.015625)
+texture = ExtResource("3_kbvtl")
+
+[node name="CollisionShape2D" parent="." index="1" unique_id=1018922626]
 position = Vector2(0.5, -0.5)
 shape = SubResource("RectangleShape2D_hmegc")
 
-[node name="Sprite2D" parent="." index="1" unique_id=1780433657]
+[node name="Sprite2D" parent="." index="2" unique_id=1780433657]
 position = Vector2(0, -3)
 scale = Vector2(0.7, 0.7)
 texture = ExtResource("3_hmegc")
 hframes = 5
 vframes = 3
 
-[node name="StateUpdate" type="Timer" parent="." index="2" unique_id=1914001966]
+[node name="StateUpdate" type="Timer" parent="." index="3" unique_id=1914001966]
 wait_time = 0.5
 autostart = true
 
-[node name="attackTimer" type="Timer" parent="." index="3" unique_id=600731031]
+[node name="attackTimer" type="Timer" parent="." index="4" unique_id=600731031]
 wait_time = 0.5
 one_shot = true
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="4" unique_id=833199657]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="5" unique_id=833199657]
 libraries/ = SubResource("AnimationLibrary_kjcsv")
 
 [connection signal="timeout" from="StateUpdate" to="." method="stateUpdate"]
