@@ -47,17 +47,16 @@ func levelUp(attribute,magnitude):
 	#3 = attackCooldown
 	#4 = healthRegen
 	#5 = regenAmt
-	magnitude*=.5
 	match attribute:
 		0:
-			maxHealth += 10*magnitude
+			maxHealth += 6*magnitude
 			hpBar.max_value = maxHealth
 		1:
-			speed += 3*magnitude
+			speed += 2*magnitude
 			walkSpeed = speed
 			dashSpeed *= pow(0.95 , magnitude)
 		2:
-			dashSpeed += 0.6 * magnitude
+			dashSpeed += 0.5 * magnitude
 		3:
 			attackCDtime *= pow(0.95,magnitude)
 			$attack.wait_time = attackCDtime
