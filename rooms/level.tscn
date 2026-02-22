@@ -132,7 +132,7 @@ wait_time = 0.5
 autostart = true
 
 [node name="weatherTransition" type="Timer" parent="Mountain" unique_id=1688152608]
-wait_time = 3.0
+wait_time = 2.0
 one_shot = true
 
 [node name="enemySpawner" parent="." unique_id=1692701726 instance=ExtResource("9_knkn0")]

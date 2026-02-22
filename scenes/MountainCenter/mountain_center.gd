@@ -20,6 +20,7 @@ var recordTheta = 0
 
 var snowElevation = 50
 var startedSnow = false
+var isSnow = false
 #transitioning to snow
 var snowing = false
 
@@ -35,6 +36,7 @@ func spawnFolliage(num, angle):
 		var r = 360
 		var oppositeAngle = deg_to_rad(-(angle))
 		var color = Color(0.649, 0.873, 0.657, 1.0)
+		
 		var newPlant = folliage.instantiate()
 
 		get_parent().get_node("folliageContainer").add_child(newPlant)
@@ -75,7 +77,7 @@ func environmentalUpdate():
 			env.updateSprite(false)
 var startCol
 func snow():
-	print("snow")
+	isSnow = true
 	$weatherTransition.start()
 	startCol = $Outer.material.get_shader_parameter("innerColor")
 	print(startCol.r)
@@ -89,7 +91,10 @@ func _process(delta: float) -> void:
 	var lastTheta = theta
 
 	if snowing:
-		$Outer.material.set_shader_parameter("innerColor", startCol.lerp(Color(0.761, 0.832, 0.864, 1.0),(1.0-$weatherTransition.time_left/3.0)))
+		var mod = (1.0-$weatherTransition.time_left/$weatherTransition.wait_time)
+		$Outer.material.set_shader_parameter("innerColor", startCol.lerp(Color(0.761, 0.832, 0.864, 1.0),mod))
+		for plant in get_parent().get_node("folliageContainer").get_children():
+			plant.modulate.a = lerp(1,0,mod*1.3)
 
 	theta = int(rad_to_deg(-atan2(dy, dx)) + 180)
 	
@@ -112,7 +117,7 @@ func _process(delta: float) -> void:
 
 
 func folliageCheck() -> void:
-	if abs(recordTheta-theta)>3:
+	if abs(recordTheta-theta)>3 and !snowing:
 		spawnFolliage(10,theta)
 		environmentalUpdate()
 	recordTheta=theta
