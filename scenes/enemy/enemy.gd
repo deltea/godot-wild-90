@@ -15,10 +15,12 @@ func _ready() -> void:
 	xp_drop = randi_range(xpDropMin, xpDropMax)
 
 func take_damage(damage: int):
+	AudioManager.play_sound(AudioManager.hit, 0.2)
 	health -= damage
 	if health <= 0: die()
 
 func die():
+	AudioManager.play_sound(AudioManager.enemy_death, 0.2)
 	queue_free()
 	drop_xp()
 	var explosion = explosion_scene.instantiate() as CPUParticles2D

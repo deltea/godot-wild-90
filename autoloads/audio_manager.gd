@@ -1,6 +1,17 @@
 extends AudioStreamPlayer
 
-# var jump = preload("res://assets/sfx/jump.wav")
+var attack = preload("res://assets/sfx/attack.wav")
+var hit = preload("res://assets/sfx/hit.wav")
+var enemy_death = preload("res://assets/sfx/enemy_death.wav")
+var card_hover = preload("res://assets/sfx/card_hover.wav")
+var upgrade_appear = preload("res://assets/sfx/upgrade_appear.wav")
+var upgrade = preload("res://assets/sfx/upgrade.wav")
+var dash = preload("res://assets/sfx/dash.wav")
+var hurt = preload("res://assets/sfx/hurt.wav")
+var death = preload("res://assets/sfx/death.wav")
+var xp = preload("res://assets/sfx/xp.wav")
+
+# var music = preload("res://assets/music.mp4")
 
 var volume = 100
 

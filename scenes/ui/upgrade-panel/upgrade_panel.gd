@@ -39,6 +39,8 @@ func create_cards():
 		card.shadow = shadow
 
 func upgrade():
+	AudioManager.play_sound(AudioManager.upgrade_appear, 0.2)
+
 	# delete all previous cards
 	for card in container.get_children():
 		card.queue_free()

@@ -5,7 +5,7 @@ uniform sampler2D screen_texture : hint_screen_texture, filter_nearest;
 uniform int num_colors;
 uniform sampler2D palette_in;
 uniform sampler2D palette_out;
-uniform float precision : hint_range(0.0, 1.0, 0.1) = 0.1;
+uniform float precision : hint_range(0.0, 1.0, 0.2) = 0.1;
 
 vec4 swap_color(vec4 color) {
   float inc = 1.0 / float(num_colors);

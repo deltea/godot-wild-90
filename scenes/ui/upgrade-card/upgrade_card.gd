@@ -54,6 +54,7 @@ func _process(dt: float) -> void:
 		shadow.scale = Vector2.ONE * (1 + position.y / 150.0)
 
 func _on_mouse_entered() -> void:
+	AudioManager.play_sound(AudioManager.card_hover, 0.2)
 	is_hovering = true
 
 func _on_mouse_exited() -> void:
@@ -61,5 +62,6 @@ func _on_mouse_exited() -> void:
 
 func _on_gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.pressed:
+		AudioManager.play_sound(AudioManager.upgrade, 0.2)
 		RoomManager.current_room.player.levelUp(attribute, magnitude)
 		RoomManager.current_room.upgrade_panel.finish_upgrade()
