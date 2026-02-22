@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dxrcpw8iawlix"]
 
 [ext_resource type="Script" uid="uid://chcyns7jlpwto" path="res://scripts/level.gd" id="1_tibj6"]
+[ext_resource type="FontFile" uid="uid://ce3pxfpd38a3y" path="res://assets/fonts/monogram.ttf" id="2_3qwok"]
 [ext_resource type="Shader" uid="uid://cc3oiwfbrft7m" path="res://rooms/snow.gdshader" id="2_4r1re"]
 [ext_resource type="PackedScene" uid="uid://14eq36mrlu5n" path="res://scenes/camera/camera.tscn" id="2_dg3qb"]
 [ext_resource type="PackedScene" uid="uid://dxa2q2it134ps" path="res://scenes/player/player.tscn" id="4_ar4t0"]
@@ -18,7 +19,7 @@
 [ext_resource type="AudioStream" uid="uid://blshcghew18y8" path="res://assets/mountainGameIceMusic.mp3" id="16_3r5wm"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x0uc3"]
-bg_color = Color(1, 1, 1, 1)
+bg_color = Color(0.6915051, 0.79132587, 0.6339813, 1)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_mlrue"]
 shader = ExtResource("2_4r1re")
@@ -100,6 +101,33 @@ offset_bottom = 222.0
 theme_override_styles/fill = SubResource("StyleBoxFlat_x0uc3")
 fill_mode = 3
 show_percentage = false
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/ElevationBar" unique_id=1067883153]
+layout_mode = 0
+offset_left = -30.0
+offset_top = -2.0
+offset_right = 10.0
+offset_bottom = 12.0
+theme_override_fonts/normal_font = ExtResource("2_3qwok")
+text = "1000m-"
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="CanvasLayer/ElevationBar" unique_id=1852168372]
+layout_mode = 0
+offset_left = -12.0
+offset_top = 201.0
+offset_right = 28.0
+offset_bottom = 215.0
+theme_override_fonts/normal_font = ExtResource("2_3qwok")
+text = "0m-"
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="CanvasLayer/ElevationBar" unique_id=159222197]
+layout_mode = 0
+offset_left = -24.0
+offset_top = 99.0
+offset_right = 16.0
+offset_bottom = 113.0
+theme_override_fonts/normal_font = ExtResource("2_3qwok")
+text = "500m-"
 
 [node name="snow" type="ColorRect" parent="CanvasLayer" unique_id=1328966531]
 material = SubResource("ShaderMaterial_mlrue")
