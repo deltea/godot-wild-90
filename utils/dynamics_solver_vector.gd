@@ -18,6 +18,8 @@ var k3: float
 var T: float
 
 func _ready() -> void:
+	process_mode = Node.PROCESS_MODE_ALWAYS
+
 	k1 = z / (PI * f)
 	k2 = 1 / ((2 * PI * f) * (2 * PI * f))
 	k3 = r * z / (2 * PI * f)

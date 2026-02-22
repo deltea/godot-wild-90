@@ -183,6 +183,7 @@ func _on_collect_area_area_entered(area: Area2D) -> void:
 			xp=xp%maxXp
 			lvl += 1
 			levelNum.text = str(lvl)
+			RoomManager.upgrade_panel.upgrade()
 
 		area.queue_free()
 		xpBar.value = xp/(maxXp*1.0)*100

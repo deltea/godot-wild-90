@@ -61,4 +61,5 @@ func _on_mouse_exited() -> void:
 
 func _on_gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.pressed:
-		emit_signal("card_clicked", self)
+		RoomManager.current_room.player.levelUp(attribute, magnitude)
+		RoomManager.upgrade_panel.finish_upgrade()

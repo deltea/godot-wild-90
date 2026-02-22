@@ -6,6 +6,9 @@ var time = 0.0
 var slowmo_amount = 0.0
 var base_time_scale = 1.0
 
+func _ready() -> void:
+	process_mode = Node.PROCESS_MODE_ALWAYS
+
 func _process(delta: float) -> void:
 	time += delta
 	slowmo_amount = move_toward(slowmo_amount, 0.0, slowmo_smoothing)

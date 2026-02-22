@@ -6,6 +6,7 @@
 bg_color = Color(0.2, 0.2, 0.2, 0.5411765)
 
 [node name="UpgradePanel" type="CanvasLayer" unique_id=1901511673]
+process_mode = 3
 layer = 2
 script = ExtResource("1_722xc")
 
@@ -21,5 +22,5 @@ offset_bottom = 240.0
 
 [node name="UpgradeCardContainer" type="HBoxContainer" parent="Panel/CenterContainer" unique_id=1932365711]
 layout_mode = 2
-theme_override_constants/separation = 12
+theme_override_constants/separation = 16
 alignment = 1
