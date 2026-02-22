@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dryv8xfc6662h"]
 
 [ext_resource type="Script" uid="uid://dsdur1qa662fa" path="res://scenes/environment/environmnet.gd" id="1_ng7c6"]
-[ext_resource type="Texture2D" uid="uid://uv5kctjj6oxd" path="res://assets/Hiker_Sprite_Sheet.png" id="2_u17xs"]
+[ext_resource type="Texture2D" uid="uid://c8g086mjugpkx" path="res://assets/treenorm.png" id="2_u17xs"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xc2yt"]
 size = Vector2(23, 25)
@@ -10,10 +10,10 @@ size = Vector2(23, 25)
 script = ExtResource("1_ng7c6")
 
 [node name="sprite" type="Sprite2D" parent="." unique_id=887180196]
-position = Vector2(0, -54)
+position = Vector2(0, -21)
 texture = ExtResource("2_u17xs")
-hframes = 5
-frame = 4
+hframes = 3
+vframes = 2
 
 [node name="collider" type="CollisionShape2D" parent="." unique_id=1875486073]
 position = Vector2(-1.5, -2.5)
