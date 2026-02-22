@@ -107,14 +107,14 @@ func takeDamage(damage):
 		die()
 	else:
 		AudioManager.play_sound(AudioManager.hurt, 0.2)
-
+var input = Vector2.ZERO
 func die():
 	AudioManager.play_sound(AudioManager.death, 0.2)
 	RoomManager.current_room.death_panel.death()
 
 func _physics_process(delta: float) -> void:
 	# simple movement
-	var input = Input.get_vector("left", "right", "up", "down")
+	input = Input.get_vector("left", "right", "up", "down")
 	velocity += input * speed
 
 	if input != Vector2.ZERO:

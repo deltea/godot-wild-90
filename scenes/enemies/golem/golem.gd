@@ -70,6 +70,7 @@ func attack():
 	var projectile = projScene.instantiate()
 	get_parent().add_child(projectile)
 	projectile.position = position
+	projectile.initializeVals()
 	
 	
 

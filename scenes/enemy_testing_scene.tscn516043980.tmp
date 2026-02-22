@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://bfw17kochceqg"]
+
+[ext_resource type="Script" uid="uid://chcyns7jlpwto" path="res://scripts/level.gd" id="1_0fqcd"]
+[ext_resource type="PackedScene" uid="uid://dxa2q2it134ps" path="res://scenes/player/player.tscn" id="2_3teur"]
+[ext_resource type="PackedScene" uid="uid://dfgkhn235i5ww" path="res://scenes/enemies/golem/golem.tscn" id="4_0fqcd"]
+[ext_resource type="PackedScene" uid="uid://14eq36mrlu5n" path="res://scenes/camera/camera.tscn" id="4_t1ofk"]
+[ext_resource type="PackedScene" uid="uid://c60by683lvxm4" path="res://scenes/enemies/golem/golem_projectile.tscn" id="5_3teur"]
+
+[node name="enemyTestingScene" type="Node2D" unique_id=339533915]
+script = ExtResource("1_0fqcd")
+
+[node name="Player" parent="." unique_id=333898608 instance=ExtResource("2_3teur")]
+walkSpeed = null
+heavySpeed = null
+dashSpeed = null
+
+[node name="Camera" parent="." unique_id=1004403640 instance=ExtResource("4_t1ofk")]
+
+[node name="golem" parent="." unique_id=544114418 instance=ExtResource("4_0fqcd")]
+position = Vector2(-56, -16)
+
+[node name="golem projectile" parent="." unique_id=1347694980 instance=ExtResource("5_3teur")]
+position = Vector2(44, 36)
