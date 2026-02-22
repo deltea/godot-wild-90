@@ -9,7 +9,7 @@ var lookingRight = true
 var dashTime = 0
 var dashing = false
 var weaponDir = 1
-var health = 100
+var health = 10
 var maxHealth = 100
 var isInvincible = false
 var xp = 0
@@ -64,8 +64,8 @@ func levelUp(attribute,magnitude):
 			regenAmt+=0.002*magnitude
 		5:
 			heavySpeed+=0.5*magnitude
-			
-			
+
+
 
 func _ready() -> void:
 	speed = walkSpeed

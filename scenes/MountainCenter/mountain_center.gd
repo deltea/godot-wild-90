@@ -20,13 +20,19 @@ var folliage = preload("res://scenes/folliage/folliage.tscn")
 var folliageList = []
 var recordTheta = 0
 
-var snowElevation = 40
+var snowElevation = 5
 var startedSnow = false
 var isSnow = false
 #transitioning to snow
 var snowing = false
 
 func _ready() -> void:
+	snowing=false
+	isSnow=false
+	startedSnow=false
+	$"../CanvasLayer/snow".material.set_shader_parameter("alpha", 0)
+	$Outer.material.set_shader_parameter("innerColor", Color(0.5725490196, 0.4588235294, 0.3529411765, 1.0))
+
 	wallPos = $"../wall".position
 	player = RoomManager.current_room.player
 
@@ -39,7 +45,7 @@ func spawnFolliage(num, angle):
 		var r = 360
 		var oppositeAngle = deg_to_rad(-(angle))
 		var color = Color(0.649, 0.873, 0.657, 1.0)
-		
+
 		var newPlant = folliage.instantiate()
 
 		get_parent().get_node("folliageContainer").add_child(newPlant)
@@ -101,18 +107,18 @@ func _process(delta: float) -> void:
 	var lastTheta = theta
 
 	if snowing:
-		
+
 		var mod = (1.0-$weatherTransition.time_left/$weatherTransition.wait_time)
-		
+
 		$Outer.material.set_shader_parameter("innerColor", startCol.lerp(Color(0.761, 0.832, 0.864, 1.0),mod))
 		$"../CanvasLayer/snow".material.set_shader_parameter("alpha", lerp(0,1,mod))
 		for plant in get_parent().get_node("folliageContainer").get_children():
 			plant.modulate.a = lerp(1,0,mod*1.3)
-			
+
 
 	theta = int(rad_to_deg(-atan2(dy, dx)) + 180)
-	
-	
+
+
 
 	if theta < 10 and (lastTheta > 180):
 		fullRotations += 1
@@ -121,17 +127,17 @@ func _process(delta: float) -> void:
 
 	elevation = theta + (360 * fullRotations)
 	adjustedElevation = (elevation / (360.0 * maxRotations)) * 100.0
-	
+
 	if adjustedElevation >= snowElevation:
 		if lastTheta < theta and !isSnow:
 			#start snowing
 			snow()
-	
+
 	elevationBar.value = adjustedElevation
 	if adjustedElevation <= 100:
 		scaleMod = 	(2.0-(adjustedElevation/100.0))/2
 		scale = Vector2.ONE * scaleMod
-	
+
 	if elevation < 180:
 		$"../wall".position = wallPos
 	else:

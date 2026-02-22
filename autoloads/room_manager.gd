@@ -38,7 +38,8 @@ func restart_room():
 	await Clock.wait(0.5)
 
 	get_tree().paused = false
-	get_tree().reload_current_scene()
+	# get_tree().reload_current_scene()
+	change_room("level")
 
 	await Clock.wait(0.5)
 
