@@ -114,6 +114,8 @@ func die():
 	RoomManager.current_room.death_panel.death()
 
 func _physics_process(delta: float) -> void:
+	health+=0.005
+	hpBar.value=health
 	# simple movement
 	input = Input.get_vector("left", "right", "up", "down")
 	velocity += input * speed
