@@ -161,8 +161,9 @@ one_shot = true
 [node name="lionSpawner" parent="." unique_id=1692701726 instance=ExtResource("9_knkn0")]
 
 [node name="yetiSpawner" parent="." unique_id=467619981 instance=ExtResource("9_knkn0")]
-minElevation = 50
-frequency = 0.3
+minElevation = 40
+maxElevation = 100
+frequency = 1.0
 enemy = ExtResource("13_wrbck")
 
 [node name="Background" type="Sprite2D" parent="." unique_id=585385898]
