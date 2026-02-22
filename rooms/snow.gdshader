@@ -3,6 +3,7 @@ uniform vec4 innerColor: source_color = vec4(0,0,0,1);
 uniform vec4 outerColor: source_color = vec4(0,0,0,1);
 
 uniform float scale = 5.0;
+uniform float alpha = 1.0;
 uniform float timeMod = 3.0;
 uniform float pixelation = 10.0;
 uniform float bold = 10.0;
@@ -84,4 +85,5 @@ void fragment()
 	
 	
 	COLOR = shade(pattern(scale*uv + iTime*moveSpeed));
+	COLOR.a *=alpha;
 }

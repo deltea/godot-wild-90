@@ -21,8 +21,9 @@ bg_color = Color(1, 1, 1, 1)
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_mlrue"]
 shader = ExtResource("2_4r1re")
 shader_parameter/innerColor = Color(1, 1, 1, 0.1254902)
-shader_parameter/outerColor = Color(1, 1, 1, 0.8980392)
+shader_parameter/outerColor = Color(1, 1, 1, 0.827451)
 shader_parameter/scale = 40.0
+shader_parameter/alpha = 0.0
 shader_parameter/timeMod = 2.5
 shader_parameter/pixelation = 2.0
 shader_parameter/bold = 6.0
@@ -98,7 +99,7 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_x0uc3")
 fill_mode = 3
 show_percentage = false
 
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=1328966531]
+[node name="snow" type="ColorRect" parent="CanvasLayer" unique_id=1328966531]
 material = SubResource("ShaderMaterial_mlrue")
 anchors_preset = 15
 anchor_right = 1.0

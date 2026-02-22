@@ -91,10 +91,14 @@ func _process(delta: float) -> void:
 	var lastTheta = theta
 
 	if snowing:
+		
 		var mod = (1.0-$weatherTransition.time_left/$weatherTransition.wait_time)
+		
 		$Outer.material.set_shader_parameter("innerColor", startCol.lerp(Color(0.761, 0.832, 0.864, 1.0),mod))
+		$"../CanvasLayer/snow".material.set_shader_parameter("alpha", lerp(0,1,mod))
 		for plant in get_parent().get_node("folliageContainer").get_children():
 			plant.modulate.a = lerp(1,0,mod*1.3)
+			
 
 	theta = int(rad_to_deg(-atan2(dy, dx)) + 180)
 	
