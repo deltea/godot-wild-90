@@ -18,7 +18,7 @@ var folliage = preload("res://scenes/folliage/folliage.tscn")
 var folliageList = []
 var recordTheta = 0
 
-var snowElevation = 40
+var snowElevation = 5
 var startedSnow = false
 var isSnow = false
 #transitioning to snow
@@ -74,7 +74,14 @@ func environmentalUpdate():
 		if difference >= 180:
 			difference = abs(difference-360)
 		if difference > 150:
-			env.updateSprite(false)
+			if randi_range(0,10)<5:
+				env.get_node("sprite").flip_h = true
+			else:
+				env.get_node("sprite").flip_h = false
+			if !isSnow:
+				env.updateSprite(false)
+			else:
+				env.updateSprite(true)
 var startCol
 func snow():
 	isSnow = true

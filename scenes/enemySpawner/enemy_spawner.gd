@@ -19,6 +19,5 @@ func _process(delta: float) -> void:
 func _on_spawn_cd_timeout() -> void:
 	if mountain.adjustedElevation < maxElevation and mountain.adjustedElevation > minElevation:
 		if randf()<frequency:
-			print(name)
 			mountain.spawnEnemy(enemy)
 	
