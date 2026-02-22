@@ -20,6 +20,8 @@ var recordTheta = 0
 
 var snowElevation = 50
 var startedSnow = false
+#transitioning to snow
+var snowing = false
 
 func _ready() -> void:
 	player = RoomManager.current_room.player
@@ -71,10 +73,13 @@ func environmentalUpdate():
 			difference = abs(difference-360)
 		if difference > 150:
 			env.updateSprite(false)
-
+var startCol
 func snow():
 	print("snow")
-	$Outer.material.set_shader_parameter("innerColor", Color.WHITE)
+	$weatherTransition.start()
+	startCol = $Outer.material.get_shader_parameter("innerColor")
+	print(startCol.r)
+	snowing=true
 
 func _process(delta: float) -> void:
 	#print(theta)
@@ -83,7 +88,8 @@ func _process(delta: float) -> void:
 
 	var lastTheta = theta
 
-
+	if snowing:
+		$Outer.material.set_shader_parameter("innerColor", startCol.lerp(Color(0.761, 0.832, 0.864, 1.0),(1.0-$weatherTransition.time_left/3.0)))
 
 	theta = int(rad_to_deg(-atan2(dy, dx)) + 180)
 	
@@ -126,3 +132,7 @@ func spawnEnemy(scene):
 	#set folliage position
 	enemy.global_position.x = cos(oppositeAngle)*r
 	enemy.global_position.y = sin(oppositeAngle)*r
+
+
+func _on_weather_transition_timeout() -> void:
+	snowing=false

@@ -131,6 +131,10 @@ polygon = PackedVector2Array(0, -480, 32, -480, 96, -472, 152, -456, 192, -440, 
 wait_time = 0.5
 autostart = true
 
+[node name="weatherTransition" type="Timer" parent="Mountain" unique_id=1688152608]
+wait_time = 3.0
+one_shot = true
+
 [node name="enemySpawner" parent="." unique_id=1692701726 instance=ExtResource("9_knkn0")]
 
 [node name="Background" type="Sprite2D" parent="." unique_id=585385898]
@@ -157,3 +161,4 @@ visible = false
 position = Vector2(-399, 176)
 
 [connection signal="timeout" from="Mountain/folliageCheck" to="Mountain" method="folliageCheck"]
+[connection signal="timeout" from="Mountain/weatherTransition" to="Mountain" method="_on_weather_transition_timeout"]
