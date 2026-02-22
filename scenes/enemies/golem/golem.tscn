@@ -7,6 +7,44 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hmegc"]
 size = Vector2(46, 20)
 
+[sub_resource type="Animation" id="Animation_xkati"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [12]
+}
+
+[sub_resource type="Animation" id="Animation_xffb3"]
+resource_name = "idle"
+length = 1.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2015004, 0.3930478, 0.60587823, 1, 1.2051524),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [12, 13, 14, 15, 14, 13]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_mso2a"]
+_data = {
+&"RESET": SubResource("Animation_xkati"),
+&"idle": SubResource("Animation_xffb3")
+}
+
 [node name="golem" unique_id=544114418 instance=ExtResource("1_pqlb4")]
 mass = 2.0
 linear_damp = 4.0
@@ -22,6 +60,7 @@ position = Vector2(1, -24)
 texture = ExtResource("3_xkati")
 hframes = 6
 vframes = 6
+frame = 12
 
 [node name="StateUpdate" type="Timer" parent="." index="2" unique_id=1914001966]
 wait_time = 0.5
@@ -30,6 +69,9 @@ autostart = true
 [node name="attackTimer" type="Timer" parent="." index="3" unique_id=600731031]
 wait_time = 0.5
 one_shot = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="4" unique_id=652599797]
+libraries/ = SubResource("AnimationLibrary_mso2a")
 
 [connection signal="timeout" from="StateUpdate" to="." method="stateUpdate"]
 [connection signal="timeout" from="attackTimer" to="." method="attackOver"]
