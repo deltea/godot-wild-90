@@ -39,10 +39,28 @@ tracks/0/keys = {
 "values": [12, 13, 14, 15, 14, 13]
 }
 
+[sub_resource type="Animation" id="Animation_mso2a"]
+resource_name = "walk"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.19952855, 0.3963967, 0.5985856),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_mso2a"]
 _data = {
 &"RESET": SubResource("Animation_xkati"),
-&"idle": SubResource("Animation_xffb3")
+&"idle": SubResource("Animation_xffb3"),
+&"walk": SubResource("Animation_mso2a")
 }
 
 [node name="golem" unique_id=544114418 instance=ExtResource("1_pqlb4")]
