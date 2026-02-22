@@ -109,6 +109,7 @@ func takeDamage(damage):
 		AudioManager.play_sound(AudioManager.hurt, 0.2)
 var input = Vector2.ZERO
 func die():
+	$"../AudioStreamPlayer".stop()
 	AudioManager.play_sound(AudioManager.death, 0.2)
 	RoomManager.current_room.death_panel.death()
 

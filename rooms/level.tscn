@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://f2q2chn51sf6" path="res://scenes/ui/upgrade-panel/upgrade_panel.tscn" id="12_at2w1"]
 [ext_resource type="PackedScene" uid="uid://dfgkhn235i5ww" path="res://scenes/enemies/golem/golem.tscn" id="13_wrbck"]
 [ext_resource type="PackedScene" uid="uid://cmgj4m5krm5nv" path="res://scenes/ui/death_panel/death_panel.tscn" id="14_4r1re"]
+[ext_resource type="AudioStream" uid="uid://blshcghew18y8" path="res://assets/mountainGameIceMusic.mp3" id="16_3r5wm"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x0uc3"]
 bg_color = Color(1, 1, 1, 1)
@@ -269,6 +270,10 @@ visible = false
 
 [node name="DeathPanel" parent="." unique_id=1904925634 instance=ExtResource("14_4r1re")]
 visible = false
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1380148965]
+stream = ExtResource("16_3r5wm")
+autoplay = true
 
 [connection signal="timeout" from="Mountain/folliageCheck" to="Mountain" method="folliageCheck"]
 [connection signal="timeout" from="Mountain/weatherTransition" to="Mountain" method="_on_weather_transition_timeout"]
