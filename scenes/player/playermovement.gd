@@ -19,6 +19,7 @@ var attackCD = false
 var attackCDtime = 0.2
 var attacking = false
 var secondhit = false
+var regenAmt = 0.005
 
 @onready var anchor := $Anchor
 @onready var weaponAnchor := $Anchor/WeaponAnchor
@@ -44,18 +45,26 @@ func levelUp(attribute,magnitude):
 	#1 = speed
 	#2 = dashSpeed
 	#3 = attackCooldown
+	#4 = healthRegen
+	#5 = regenAmt
 	match attribute:
 		0:
 			maxHealth += 10*magnitude
 			hpBar.max_value = maxHealth
 		1:
-			speed += 2*magnitude
-			dashSpeed -= 0.3 * magnitude
+			speed += 4*magnitude
+			dashSpeed *= 0.99 * magnitude
 		2:
-			dashSpeed += 0.2 * magnitude
+			dashSpeed += 0.6 * magnitude
 		3:
-			attackCDtime *= 0.9
+			attackCDtime *= 0.95
 			$attack.wait_time = attackCDtime
+		4:
+			regenAmt+=0.002
+		5:
+			heavySpeed+=0.5*magnitude
+			
+			
 
 func _ready() -> void:
 	speed = walkSpeed
@@ -116,7 +125,7 @@ func die():
 func _physics_process(delta: float) -> void:
 	if velocity.length() > 1500:
 		velocity = velocity.normalized()
-	health+=0.005
+	health+=regenAmt
 	hpBar.value=health
 	# simple movement
 	input = Input.get_vector("left", "right", "up", "down")

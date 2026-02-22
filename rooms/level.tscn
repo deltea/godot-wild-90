@@ -304,6 +304,22 @@ position = Vector2(-485, -14)
 [node name="environmnet28" parent="environmentContainer" unique_id=148047322 instance=ExtResource("10_yhl0x")]
 position = Vector2(-477, 71)
 
+[node name="environmnet29" parent="environmentContainer" unique_id=2053776707 instance=ExtResource("10_yhl0x")]
+z_index = -1
+position = Vector2(-169, 222)
+
+[node name="environmnet31" parent="environmentContainer" unique_id=636825755 instance=ExtResource("10_yhl0x")]
+z_index = -1
+position = Vector2(244, 141)
+
+[node name="environmnet32" parent="environmentContainer" unique_id=2041616351 instance=ExtResource("10_yhl0x")]
+z_index = -1
+position = Vector2(-274, 55)
+
+[node name="environmnet30" parent="environmentContainer" unique_id=1175412086 instance=ExtResource("10_yhl0x")]
+z_index = -1
+position = Vector2(73, 259)
+
 [node name="UpgradePanel" parent="." unique_id=1901511673 instance=ExtResource("12_at2w1")]
 visible = false
 
