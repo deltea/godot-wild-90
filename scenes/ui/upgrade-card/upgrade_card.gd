@@ -62,4 +62,4 @@ func _on_mouse_exited() -> void:
 func _on_gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.pressed:
 		RoomManager.current_room.player.levelUp(attribute, magnitude)
-		RoomManager.upgrade_panel.finish_upgrade()
+		RoomManager.current_room.upgrade_panel.finish_upgrade()
