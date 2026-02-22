@@ -332,7 +332,6 @@ stream = ExtResource("16_3r5wm")
 autoplay = true
 
 [node name="wall" parent="." unique_id=1312045032 instance=ExtResource("18_15qan")]
-visible = false
 z_index = -1
 position = Vector2(-460, -53)
 

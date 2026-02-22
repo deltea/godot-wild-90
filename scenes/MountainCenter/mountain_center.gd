@@ -14,6 +14,8 @@ var maxElevation = 1000
 var fullRotations = 0
 var maxRotations = 10
 
+var wallPos
+
 var folliage = preload("res://scenes/folliage/folliage.tscn")
 var folliageList = []
 var recordTheta = 0
@@ -25,6 +27,7 @@ var isSnow = false
 var snowing = false
 
 func _ready() -> void:
+	wallPos = $"../wall".position
 	player = RoomManager.current_room.player
 
 	#spawn initial folliage
@@ -125,9 +128,14 @@ func _process(delta: float) -> void:
 			snow()
 	
 	elevationBar.value = adjustedElevation
-
-	scaleMod = 	(2.0-(adjustedElevation/100.0))/2
-	scale = Vector2.ONE * scaleMod
+	if adjustedElevation <= 100:
+		scaleMod = 	(2.0-(adjustedElevation/100.0))/2
+		scale = Vector2.ONE * scaleMod
+	
+	if elevation < 180:
+		$"../wall".position = wallPos
+	else:
+		$"../wall".position = Vector2.ONE*1000
 
 
 func folliageCheck() -> void:
