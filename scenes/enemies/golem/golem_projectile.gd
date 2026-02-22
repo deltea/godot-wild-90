@@ -1,7 +1,7 @@
 class_name Projectile extends Area2D
 
 var playerDir = Vector2.ZERO
-var speed = 5
+var speed = 4
 var parabolicOffset = 0
 var t = 0
 # Called when the node enters the scene tree for the first time.

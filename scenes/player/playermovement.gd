@@ -188,8 +188,8 @@ func attack(damage):
 		secondhit=true
 
 func _on_collect_area_area_entered(area: Area2D) -> void:
-	if area is Projectile:
-		takeDamage(1)
+	if area is Projectile and !dashing:
+		takeDamage(20)
 		area.blowUp()
 	if area is XP:
 		AudioManager.play_sound(AudioManager.xp, 0.2)
