@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://bt15g0e8lpja4"]
+
+[ext_resource type="Shader" uid="uid://c2r6bqsdgdb8g" path="res://scenes/mainMenu/background.gdshader" id="1_8jkg5"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0ma31"]
+shader = ExtResource("1_8jkg5")
+
+[node name="main_menu" type="Node2D" unique_id=624232534]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=126312415]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=897740715]
+material = SubResource("ShaderMaterial_0ma31")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button" type="Button" parent="CanvasLayer" unique_id=704913326]
+offset_left = 112.0
+offset_top = 6.0
+offset_right = 202.0
+offset_bottom = 47.0
+text = "PLAY"
