@@ -19,6 +19,12 @@ func _ready() -> void:
 	speed += randi_range(-10,10)
 var moodSwing
 func _physics_process(delta: float) -> void:
+	if (state != "attackActive" or state != "recovery"):
+		
+		if RoomManager.current_room.get_node("Player").position.x > position.x:
+			$Sprite2D.flip_h = true
+		else:
+			$Sprite2D.flip_h = false
 	if !attacking:
 		if linear_velocity.length()>1:
 			$AnimationPlayer.play("walk")
