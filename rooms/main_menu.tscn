@@ -5,6 +5,7 @@
 [ext_resource type="Script" path="res://scenes/mainMenu/backgkround.gd" id="2_0ma31"]
 [ext_resource type="Texture2D" uid="uid://cc2itp4aihcrf" path="res://assets/mountainBg.png" id="3_vif7f"]
 [ext_resource type="FontFile" uid="uid://cjs0sg2vi8ggb" path="res://assets/fonts/daydream.ttf" id="5_m3keh"]
+[ext_resource type="AudioStream" uid="uid://b171ml33oj6hc" path="res://assets/vhsSwing.mp3" id="6_prn5b"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0ma31"]
 shader = ExtResource("1_8jkg5")
@@ -45,5 +46,10 @@ theme_override_fonts/font = ExtResource("5_m3keh")
 theme_override_font_sizes/font_size = 10
 text = "BEGIN
 "
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=966931544]
+stream = ExtResource("6_prn5b")
+volume_db = -12.629
+autoplay = true
 
 [connection signal="button_down" from="CanvasLayer/Button" to="." method="_on_button_button_down"]
