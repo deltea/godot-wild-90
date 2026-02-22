@@ -13,6 +13,7 @@
 [ext_resource type="Shader" uid="uid://b640okxl8hi36" path="res://shaders/clouds.gdshader" id="9_yhl0x"]
 [ext_resource type="PackedScene" uid="uid://dryv8xfc6662h" path="res://scenes/environment/environmnet.tscn" id="10_yhl0x"]
 [ext_resource type="PackedScene" uid="uid://f2q2chn51sf6" path="res://scenes/ui/upgrade-panel/upgrade_panel.tscn" id="12_at2w1"]
+[ext_resource type="PackedScene" uid="uid://cmgj4m5krm5nv" path="res://scenes/ui/death_panel/death_panel.tscn" id="14_4r1re"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x0uc3"]
 bg_color = Color(1, 1, 1, 1)
@@ -225,6 +226,9 @@ position = Vector2(-376, 42)
 position = Vector2(-334, -2)
 
 [node name="UpgradePanel" parent="." unique_id=1901511673 instance=ExtResource("12_at2w1")]
+visible = false
+
+[node name="DeathPanel" parent="." unique_id=1904925634 instance=ExtResource("14_4r1re")]
 visible = false
 
 [connection signal="timeout" from="Mountain/folliageCheck" to="Mountain" method="folliageCheck"]

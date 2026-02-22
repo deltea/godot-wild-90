@@ -9,7 +9,7 @@ var lookingRight = true
 var dashTime = 0
 var dashing = false
 var weaponDir = 1
-var health = 100
+var health = 10
 var maxHealth = 100
 var isInvincible = false
 var xp = 0
@@ -103,6 +103,11 @@ func takeDamage(damage):
 		return
 	health -= damage
 	hpBar.value = health
+	if health <= 0:
+		die()
+
+func die():
+	RoomManager.current_room.death_panel.death()
 
 func _physics_process(delta: float) -> void:
 	# simple movement
@@ -183,7 +188,7 @@ func _on_collect_area_area_entered(area: Area2D) -> void:
 			xp=xp%maxXp
 			lvl += 1
 			levelNum.text = str(lvl)
-			RoomManager.upgrade_panel.upgrade()
+			RoomManager.current_room.upgrade_panel.upgrade()
 
 		area.queue_free()
 		xpBar.value = xp/(maxXp*1.0)*100

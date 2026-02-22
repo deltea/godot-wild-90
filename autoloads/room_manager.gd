@@ -3,7 +3,6 @@ extends CanvasLayer
 @onready var player: AnimationPlayer = $AnimationPlayer
 
 var current_room: Room
-var upgrade_panel: UpgradePanel
 
 func _ready() -> void:
 	player.play("transition")
@@ -29,6 +28,17 @@ func change_room_from_scene(scene: PackedScene):
 	await Clock.wait(0.5)
 
 	get_tree().change_scene_to_packed(scene)
+
+	await Clock.wait(0.5)
+
+	player.play("transition")
+
+func restart_room():
+	player.play_backwards("transition")
+	await Clock.wait(0.5)
+
+	get_tree().paused = false
+	get_tree().reload_current_scene()
 
 	await Clock.wait(0.5)
 

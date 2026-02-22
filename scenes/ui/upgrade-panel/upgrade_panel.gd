@@ -7,7 +7,7 @@ const ui_shadow_scene: PackedScene = preload("res://scenes/ui/shadow/ui_shadow.t
 @onready var panel: Panel = $Panel
 
 func _enter_tree() -> void:
-	RoomManager.upgrade_panel = self
+	RoomManager.current_room.upgrade_panel = self
 
 func _ready() -> void:
 	create_cards()

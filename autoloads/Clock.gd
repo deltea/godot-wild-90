@@ -15,7 +15,7 @@ func _process(delta: float) -> void:
 	Engine.time_scale = clamp(base_time_scale - slowmo_amount, 0, 1.0)
 
 func wait(duration: float):
-	await get_tree().create_timer(duration, false, false, true).timeout
+	await get_tree().create_timer(duration, true, false, true).timeout
 
 func hitstop(duration: float):
 	base_time_scale = 0.0
