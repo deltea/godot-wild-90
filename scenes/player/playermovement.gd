@@ -28,8 +28,8 @@ var secondhit = false
 @onready var hpBar := $CanvasLayer/hpBar
 @onready var collider := $CollisionShape2D
 @onready var sprite := $SpriteContainer/Sprite
-@onready var xpBar := $CanvasLayer/xpBar
-@onready var levelNum := $CanvasLayer/xpBar/levelLabel/num
+@onready var xpBar := $CanvasLayer/Panel/xpBar
+@onready var levelNum := $CanvasLayer/Panel/xpBar/levelLabel/num
 
 @onready var weaponRotDynamics: DynamicsSolver = Dynamics.create_dynamics(8.0, 0.8, 2.0)
 @onready var spriteScaleDynamics: DynamicsSolverVector = Dynamics.create_dynamics_vector(2.0, 0.5, 2.0)

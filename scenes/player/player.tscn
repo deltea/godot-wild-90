@@ -161,15 +161,22 @@ theme_override_styles/background = SubResource("StyleBoxFlat_75vfm")
 theme_override_styles/fill = SubResource("StyleBoxFlat_p47bc")
 show_percentage = false
 
-[node name="xpBar" type="ProgressBar" parent="CanvasLayer" unique_id=1799636186]
-offset_left = 3.0
-offset_top = 234.0
-offset_right = 153.0
-offset_bottom = 238.0
+[node name="Panel" type="Panel" parent="CanvasLayer" unique_id=1466312053]
+offset_left = 1.0
+offset_top = 223.0
+offset_right = 158.0
+offset_bottom = 239.0
+
+[node name="xpBar" type="ProgressBar" parent="CanvasLayer/Panel" unique_id=1799636186]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 11.0
+offset_right = 152.0
+offset_bottom = 15.0
 theme_override_styles/fill = SubResource("StyleBoxFlat_0owmy")
 show_percentage = false
 
-[node name="levelLabel" type="RichTextLabel" parent="CanvasLayer/xpBar" unique_id=1140914675]
+[node name="levelLabel" type="RichTextLabel" parent="CanvasLayer/Panel/xpBar" unique_id=1140914675]
 layout_mode = 0
 offset_top = -12.0
 offset_right = 149.0
@@ -178,7 +185,7 @@ theme_override_fonts/normal_font = ExtResource("6_75vfm")
 theme_override_font_sizes/normal_font_size = 15
 text = "Level:"
 
-[node name="num" type="RichTextLabel" parent="CanvasLayer/xpBar/levelLabel" unique_id=1273364601]
+[node name="num" type="RichTextLabel" parent="CanvasLayer/Panel/xpBar/levelLabel" unique_id=1273364601]
 layout_mode = 0
 offset_left = 32.0
 offset_right = 181.0
