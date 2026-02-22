@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dxrcpw8iawlix"]
 
 [ext_resource type="Script" uid="uid://chcyns7jlpwto" path="res://scripts/level.gd" id="1_tibj6"]
+[ext_resource type="Shader" uid="uid://cc3oiwfbrft7m" path="res://rooms/snow.gdshader" id="2_4r1re"]
 [ext_resource type="PackedScene" uid="uid://14eq36mrlu5n" path="res://scenes/camera/camera.tscn" id="2_dg3qb"]
 [ext_resource type="PackedScene" uid="uid://dxa2q2it134ps" path="res://scenes/player/player.tscn" id="4_ar4t0"]
 [ext_resource type="Script" uid="uid://b47ks02542yxv" path="res://scenes/MountainCenter/mountain_center.gd" id="4_tibj6"]
@@ -16,6 +17,18 @@
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x0uc3"]
 bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mlrue"]
+shader = ExtResource("2_4r1re")
+shader_parameter/innerColor = Color(1, 1, 1, 0.1254902)
+shader_parameter/outerColor = Color(1, 1, 1, 0.8980392)
+shader_parameter/scale = 40.0
+shader_parameter/timeMod = 2.5
+shader_parameter/pixelation = 2.0
+shader_parameter/bold = 6.0
+shader_parameter/sharp = 1.0
+shader_parameter/moveSpeed = -6.0
+shader_parameter/focusPoint = Vector2(0.5, 0.5)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_4r1re"]
 shader = ExtResource("7_wrbck")
@@ -84,6 +97,14 @@ offset_bottom = 222.0
 theme_override_styles/fill = SubResource("StyleBoxFlat_x0uc3")
 fill_mode = 3
 show_percentage = false
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=1328966531]
+material = SubResource("ShaderMaterial_mlrue")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="Camera" parent="." unique_id=1004403640 node_paths=PackedStringArray("follow") instance=ExtResource("2_dg3qb")]
 position = Vector2(-374, -47)
