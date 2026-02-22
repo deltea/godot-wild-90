@@ -9,10 +9,10 @@ func death():
 
 func _on_button_gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.pressed:
-		# get_tree().reload_current_scene()
+		get_tree().change_scene_to_file("level")
 		RoomManager.restart_room()
 
 func _on_button_2_gui_input(event: InputEvent) -> void:
 	pass
-	# if event is InputEventMouseButton and event.pressed:
-		# RoomManager.change_room(
+	if event is InputEventMouseButton and event.pressed:
+		RoomManager.change_room("main_menu")

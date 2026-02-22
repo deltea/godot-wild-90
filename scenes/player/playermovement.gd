@@ -114,6 +114,8 @@ func die():
 	RoomManager.current_room.death_panel.death()
 
 func _physics_process(delta: float) -> void:
+	if velocity.length() > 1500:
+		velocity = velocity.normalized()
 	health+=0.005
 	hpBar.value=health
 	# simple movement

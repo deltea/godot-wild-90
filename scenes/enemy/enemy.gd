@@ -21,13 +21,13 @@ func take_damage(damage: int):
 
 func die():
 	AudioManager.play_sound(AudioManager.enemy_death, 0.2)
-	queue_free()
 	drop_xp()
 	var explosion = explosion_scene.instantiate() as CPUParticles2D
 	explosion.position = position
 	explosion.emitting = true
 	RoomManager.current_room.add_child(explosion)
 	RoomManager.current_room.camera.shake(0.1, 2)
+	queue_free()
 
 func knockback(force: Vector2):
 	apply_central_impulse(force)

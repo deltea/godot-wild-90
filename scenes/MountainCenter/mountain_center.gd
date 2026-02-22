@@ -18,7 +18,7 @@ var folliage = preload("res://scenes/folliage/folliage.tscn")
 var folliageList = []
 var recordTheta = 0
 
-var snowElevation = 40
+var snowElevation = 1
 var startedSnow = false
 var isSnow = false
 #transitioning to snow

@@ -140,6 +140,7 @@ shape = SubResource("RectangleShape2D_gmlin")
 rotation = 0.2617994
 
 [node name="Sprite2D" type="Sprite2D" parent="Anchor/WeaponAnchor" unique_id=301695647]
+modulate = Color(0.46105176, 0.3218014, 0.19801256, 1)
 position = Vector2(-4.399924, -16.42074)
 rotation = -0.26461536
 texture = ExtResource("3_gmlin")
