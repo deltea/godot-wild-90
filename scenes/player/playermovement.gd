@@ -190,6 +190,7 @@ func attack(damage):
 func _on_collect_area_area_entered(area: Area2D) -> void:
 	if area is Projectile:
 		takeDamage(1)
+		area.blowUp()
 	if area is XP:
 		AudioManager.play_sound(AudioManager.xp, 0.2)
 		xp+=10
