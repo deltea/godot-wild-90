@@ -7,10 +7,10 @@
 [ext_resource type="Texture2D" uid="uid://7r4yubch4rfr" path="res://assets/generic/white-gradient-circle-png.webp" id="5_ar4t0"]
 [ext_resource type="Texture2D" uid="uid://cdnunui18bx10" path="res://assets/generic/pixel.png" id="5_ianyd"]
 [ext_resource type="Texture2D" uid="uid://calyli6bepv51" path="res://assets/circle-512.png" id="6_ar4t0"]
-[ext_resource type="Shader" uid="uid://drufjya17nuu5" path="res://rooms/fractalNoise.gdshader" id="7_wrbck"]
+[ext_resource type="Shader" path="res://rooms/fractalNoise.gdshader" id="7_wrbck"]
 [ext_resource type="PackedScene" uid="uid://dkxwnjdaghed1" path="res://scenes/enemies/mountainLion/mountainLion.tscn" id="8_ianyd"]
 [ext_resource type="PackedScene" uid="uid://bcdrlg12rduqj" path="res://scenes/enemySpawner/enemy_spawner.tscn" id="9_knkn0"]
-[ext_resource type="Shader" path="res://shaders/clouds.gdshader" id="9_yhl0x"]
+[ext_resource type="Shader" uid="uid://b640okxl8hi36" path="res://shaders/clouds.gdshader" id="9_yhl0x"]
 [ext_resource type="PackedScene" uid="uid://dryv8xfc6662h" path="res://scenes/environment/environmnet.tscn" id="10_yhl0x"]
 [ext_resource type="PackedScene" uid="uid://f2q2chn51sf6" path="res://scenes/ui/upgrade-panel/upgrade_panel.tscn" id="12_at2w1"]
 

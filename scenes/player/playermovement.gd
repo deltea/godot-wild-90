@@ -66,7 +66,7 @@ var weaponPullback = 0
 var winding = false
 var windUp = 0
 func _process(dt: float) -> void:
-	
+
 	var dir = (get_global_mouse_position() - position).normalized()
 	anchor.rotation = dir.angle() + PI/2
 	weaponAnchor.rotation_degrees = weaponRotDynamics.update(weaponDir * 120 + weaponPullback)
@@ -84,18 +84,18 @@ func _process(dt: float) -> void:
 		windUp = (3.0-$heavy.time_left)
 		var dirAngle = (atan2(get_global_mouse_position().y-position.y,get_global_mouse_position().x-position.x))
 		var dirVector = Vector2(cos(dirAngle),sin(dirAngle))
-		
+
 		weaponRotDynamics = Dynamics.create_dynamics(8.0-windUp*1.5, 0.8, 2.0)
-		
+
 		velocity += dirVector*windUp*400
 		weaponDir *= -1
-		
+
 		$attack.start()
 		$swing.start()
 		$Anchor/HitArea.visible=true
 		attacking = true
 		attackCD = true
-		
+
 		attack(int(1+windUp))
 
 func takeDamage(damage):
@@ -183,7 +183,8 @@ func _on_collect_area_area_entered(area: Area2D) -> void:
 			xp=xp%maxXp
 			lvl += 1
 			levelNum.text = str(lvl)
-			
+			RoomManager.upgrade_panel.upgrade()
+
 		area.queue_free()
 		xpBar.value = xp/(maxXp*1.0)*100
 

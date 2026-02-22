@@ -3,6 +3,7 @@ extends CanvasLayer
 @onready var player: AnimationPlayer = $AnimationPlayer
 
 var current_room: Room
+var upgrade_panel: UpgradePanel
 
 func _ready() -> void:
 	player.play("transition")
