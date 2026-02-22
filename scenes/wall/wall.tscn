@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://crqpc3ee76pef"]
+
+[ext_resource type="PackedScene" uid="uid://dryv8xfc6662h" path="res://scenes/environment/environmnet.tscn" id="1_t8knd"]
+
+[node name="wall" type="Node2D" unique_id=1312045032]
+
+[node name="environmnet" parent="." unique_id=2142600750 instance=ExtResource("1_t8knd")]
+position = Vector2(1, -8)
+
+[node name="environmnet2" parent="." unique_id=821437560 instance=ExtResource("1_t8knd")]
+position = Vector2(31, -8)
+
+[node name="environmnet3" parent="." unique_id=425405941 instance=ExtResource("1_t8knd")]
+position = Vector2(62, -8)
+
+[node name="environmnet4" parent="." unique_id=275376001 instance=ExtResource("1_t8knd")]
+position = Vector2(92, -8)
+
+[node name="environmnet5" parent="." unique_id=745116934 instance=ExtResource("1_t8knd")]
+position = Vector2(122, -7)
+
+[node name="environmnet6" parent="." unique_id=1597970555 instance=ExtResource("1_t8knd")]
+position = Vector2(152, -7)
+
+[node name="environmnet7" parent="." unique_id=1230284400 instance=ExtResource("1_t8knd")]
+position = Vector2(182, -7)
