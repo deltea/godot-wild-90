@@ -9,6 +9,8 @@ var attackRange = 60
 var speed = 200
 var mood = 0
 
+var attacking = false
+
 var idlePosition = Vector2.ZERO
 
 func _ready() -> void:
@@ -17,6 +19,14 @@ func _ready() -> void:
 	speed += randi_range(-10,10)
 var moodSwing
 func _physics_process(delta: float) -> void:
+	if !attacking:
+		if linear_velocity.length()>1:
+			$AnimationPlayer.play("walk")
+		else:
+			$AnimationPlayer.play("idle")
+	else:
+		$AnimationPlayer.play("bite")
+	
 	rotation = 0
 	var playerPos = RoomManager.current_room.get_node("Player").position
 	if state == "agro":
@@ -64,6 +74,7 @@ func stateUpdate() -> void:
 
 	if state == "attackInactive":
 		if moodSwing < 50:
+			attacking =true
 			attack()
 	elif state == "recovery":
 		if moodSwing < 50:
@@ -87,6 +98,7 @@ func stateUpdate() -> void:
 func attackOver() -> void:
 	linear_velocity = Vector2.ZERO
 	state="recover"
+	attacking=false
 
 func _on_body_entered(body: Node) -> void:
 	if body is Player and state == "attackActive":
