@@ -2,10 +2,15 @@
 
 [ext_resource type="Script" uid="uid://mudgnftdwdja" path="res://scenes/ui/upgrade-card/upgrade_card.gd" id="1_4nc74"]
 [ext_resource type="Texture2D" uid="uid://b8c7nwojwfvd8" path="res://assets/generic/9-rect.png" id="1_dvvti"]
+[ext_resource type="Texture2D" uid="uid://cvo0sgiikntfg" path="res://assets/upgrades/health.png" id="2_rvt4l"]
+[ext_resource type="Texture2D" uid="uid://bxtc5illu43wy" path="res://assets/generic/circle-big.png" id="3_a8aqt"]
 [ext_resource type="FontFile" uid="uid://ce3pxfpd38a3y" path="res://assets/fonts/monogram.ttf" id="3_jp4y4"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_4nc74"]
-font = ExtResource("3_jp4y4")
+[ext_resource type="Texture2D" uid="uid://b0fjfe6nt0lo8" path="res://assets/upgrades/dash.png" id="3_kawx0"]
+[ext_resource type="Texture2D" uid="uid://rw6xdn4d86cl" path="res://assets/upgrades/dash-speed.png" id="4_pomno"]
+[ext_resource type="Texture2D" uid="uid://cji07qxff22yy" path="res://assets/upgrades/attack-speed.png" id="5_y5gqa"]
+[ext_resource type="Texture2D" uid="uid://cc6p6t082a8en" path="res://assets/ui/border-2.png" id="6_pomno"]
+[ext_resource type="Texture2D" uid="uid://dpst5o6lgdqja" path="res://assets/ui/border-1.png" id="6_y5gqa"]
+[ext_resource type="Texture2D" uid="uid://bn8siqri4e6vf" path="res://assets/ui/border-3.png" id="7_y5gqa"]
 
 [node name="UpgradeCard" type="Control" unique_id=122037931]
 custom_minimum_size = Vector2(88, 120)
@@ -15,6 +20,13 @@ offset_right = 88.0
 offset_bottom = 120.0
 pivot_offset = Vector2(44, 60)
 script = ExtResource("1_4nc74")
+health_icon = ExtResource("2_rvt4l")
+speed_icon = ExtResource("3_kawx0")
+dash_speed_icon = ExtResource("4_pomno")
+attack_speed_icon = ExtResource("5_y5gqa")
+border_1 = ExtResource("6_y5gqa")
+border_2 = ExtResource("6_pomno")
+border_3 = ExtResource("7_y5gqa")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="." unique_id=1130804198]
 self_modulate = Color(0.2231029, 0.2231029, 0.22310287, 1)
@@ -35,13 +47,39 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="NinePatchRect/CenterContainer" unique_id=1490700207]
+[node name="HBoxContainer" type="VBoxContainer" parent="NinePatchRect/CenterContainer" unique_id=1769781262]
+custom_minimum_size = Vector2(80, 0)
 layout_mode = 2
+theme_override_constants/separation = 8
 
-[node name="Label" type="Label" parent="NinePatchRect/CenterContainer/HBoxContainer" unique_id=630579275]
+[node name="Icon" type="TextureRect" parent="NinePatchRect/CenterContainer/HBoxContainer" unique_id=1466559335]
 layout_mode = 2
+texture = ExtResource("3_a8aqt")
+stretch_mode = 3
+
+[node name="Label" type="RichTextLabel" parent="NinePatchRect/CenterContainer/HBoxContainer" unique_id=987815616]
+layout_mode = 2
+mouse_filter = 1
+theme_override_fonts/normal_font = ExtResource("3_jp4y4")
+bbcode_enabled = true
 text = "hey sup"
-label_settings = SubResource("LabelSettings_4nc74")
+fit_content = true
+horizontal_alignment = 1
 
+[node name="Border" type="NinePatchRect" parent="." unique_id=1698656419]
+layout_mode = 0
+offset_left = -2.0
+offset_top = -2.0
+offset_right = 90.0
+offset_bottom = 122.0
+texture = ExtResource("6_pomno")
+patch_margin_left = 26
+patch_margin_top = 26
+patch_margin_right = 26
+patch_margin_bottom = 26
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
