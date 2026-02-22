@@ -4,14 +4,14 @@ var state = "idle"
 var agroMove = "straight"
 
 var agroRange = 300
-var attackRange = 120
+@export var attackRange = 120
 
 var speed = 100
 var mood = 0
 
 var attacking = false
 
-var projScene = preload("res://scenes/enemies/golem/golem_projectile.tscn")
+@export var projScene = preload("res://scenes/enemies/golem/golem_projectile.tscn")
 
 
 var idlePosition = Vector2.ZERO

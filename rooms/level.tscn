@@ -10,13 +10,14 @@
 [ext_resource type="Texture2D" uid="uid://calyli6bepv51" path="res://assets/circle-512.png" id="6_ar4t0"]
 [ext_resource type="Shader" uid="uid://drufjya17nuu5" path="res://rooms/fractalNoise.gdshader" id="7_wrbck"]
 [ext_resource type="PackedScene" uid="uid://bcdrlg12rduqj" path="res://scenes/enemySpawner/enemy_spawner.tscn" id="9_knkn0"]
-[ext_resource type="Shader" uid="uid://b640okxl8hi36" path="res://shaders/clouds.gdshader" id="9_yhl0x"]
+[ext_resource type="Shader" path="res://shaders/clouds.gdshader" id="9_yhl0x"]
 [ext_resource type="PackedScene" uid="uid://dryv8xfc6662h" path="res://scenes/environment/environmnet.tscn" id="10_yhl0x"]
 [ext_resource type="PackedScene" uid="uid://f2q2chn51sf6" path="res://scenes/ui/upgrade-panel/upgrade_panel.tscn" id="12_at2w1"]
 [ext_resource type="PackedScene" uid="uid://dfgkhn235i5ww" path="res://scenes/enemies/golem/golem.tscn" id="13_wrbck"]
 [ext_resource type="PackedScene" uid="uid://cmgj4m5krm5nv" path="res://scenes/ui/death_panel/death_panel.tscn" id="14_4r1re"]
 [ext_resource type="AudioStream" uid="uid://blshcghew18y8" path="res://assets/mountainGameIceMusic.mp3" id="16_3r5wm"]
 [ext_resource type="PackedScene" uid="uid://crqpc3ee76pef" path="res://scenes/wall/wall.tscn" id="18_15qan"]
+[ext_resource type="PackedScene" uid="uid://bkrq08fnjlvkf" path="res://scenes/enemies/golem/mud.tscn" id="18_fei6a"]
 
 [sub_resource type="Shader" id="Shader_3qwok"]
 code = "shader_type canvas_item;
@@ -290,13 +291,24 @@ autostart = true
 wait_time = 2.0
 one_shot = true
 
-[node name="lionSpawner" parent="." unique_id=1692701726 instance=ExtResource("9_knkn0")]
+[node name="lionSpawnerMud" parent="." unique_id=1692701726 instance=ExtResource("9_knkn0")]
+maxElevation = 40
+
+[node name="lionSpawnerSnow" parent="." unique_id=578632663 instance=ExtResource("9_knkn0")]
+minElevation = 40
+maxElevation = 100
+frequency = 0.6
 
 [node name="yetiSpawner" parent="." unique_id=467619981 instance=ExtResource("9_knkn0")]
 minElevation = 40
 maxElevation = 100
-frequency = 0.2
+frequency = 0.3
 enemy = ExtResource("13_wrbck")
+
+[node name="mudSpawner" parent="." unique_id=2026940868 instance=ExtResource("9_knkn0")]
+maxElevation = 40
+frequency = 0.2
+enemy = ExtResource("18_fei6a")
 
 [node name="Background" type="Sprite2D" parent="." unique_id=585385898]
 z_index = -100

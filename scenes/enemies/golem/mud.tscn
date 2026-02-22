@@ -1,0 +1,128 @@
+[gd_scene format=3 uid="uid://bkrq08fnjlvkf"]
+
+[ext_resource type="PackedScene" uid="uid://dhd5p1lp3cmre" path="res://scenes/enemy/enemy.tscn" id="1_i5b0h"]
+[ext_resource type="Script" uid="uid://dh73incbfnk7a" path="res://scenes/enemies/golem/golem.gd" id="2_ilbmt"]
+[ext_resource type="Texture2D" uid="uid://calyli6bepv51" path="res://assets/circle-512.png" id="3_4m4wr"]
+[ext_resource type="PackedScene" uid="uid://7sho4aj03kja" path="res://scenes/enemies/golem/mudBall.tscn" id="3_ilbmt"]
+[ext_resource type="Texture2D" uid="uid://blw18u61xk0qy" path="res://assets/yeti_sheet.png" id="4_hh6xr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hmegc"]
+size = Vector2(28, 20)
+
+[sub_resource type="Animation" id="Animation_xkati"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [12]
+}
+
+[sub_resource type="Animation" id="Animation_xffb3"]
+resource_name = "idle"
+length = 1.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2015004, 0.3930478, 0.60587823, 1, 1.2051524),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [12, 13, 14, 15, 14, 13]
+}
+
+[sub_resource type="Animation" id="Animation_owpbd"]
+resource_name = "throw"
+length = 1.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.13333333, 0.26666668, 0.3990571, 0.53333336, 0.6666667, 0.8, 0.93333334),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [29, 28, 27, 26, 25, 24, 27, 28]
+}
+
+[sub_resource type="Animation" id="Animation_mso2a"]
+resource_name = "walk"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.19952855, 0.3963967, 0.5985856),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_mso2a"]
+_data = {
+&"RESET": SubResource("Animation_xkati"),
+&"idle": SubResource("Animation_xffb3"),
+&"throw": SubResource("Animation_owpbd"),
+&"walk": SubResource("Animation_mso2a")
+}
+
+[node name="golem" unique_id=544114418 instance=ExtResource("1_i5b0h")]
+mass = 2.0
+linear_damp = 4.0
+angular_damp = 100.0
+script = ExtResource("2_ilbmt")
+attackRange = 80
+projScene = ExtResource("3_ilbmt")
+
+[node name="Circle512" type="Sprite2D" parent="." index="0" unique_id=1750707966]
+modulate = Color(0.2627451, 0.19607843, 0.2627451, 0.53333336)
+position = Vector2(0.9999995, 6)
+scale = Vector2(0.06640625, 0.01953125)
+texture = ExtResource("3_4m4wr")
+
+[node name="CollisionShape2D" parent="." index="1" unique_id=1018922626]
+position = Vector2(1, -2)
+shape = SubResource("RectangleShape2D_hmegc")
+
+[node name="Sprite2D" parent="." index="2" unique_id=1780433657]
+modulate = Color(0.68992704, 0.36610854, 0.29248002, 1)
+position = Vector2(-7.1054274e-15, -11)
+scale = Vector2(0.625, 0.60312504)
+texture = ExtResource("4_hh6xr")
+hframes = 6
+vframes = 6
+frame = 12
+
+[node name="StateUpdate" type="Timer" parent="." index="3" unique_id=1914001966]
+wait_time = 0.5
+autostart = true
+
+[node name="attackTimer" type="Timer" parent="." index="4" unique_id=600731031]
+one_shot = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="5" unique_id=652599797]
+libraries/ = SubResource("AnimationLibrary_mso2a")
+
+[node name="ballTimer" type="Timer" parent="." index="6" unique_id=1693882980]
+wait_time = 0.5
+one_shot = true
+
+[connection signal="timeout" from="StateUpdate" to="." method="stateUpdate"]
+[connection signal="timeout" from="attackTimer" to="." method="attackOver"]
+[connection signal="timeout" from="ballTimer" to="." method="_on_ball_timer_timeout"]

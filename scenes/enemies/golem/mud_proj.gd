@@ -4,7 +4,7 @@ var playerDir = Vector2.ZERO
 var speed = 4
 var parabolicOffset = 0
 var t = 0
-@export var explosion = preload("res://scenes/particles/snowBall_particles.tscn")
+var explosion = preload("res://scenes/particles/enemy_explosion.tscn")
 # Called when the node enters the scene tree for the first time.
 func initializeVals():
 	playerDir = (RoomManager.current_room.get_node("Player").position-position).normalized()

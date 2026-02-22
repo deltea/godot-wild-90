@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://7sho4aj03kja"]
+
+[ext_resource type="Script" uid="uid://d3akbv4kik8tq" path="res://scenes/enemies/golem/golem_projectile.gd" id="1_007c8"]
+[ext_resource type="PackedScene" uid="uid://nkdjuba64lkt" path="res://scenes/particles/enemy_explosion.tscn" id="2_2k0ra"]
+[ext_resource type="Texture2D" uid="uid://calyli6bepv51" path="res://assets/circle-512.png" id="2_hffpe"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_yn6lt"]
+radius = 8.0
+
+[node name="golem projectile" type="Area2D" unique_id=395846012]
+scale = Vector2(0.7, 0.7)
+script = ExtResource("1_007c8")
+explosion = ExtResource("2_2k0ra")
+
+[node name="Timer" type="Timer" parent="." unique_id=1547973929]
+wait_time = 1.5
+autostart = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1554532505]
+shape = SubResource("CircleShape2D_yn6lt")
+
+[node name="Circle512" type="Sprite2D" parent="." unique_id=205561135]
+modulate = Color(0.39558816, 0.2463851, 0.09815083, 1)
+scale = Vector2(0.03, 0.03)
+texture = ExtResource("2_hffpe")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
