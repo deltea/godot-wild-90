@@ -270,8 +270,5 @@ visible = false
 [node name="DeathPanel" parent="." unique_id=1904925634 instance=ExtResource("14_4r1re")]
 visible = false
 
-[node name="golem" parent="." unique_id=544114418 instance=ExtResource("13_wrbck")]
-position = Vector2(-399, 176)
-
 [connection signal="timeout" from="Mountain/folliageCheck" to="Mountain" method="folliageCheck"]
 [connection signal="timeout" from="Mountain/weatherTransition" to="Mountain" method="_on_weather_transition_timeout"]
