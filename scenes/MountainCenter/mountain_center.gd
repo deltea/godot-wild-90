@@ -112,8 +112,8 @@ func _process(delta: float) -> void:
 	elevation = theta + (360 * fullRotations)
 	adjustedElevation = (elevation / (360.0 * maxRotations)) * 100.0
 	
-	if adjustedElevation == snowElevation:
-		if lastTheta < theta:
+	if adjustedElevation >= snowElevation:
+		if lastTheta < theta and !isSnow:
 			#start snowing
 			snow()
 	
