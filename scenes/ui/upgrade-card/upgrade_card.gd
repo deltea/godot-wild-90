@@ -1,12 +1,16 @@
 class_name UpgradeCard extends Control
 
-const attribute_names = ["health", "speed", "dash speed", "atk speed"]
+const attribute_names = ["max health", "speed", "dash speed", "atk speed", "health regen", "regen amt"]
 
 @export var float_speed = 2
+
 @export var health_icon: Texture2D
 @export var speed_icon: Texture2D
 @export var dash_speed_icon: Texture2D
 @export var attack_speed_icon: Texture2D
+@export var health_regen_icon: Texture2D
+@export var regen_amt_icon: Texture2D
+
 @export var border_1: Texture2D
 @export var border_2: Texture2D
 @export var border_3: Texture2D
@@ -36,6 +40,8 @@ func _ready() -> void:
 		1: icon.texture = speed_icon
 		2: icon.texture = dash_speed_icon
 		3: icon.texture = attack_speed_icon
+		4: icon.texture = health_regen_icon
+		5: icon.texture = regen_amt_icon
 
 func _process(dt: float) -> void:
 	var target_y = position.y

@@ -16,7 +16,7 @@ func create_cards():
 	for i in range(3):
 		var card = upgrade_card_scene.instantiate() as UpgradeCard
 		card.offset = i
-		card.attribute = randi_range(0, 3)
+		card.attribute = randi_range(0, 5)
 
 		var rand = randf()
 		if rand < 0.2:

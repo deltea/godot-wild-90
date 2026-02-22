@@ -9,7 +9,7 @@ var lookingRight = true
 var dashTime = 0
 var dashing = false
 var weaponDir = 1
-var health = 10
+var health = 100
 var maxHealth = 100
 var isInvincible = false
 var xp = 0
@@ -49,21 +49,28 @@ func levelUp(attribute,magnitude):
 	#5 = regenAmt
 	match attribute:
 		0:
+			print("max health up")
 			maxHealth += 6*magnitude
 			hpBar.max_value = maxHealth
 		1:
+			print("speed up")
 			speed += 2*magnitude
 			walkSpeed = speed
 			dashSpeed *= pow(0.95 , magnitude)
 		2:
+			print("dash speed up")
 			dashSpeed += 0.5 * magnitude
 		3:
+			print("attack speed up")
 			attackCDtime *= pow(0.95,magnitude)
 			$attack.wait_time = attackCDtime
 		4:
-			regenAmt+=0.002*magnitude
+			print("health up")
+			health += 0.05*maxHealth*magnitude
 		5:
-			heavySpeed+=0.5*magnitude
+			print("regen amt up")
+			regenAmt+=0.002*magnitude
+			# heavySpeed+=0.5*magnitude
 
 
 
