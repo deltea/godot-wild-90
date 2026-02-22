@@ -1,8 +1,10 @@
 class_name Player extends CharacterBody2D
 
-@export var speed = 20
+@export var walkSpeed = 20
+@export var heavySpeed = 4
 @export var dashSpeed = 2
 
+var speed = 20
 var lookingRight = true
 var dashTime = 0
 var dashing = false
@@ -56,6 +58,7 @@ func levelUp(attribute,magnitude):
 			$attack.wait_time = attackCDtime
 
 func _ready() -> void:
+	speed = walkSpeed
 	hpBar.value = maxHealth
 	xpBar.value = 0
 
@@ -71,9 +74,11 @@ func _process(dt: float) -> void:
 	if winding:
 		weaponPullback = (3.0-$heavy.time_left)*20*weaponDir
 	if Input.is_action_just_pressed("click") and !attackCD:
+		speed = heavySpeed
 		winding = true
 		$heavy.start()
 	if Input.is_action_just_released("click") and !attackCD:
+		speed = walkSpeed
 		winding = false
 		weaponPullback = 0
 		windUp = (3.0-$heavy.time_left)
