@@ -66,11 +66,8 @@ func knockback(force):
 func attack():
 	attacking=true
 	$attackTimer.start()
+	$ballTimer.start()
 	
-	var projectile = projScene.instantiate()
-	get_parent().add_child(projectile)
-	projectile.position = position
-	projectile.initializeVals()
 	
 	
 
@@ -110,3 +107,11 @@ func attackOver() -> void:
 	attacking=false
 	$AnimationPlayer.play("idle")
 	state="recover"
+	
+
+
+func _on_ball_timer_timeout() -> void:
+	var projectile = projScene.instantiate()
+	get_parent().add_child(projectile)
+	projectile.position = position
+	projectile.initializeVals()

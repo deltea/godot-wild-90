@@ -115,5 +115,10 @@ one_shot = true
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="5" unique_id=652599797]
 libraries/ = SubResource("AnimationLibrary_mso2a")
 
+[node name="ballTimer" type="Timer" parent="." index="6" unique_id=1693882980]
+wait_time = 0.5
+one_shot = true
+
 [connection signal="timeout" from="StateUpdate" to="." method="stateUpdate"]
 [connection signal="timeout" from="attackTimer" to="." method="attackOver"]
+[connection signal="timeout" from="ballTimer" to="." method="_on_ball_timer_timeout"]
