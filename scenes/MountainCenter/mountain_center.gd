@@ -18,6 +18,9 @@ var folliage = preload("res://scenes/folliage/folliage.tscn")
 var folliageList = []
 var recordTheta = 0
 
+var snowElevation = 50
+var startedSnow = false
+
 func _ready() -> void:
 	player = RoomManager.current_room.player
 
@@ -69,6 +72,10 @@ func environmentalUpdate():
 		if difference > 150:
 			env.updateSprite(false)
 
+func snow():
+	print("snow")
+	$Outer.material.set_shader_parameter("innerColor", Color.WHITE)
+
 func _process(delta: float) -> void:
 	#print(theta)
 	var dx = player.position.x - position.x
@@ -79,9 +86,11 @@ func _process(delta: float) -> void:
 
 
 	theta = int(rad_to_deg(-atan2(dy, dx)) + 180)
-
-
-
+	
+	if elevation == snowElevation:
+		if lastTheta < theta:
+			#start snowing
+			snow()
 
 	if theta < 10 and (lastTheta > 180):
 		fullRotations += 1
