@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://dhd5p1lp3cmre" path="res://scenes/enemy/enemy.tscn" id="1_pqlb4"]
 [ext_resource type="Script" uid="uid://dh73incbfnk7a" path="res://scenes/enemies/golem/golem.gd" id="2_xkati"]
+[ext_resource type="Texture2D" uid="uid://calyli6bepv51" path="res://assets/circle-512.png" id="3_xffb3"]
 [ext_resource type="Texture2D" uid="uid://blw18u61xk0qy" path="res://assets/yeti_sheet.png" id="3_xkati"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hmegc"]
@@ -86,11 +87,17 @@ linear_damp = 4.0
 angular_damp = 100.0
 script = ExtResource("2_xkati")
 
-[node name="CollisionShape2D" parent="." index="0" unique_id=1018922626]
+[node name="Circle512" type="Sprite2D" parent="." index="0" unique_id=1750707966]
+modulate = Color(0.2627451, 0.19607843, 0.2627451, 0.53333336)
+position = Vector2(1, 7)
+scale = Vector2(0.1, 0.0234375)
+texture = ExtResource("3_xffb3")
+
+[node name="CollisionShape2D" parent="." index="1" unique_id=1018922626]
 position = Vector2(1, -2)
 shape = SubResource("RectangleShape2D_hmegc")
 
-[node name="Sprite2D" parent="." index="1" unique_id=1780433657]
+[node name="Sprite2D" parent="." index="2" unique_id=1780433657]
 position = Vector2(5.9604645e-08, -18)
 scale = Vector2(0.8, 0.8)
 texture = ExtResource("3_xkati")
@@ -98,14 +105,14 @@ hframes = 6
 vframes = 6
 frame = 12
 
-[node name="StateUpdate" type="Timer" parent="." index="2" unique_id=1914001966]
+[node name="StateUpdate" type="Timer" parent="." index="3" unique_id=1914001966]
 wait_time = 0.5
 autostart = true
 
-[node name="attackTimer" type="Timer" parent="." index="3" unique_id=600731031]
+[node name="attackTimer" type="Timer" parent="." index="4" unique_id=600731031]
 one_shot = true
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="4" unique_id=652599797]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="5" unique_id=652599797]
 libraries/ = SubResource("AnimationLibrary_mso2a")
 
 [connection signal="timeout" from="StateUpdate" to="." method="stateUpdate"]
