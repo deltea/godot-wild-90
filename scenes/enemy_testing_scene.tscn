@@ -1,24 +1,16 @@
 [gd_scene format=3 uid="uid://bfw17kochceqg"]
 
 [ext_resource type="Script" uid="uid://chcyns7jlpwto" path="res://scripts/level.gd" id="1_0fqcd"]
-[ext_resource type="PackedScene" uid="uid://dkxwnjdaghed1" path="res://scenes/enemies/mountainLion/mountainLion.tscn" id="2_0fqcd"]
 [ext_resource type="PackedScene" uid="uid://dxa2q2it134ps" path="res://scenes/player/player.tscn" id="2_3teur"]
+[ext_resource type="PackedScene" uid="uid://dfgkhn235i5ww" path="res://scenes/enemies/golem/golem.tscn" id="4_0fqcd"]
 [ext_resource type="PackedScene" uid="uid://14eq36mrlu5n" path="res://scenes/camera/camera.tscn" id="4_t1ofk"]
 
 [node name="enemyTestingScene" type="Node2D" unique_id=339533915]
 script = ExtResource("1_0fqcd")
 
-[node name="mountain lion4" parent="." unique_id=544114418 instance=ExtResource("2_0fqcd")]
-position = Vector2(-71, 0)
-
-[node name="mountain lion3" parent="." unique_id=358046359 instance=ExtResource("2_0fqcd")]
-position = Vector2(-48, -32)
-
-[node name="mountain lion2" parent="." unique_id=1947785984 instance=ExtResource("2_0fqcd")]
-
-[node name="mountain lion" parent="." unique_id=1617925880 instance=ExtResource("2_0fqcd")]
-position = Vector2(-9, -37)
-
 [node name="Player" parent="." unique_id=333898608 instance=ExtResource("2_3teur")]
 
 [node name="Camera" parent="." unique_id=1004403640 instance=ExtResource("4_t1ofk")]
+
+[node name="mountain lion" parent="." unique_id=544114418 instance=ExtResource("4_0fqcd")]
+position = Vector2(-39, -3)
