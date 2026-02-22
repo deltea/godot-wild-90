@@ -105,8 +105,11 @@ func takeDamage(damage):
 	hpBar.value = health
 	if health <= 0:
 		die()
+	else:
+		AudioManager.play_sound(AudioManager.hurt, 0.2)
 
 func die():
+	AudioManager.play_sound(AudioManager.death, 0.2)
 	RoomManager.current_room.death_panel.death()
 
 func _physics_process(delta: float) -> void:
@@ -157,6 +160,7 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 func start_dash():
+	AudioManager.play_sound(AudioManager.dash, 0.2)
 	dashing = true
 	isInvincible = true
 	spriteScaleDynamics.set_value(Vector2(1.5, 0.5))
@@ -164,6 +168,9 @@ func start_dash():
 func attack(damage):
 	var hitEnemy=false
 	var collisions = hitArea.get_overlapping_bodies()
+	if !secondhit:
+		AudioManager.play_sound(AudioManager.attack, 0.2)
+
 	for body in collisions:
 		if not body is Enemy:continue
 		var dist = body.position.distance_to(weaponSprite.global_position)
@@ -181,6 +188,7 @@ func attack(damage):
 		secondhit=true
 
 func _on_collect_area_area_entered(area: Area2D) -> void:
+	AudioManager.play_sound(AudioManager.xp, 0.2)
 	if area is XP:
 		xp+=10
 		if xp>maxXp:
