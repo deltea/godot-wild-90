@@ -18,7 +18,7 @@ var folliage = preload("res://scenes/folliage/folliage.tscn")
 var folliageList = []
 var recordTheta = 0
 
-var snowElevation = 50
+var snowElevation = 1500
 var startedSnow = false
 var isSnow = false
 #transitioning to snow
@@ -84,7 +84,6 @@ func snow():
 	snowing=true
 
 func _process(delta: float) -> void:
-	print(isSnow)
 	var dx = player.position.x - position.x
 	var dy = player.position.y - position.y
 
