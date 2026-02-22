@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bc5yda7m85tvb"
-path="res://.godot/imported/folliage.png-f819cfe905301277da9745816ee10390.ctex"
+uid="uid://dhg6prd7le8cl"
+path="res://.godot/imported/foliege.png-272fd563e5c818f93eb86cf7b1a5932e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/folliage.png"
-dest_files=["res://.godot/imported/folliage.png-f819cfe905301277da9745816ee10390.ctex"]
+source_file="res://assets/foliege.png"
+dest_files=["res://.godot/imported/foliege.png-272fd563e5c818f93eb86cf7b1a5932e.ctex"]
 
 [params]
 

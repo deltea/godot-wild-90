@@ -29,7 +29,7 @@ func spawnFolliage(num, angle):
 	for i in range(num):
 		var r = 360
 		var oppositeAngle = deg_to_rad(-(angle))
-		var color = Color.DARK_SEA_GREEN
+		var color = Color(0.649, 0.873, 0.657, 1.0)
 		var newPlant = folliage.instantiate()
 
 		get_parent().get_node("folliageContainer").add_child(newPlant)
@@ -37,7 +37,7 @@ func spawnFolliage(num, angle):
 		#randomize
 		r += randf_range(-80,100)
 		oppositeAngle += randf_range(-0.15,0.15)
-		newPlant.frame = randi_range(0,1)
+		newPlant.frame = randi_range(0,3)
 		color.r += randf_range(-0.2,0.2)
 
 		r*=scaleMod

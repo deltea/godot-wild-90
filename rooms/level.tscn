@@ -148,31 +148,72 @@ texture = ExtResource("5_ianyd")
 [node name="environmentContainer" type="Node2D" parent="." unique_id=1044562850]
 
 [node name="environmnet2" parent="environmentContainer" unique_id=1589049602 instance=ExtResource("10_yhl0x")]
-position = Vector2(-453, 212)
+position = Vector2(-427, 205)
+scale = Vector2(0.91488785, 0.94003767)
 
 [node name="environmnet" parent="environmentContainer" unique_id=2142600750 instance=ExtResource("10_yhl0x")]
-position = Vector2(-486, 94)
+position = Vector2(-467, 87)
+scale = Vector2(0.91488785, 0.94003767)
 
 [node name="environmnet3" parent="environmentContainer" unique_id=1177779893 instance=ExtResource("10_yhl0x")]
-position = Vector2(-130, 478)
+position = Vector2(-110, 469)
+scale = Vector2(0.91488785, 0.94003767)
 
 [node name="environmnet4" parent="environmentContainer" unique_id=464561450 instance=ExtResource("10_yhl0x")]
-position = Vector2(432, 238)
+position = Vector2(449, 230)
+scale = Vector2(0.91488785, 0.94003767)
 
 [node name="environmnet5" parent="environmentContainer" unique_id=1776886439 instance=ExtResource("10_yhl0x")]
-position = Vector2(457, -205)
+position = Vector2(471, -210)
+scale = Vector2(0.91488785, 0.94003767)
 
 [node name="environmnet6" parent="environmentContainer" unique_id=178727794 instance=ExtResource("10_yhl0x")]
-position = Vector2(237, -440)
+position = Vector2(256, -447)
+scale = Vector2(0.91488785, 0.94003767)
 
 [node name="environmnet7" parent="environmentContainer" unique_id=2032098308 instance=ExtResource("10_yhl0x")]
-position = Vector2(-59, -497)
+position = Vector2(-40, -504)
+scale = Vector2(0.91488785, 0.94003767)
 
 [node name="environmnet8" parent="environmentContainer" unique_id=1320824817 instance=ExtResource("10_yhl0x")]
-position = Vector2(-294, -404)
+position = Vector2(-275, -411)
+scale = Vector2(0.91488785, 0.94003767)
 
 [node name="environmnet9" parent="environmentContainer" unique_id=797053587 instance=ExtResource("10_yhl0x")]
-position = Vector2(-454, -209)
+position = Vector2(-430, -216)
+scale = Vector2(0.91488785, 0.94003767)
+
+[node name="environmnet10" parent="environmentContainer" unique_id=320818381 instance=ExtResource("10_yhl0x")]
+position = Vector2(-471, -68)
+scale = Vector2(0.91488785, 0.94003767)
+
+[node name="environmnet11" parent="environmentContainer" unique_id=1531749938 instance=ExtResource("10_yhl0x")]
+position = Vector2(-360, 307)
+scale = Vector2(0.91488785, 0.94003767)
+
+[node name="environmnet12" parent="environmentContainer" unique_id=1573242158 instance=ExtResource("10_yhl0x")]
+position = Vector2(92, 474)
+scale = Vector2(0.91488785, 0.94003767)
+
+[node name="environmnet13" parent="environmentContainer" unique_id=1938669456 instance=ExtResource("10_yhl0x")]
+position = Vector2(344, 359)
+scale = Vector2(0.91488785, 0.94003767)
+
+[node name="environmnet14" parent="environmentContainer" unique_id=697212563 instance=ExtResource("10_yhl0x")]
+position = Vector2(493, 99)
+scale = Vector2(0.91488785, 0.94003767)
+
+[node name="environmnet15" parent="environmentContainer" unique_id=1552921272 instance=ExtResource("10_yhl0x")]
+position = Vector2(502, -73)
+scale = Vector2(0.91488785, 0.94003767)
+
+[node name="environmnet16" parent="environmentContainer" unique_id=642140035 instance=ExtResource("10_yhl0x")]
+position = Vector2(405, -312)
+scale = Vector2(0.91488785, 0.94003767)
+
+[node name="environmnet17" parent="environmentContainer" unique_id=365279508 instance=ExtResource("10_yhl0x")]
+position = Vector2(113, -482)
+scale = Vector2(0.91488785, 0.94003767)
 
 [node name="mountain lion" parent="." unique_id=544114418 instance=ExtResource("8_ianyd")]
 position = Vector2(-414, 0)
