@@ -61,6 +61,7 @@ func _ready() -> void:
 
 var weaponPullback = 0
 var winding = false
+var windUp = 0
 func _process(dt: float) -> void:
 	
 	var dir = (get_global_mouse_position() - position).normalized()
@@ -75,7 +76,7 @@ func _process(dt: float) -> void:
 	if Input.is_action_just_released("click") and !attackCD:
 		winding = false
 		weaponPullback = 0
-		var windUp = (3.0-$heavy.time_left)
+		windUp = (3.0-$heavy.time_left)
 		var dirAngle = (atan2(get_global_mouse_position().y-position.y,get_global_mouse_position().x-position.x))
 		var dirVector = Vector2(cos(dirAngle),sin(dirAngle))
 		
@@ -90,7 +91,7 @@ func _process(dt: float) -> void:
 		attacking = true
 		attackCD = true
 		
-		attack()
+		attack(int(1+windUp))
 
 func takeDamage(damage):
 	if isInvincible:
@@ -150,7 +151,7 @@ func start_dash():
 	isInvincible = true
 	spriteScaleDynamics.set_value(Vector2(1.5, 0.5))
 
-func attack():
+func attack(damage):
 	var hitEnemy=false
 	var collisions = hitArea.get_overlapping_bodies()
 	for body in collisions:
@@ -164,7 +165,7 @@ func attack():
 		RoomManager.current_room.camera.jerk_direction(position - get_global_mouse_position(), 5.0)
 		RoomManager.current_room.camera.tilt_impact()
 		body.knockback((body.position - global_position).normalized() * 200)
-		body.take_damage(1)
+		body.take_damage(damage)
 		hitEnemy=true
 	if !hitEnemy:
 		secondhit=true
@@ -188,6 +189,6 @@ func _on_attack_timeout() -> void:
 func _on_swing_timeout() -> void:
 	attacking=false
 	if secondhit:
-		attack()
+		attack(1+windUp)
 		secondhit=false
 	$Anchor/HitArea.visible=false
