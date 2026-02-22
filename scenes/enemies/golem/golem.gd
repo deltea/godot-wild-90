@@ -11,6 +11,8 @@ var mood = 0
 
 var attacking = false
 
+var projScene = preload("res://scenes/enemies/golem/golem_projectile.tscn")
+
 
 var idlePosition = Vector2.ZERO
 
@@ -64,6 +66,12 @@ func knockback(force):
 func attack():
 	attacking=true
 	$attackTimer.start()
+	
+	var projectile = projScene.instantiate()
+	get_parent().add_child(projectile)
+	projectile.position = position
+	
+	
 
 func stateUpdate() -> void:
 	moodSwing = randi_range(0,100+mood)
