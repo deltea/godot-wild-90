@@ -18,7 +18,7 @@ var folliage = preload("res://scenes/folliage/folliage.tscn")
 var folliageList = []
 var recordTheta = 0
 
-var snowElevation = 5
+var snowElevation = 40
 var startedSnow = false
 var isSnow = false
 #transitioning to snow
@@ -131,8 +131,9 @@ func _process(delta: float) -> void:
 
 
 func folliageCheck() -> void:
-	if abs(recordTheta-theta)>3 and !isSnow:
-		spawnFolliage(10,theta)
+	if abs(recordTheta-theta)>3:
+		if !isSnow:
+			spawnFolliage(10,theta)
 		environmentalUpdate()
 	recordTheta=theta
 

@@ -4,7 +4,7 @@ var startVector
 var startDist
 var mountain
 
-var snowSheet = "res://assets/treesnow.png"
+var snowSheet = preload("res://assets/treesnow.png")
 func _ready() -> void:
 	mountain = get_parent().get_parent().get_node("Mountain")
 	startDist = position.distance_to(mountain.position)
@@ -18,6 +18,7 @@ func _process(delta: float) -> void:
 		
 	
 func updateSprite(snow):
+	print(snow)
 	if !snow:
 		$sprite.frame = randi_range(0,4)
 	else:
