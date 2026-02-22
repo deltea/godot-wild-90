@@ -70,7 +70,7 @@ vec4 shade(float degree){
 }
 
 float pattern(vec2 uv){
-	return perlinNoise(uv + perlinNoise(uv+perlinNoise(uv-iTime)) + iTime*moveSpeed)/(1.0);
+	return perlinNoise(uv + perlinNoise(uv+perlinNoise(uv-iTime+1.0)-0.0) + iTime*moveSpeed)/(1.0);
 }
 
 void fragment()

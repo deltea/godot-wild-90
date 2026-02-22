@@ -25,7 +25,7 @@ shader_parameter/scale = 20.0
 shader_parameter/timeMod = 0.0
 shader_parameter/pixelation = 0.3
 shader_parameter/bold = 2.0
-shader_parameter/sharp = 2.0
+shader_parameter/sharp = 4.0
 shader_parameter/moveSpeed = 1.0
 shader_parameter/focusPoint = Vector2(0.5, 0.5)
 
