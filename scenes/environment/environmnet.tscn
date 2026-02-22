@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dryv8xfc6662h"]
 
 [ext_resource type="Script" uid="uid://dsdur1qa662fa" path="res://scenes/environment/environmnet.gd" id="1_ng7c6"]
+[ext_resource type="Texture2D" uid="uid://calyli6bepv51" path="res://assets/circle-512.png" id="2_286q0"]
 [ext_resource type="Texture2D" uid="uid://c8g086mjugpkx" path="res://assets/treenorm.png" id="2_u17xs"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xc2yt"]
@@ -8,6 +9,12 @@ size = Vector2(23, 25)
 
 [node name="environmnet" type="StaticBody2D" unique_id=2142600750]
 script = ExtResource("1_ng7c6")
+
+[node name="Circle512" type="Sprite2D" parent="." unique_id=1883113974]
+modulate = Color(0.25603372, 0.121410824, 0.15522602, 0.5176471)
+position = Vector2(-5.684342e-14, 8)
+scale = Vector2(0.058593743, 0.029296873)
+texture = ExtResource("2_286q0")
 
 [node name="sprite" type="Sprite2D" parent="." unique_id=887180196]
 position = Vector2(0, -21)
