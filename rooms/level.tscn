@@ -11,6 +11,7 @@
 [ext_resource type="Shader" uid="uid://drufjya17nuu5" path="res://rooms/fractalNoise.gdshader" id="7_wrbck"]
 [ext_resource type="PackedScene" uid="uid://bcdrlg12rduqj" path="res://scenes/enemySpawner/enemy_spawner.tscn" id="9_knkn0"]
 [ext_resource type="Shader" path="res://shaders/clouds.gdshader" id="9_yhl0x"]
+[ext_resource type="PackedScene" uid="uid://dryv8xfc6662h" path="res://scenes/environment/environmnet.tscn" id="10_yhl0x"]
 [ext_resource type="PackedScene" uid="uid://f2q2chn51sf6" path="res://scenes/ui/upgrade-panel/upgrade_panel.tscn" id="12_at2w1"]
 [ext_resource type="PackedScene" uid="uid://dfgkhn235i5ww" path="res://scenes/enemies/golem/golem.tscn" id="13_wrbck"]
 [ext_resource type="PackedScene" uid="uid://cmgj4m5krm5nv" path="res://scenes/ui/death_panel/death_panel.tscn" id="14_4r1re"]
@@ -172,6 +173,90 @@ scale = Vector2(3222, 3162)
 texture = ExtResource("5_ianyd")
 
 [node name="environmentContainer" type="Node2D" parent="." unique_id=1044562850]
+
+[node name="environmnet" parent="environmentContainer" unique_id=2142600750 instance=ExtResource("10_yhl0x")]
+position = Vector2(-462, 147)
+
+[node name="environmnet2" parent="environmentContainer" unique_id=1677281083 instance=ExtResource("10_yhl0x")]
+position = Vector2(-406, 249)
+
+[node name="environmnet3" parent="environmentContainer" unique_id=1215789064 instance=ExtResource("10_yhl0x")]
+position = Vector2(-346, 332)
+
+[node name="environmnet4" parent="environmentContainer" unique_id=591734011 instance=ExtResource("10_yhl0x")]
+position = Vector2(-253, 400)
+
+[node name="environmnet5" parent="environmentContainer" unique_id=1575658271 instance=ExtResource("10_yhl0x")]
+position = Vector2(-164, 457)
+
+[node name="environmnet6" parent="environmentContainer" unique_id=633585253 instance=ExtResource("10_yhl0x")]
+position = Vector2(-62, 481)
+
+[node name="environmnet7" parent="environmentContainer" unique_id=1619956167 instance=ExtResource("10_yhl0x")]
+position = Vector2(30, 486)
+
+[node name="environmnet8" parent="environmentContainer" unique_id=2081913878 instance=ExtResource("10_yhl0x")]
+position = Vector2(140, 467)
+
+[node name="environmnet9" parent="environmentContainer" unique_id=1066600841 instance=ExtResource("10_yhl0x")]
+position = Vector2(232, 422)
+
+[node name="environmnet10" parent="environmentContainer" unique_id=1787846234 instance=ExtResource("10_yhl0x")]
+position = Vector2(317, 353)
+
+[node name="environmnet11" parent="environmentContainer" unique_id=1807743751 instance=ExtResource("10_yhl0x")]
+position = Vector2(394, 274)
+
+[node name="environmnet12" parent="environmentContainer" unique_id=528720432 instance=ExtResource("10_yhl0x")]
+position = Vector2(445, 172)
+
+[node name="environmnet13" parent="environmentContainer" unique_id=297470389 instance=ExtResource("10_yhl0x")]
+position = Vector2(476, 58)
+
+[node name="environmnet14" parent="environmentContainer" unique_id=1125967331 instance=ExtResource("10_yhl0x")]
+position = Vector2(477, -64)
+
+[node name="environmnet15" parent="environmentContainer" unique_id=903620469 instance=ExtResource("10_yhl0x")]
+position = Vector2(452, -173)
+
+[node name="environmnet16" parent="environmentContainer" unique_id=889462938 instance=ExtResource("10_yhl0x")]
+position = Vector2(403, -273)
+
+[node name="environmnet17" parent="environmentContainer" unique_id=1690951164 instance=ExtResource("10_yhl0x")]
+position = Vector2(292, -387)
+
+[node name="environmnet18" parent="environmentContainer" unique_id=1115166221 instance=ExtResource("10_yhl0x")]
+position = Vector2(189, -452)
+
+[node name="environmnet19" parent="environmentContainer" unique_id=719963243 instance=ExtResource("10_yhl0x")]
+position = Vector2(67, -488)
+
+[node name="environmnet20" parent="environmentContainer" unique_id=2114792144 instance=ExtResource("10_yhl0x")]
+position = Vector2(-48, -486)
+
+[node name="environmnet21" parent="environmentContainer" unique_id=1563458905 instance=ExtResource("10_yhl0x")]
+position = Vector2(-170, -459)
+
+[node name="environmnet22" parent="environmentContainer" unique_id=2064396329 instance=ExtResource("10_yhl0x")]
+position = Vector2(-264, -415)
+
+[node name="environmnet23" parent="environmentContainer" unique_id=145903842 instance=ExtResource("10_yhl0x")]
+position = Vector2(-329, -360)
+
+[node name="environmnet24" parent="environmentContainer" unique_id=556521802 instance=ExtResource("10_yhl0x")]
+position = Vector2(-386, -294)
+
+[node name="environmnet25" parent="environmentContainer" unique_id=1140116858 instance=ExtResource("10_yhl0x")]
+position = Vector2(-447, -196)
+
+[node name="environmnet26" parent="environmentContainer" unique_id=777741702 instance=ExtResource("10_yhl0x")]
+position = Vector2(-478, -103)
+
+[node name="environmnet27" parent="environmentContainer" unique_id=1590671338 instance=ExtResource("10_yhl0x")]
+position = Vector2(-485, -14)
+
+[node name="environmnet28" parent="environmentContainer" unique_id=148047322 instance=ExtResource("10_yhl0x")]
+position = Vector2(-477, 71)
 
 [node name="UpgradePanel" parent="." unique_id=1901511673 instance=ExtResource("12_at2w1")]
 visible = false

@@ -9,7 +9,7 @@ func _ready() -> void:
 	startVector = (position-mountain.position).normalized()
 	position = Vector2.ZERO
 	$sprite.frame = randi_range(0,4)
-	scale *= randf_range(1,2)
+	scale *= randf_range(0.8,1.5)
 
 func _process(delta: float) -> void:
 	position = startVector*startDist*mountain.scaleMod
