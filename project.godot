@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="godot wild #90"
-run/main_scene="uid://cvsqkc2dey18k"
+run/main_scene="uid://bt15g0e8lpja4"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 boot_splash/bg_color=Color(0.5254902, 0.6509804, 0.6745098, 1)
 boot_splash/show_image=false
