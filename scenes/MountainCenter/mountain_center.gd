@@ -18,7 +18,7 @@ var folliage = preload("res://scenes/folliage/folliage.tscn")
 var folliageList = []
 var recordTheta = 0
 
-var snowElevation = 1500
+var snowElevation = 5
 var startedSnow = false
 var isSnow = false
 #transitioning to snow
@@ -83,6 +83,7 @@ func snow():
 	print(startCol.r)
 	snowing=true
 
+var adjustedElevation
 func _process(delta: float) -> void:
 	var dx = player.position.x - position.x
 	var dy = player.position.y - position.y
@@ -101,10 +102,7 @@ func _process(delta: float) -> void:
 
 	theta = int(rad_to_deg(-atan2(dy, dx)) + 180)
 	
-	if elevation == snowElevation:
-		if lastTheta < theta:
-			#start snowing
-			snow()
+	
 
 	if theta < 10 and (lastTheta > 180):
 		fullRotations += 1
@@ -112,7 +110,13 @@ func _process(delta: float) -> void:
 		fullRotations -= 1
 
 	elevation = theta + (360 * fullRotations)
-	var adjustedElevation = (elevation / (360.0 * maxRotations)) * 100.0
+	adjustedElevation = (elevation / (360.0 * maxRotations)) * 100.0
+	
+	if adjustedElevation == snowElevation:
+		if lastTheta < theta:
+			#start snowing
+			snow()
+	
 	elevationBar.value = adjustedElevation
 
 	scaleMod = 	(2.0-(adjustedElevation/100.0))/2
