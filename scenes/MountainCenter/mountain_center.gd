@@ -84,7 +84,7 @@ func snow():
 	snowing=true
 
 func _process(delta: float) -> void:
-	#print(theta)
+	print(isSnow)
 	var dx = player.position.x - position.x
 	var dy = player.position.y - position.y
 
@@ -117,7 +117,7 @@ func _process(delta: float) -> void:
 
 
 func folliageCheck() -> void:
-	if abs(recordTheta-theta)>3 and !snowing:
+	if abs(recordTheta-theta)>3 and !isSnow:
 		spawnFolliage(10,theta)
 		environmentalUpdate()
 	recordTheta=theta
