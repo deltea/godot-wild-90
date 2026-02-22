@@ -31,6 +31,9 @@ bg_color = Color(0.30588236, 0.003921569, 0, 0.48235294)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p47bc"]
 bg_color = Color(0.9831762, 0.33033976, 0.49602127, 1)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qek5x"]
+bg_color = Color(0.2702219, 0.27022195, 0.27022177, 0.23921569)
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0owmy"]
 bg_color = Color(0.19789785, 0.63007766, 0.9354007, 1)
 
@@ -166,6 +169,7 @@ offset_left = 1.0
 offset_top = 223.0
 offset_right = 158.0
 offset_bottom = 239.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_qek5x")
 
 [node name="xpBar" type="ProgressBar" parent="CanvasLayer/Panel" unique_id=1799636186]
 layout_mode = 0
