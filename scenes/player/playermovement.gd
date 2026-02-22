@@ -47,13 +47,15 @@ func levelUp(attribute,magnitude):
 	#3 = attackCooldown
 	#4 = healthRegen
 	#5 = regenAmt
+	magnitude*=.5
 	match attribute:
 		0:
 			maxHealth += 10*magnitude
 			hpBar.max_value = maxHealth
 		1:
-			speed += 4*magnitude
-			dashSpeed *= 0.99 * magnitude
+			speed += 3*magnitude
+			walkSpeed = speed
+			dashSpeed *= pow(0.95 , magnitude)
 		2:
 			dashSpeed += 0.6 * magnitude
 		3:
