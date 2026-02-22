@@ -9,6 +9,8 @@ var attackRange = 120
 var speed = 100
 var mood = 0
 
+var attacking = false
+
 
 var idlePosition = Vector2.ZERO
 
@@ -23,6 +25,13 @@ func _physics_process(delta: float) -> void:
 			$Sprite2D.flip_h = true
 		else:
 			$Sprite2D.flip_h = false
+	if !attacking:
+		if linear_velocity.length() > 1:
+			$AnimationPlayer.play("walk")
+		else:
+			$AnimationPlayer.play("idle")
+	else:
+		$AnimationPlayer.play("throw")
 	
 	rotation = 0
 	var playerPos = RoomManager.current_room.get_node("Player").position
@@ -53,6 +62,7 @@ func knockback(force):
 
 
 func attack():
+	attacking=true
 	$attackTimer.start()
 
 func stateUpdate() -> void:
@@ -66,7 +76,7 @@ func stateUpdate() -> void:
 			agroMove = "straight"
 
 	if state == "attack":
-		if moodSwing < 50:
+		if moodSwing < 20:
 			
 			attack()
 	elif state == "recovery":
@@ -88,4 +98,6 @@ func stateUpdate() -> void:
 
 
 func attackOver() -> void:
+	attacking=false
+	$AnimationPlayer.play("idle")
 	state="recover"

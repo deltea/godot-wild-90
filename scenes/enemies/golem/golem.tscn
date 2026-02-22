@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://blw18u61xk0qy" path="res://assets/yeti_sheet.png" id="3_xkati"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hmegc"]
-size = Vector2(46, 20)
+size = Vector2(36, 20)
 
 [sub_resource type="Animation" id="Animation_xkati"]
 length = 0.001
@@ -91,7 +91,8 @@ position = Vector2(1, -2)
 shape = SubResource("RectangleShape2D_hmegc")
 
 [node name="Sprite2D" parent="." index="1" unique_id=1780433657]
-position = Vector2(1, -24)
+position = Vector2(5.9604645e-08, -18)
+scale = Vector2(0.8, 0.8)
 texture = ExtResource("3_xkati")
 hframes = 6
 vframes = 6
@@ -102,7 +103,6 @@ wait_time = 0.5
 autostart = true
 
 [node name="attackTimer" type="Timer" parent="." index="3" unique_id=600731031]
-wait_time = 0.5
 one_shot = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="4" unique_id=652599797]
