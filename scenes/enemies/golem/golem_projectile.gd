@@ -1,4 +1,4 @@
-extends Node2D
+class_name Projectile extends Area2D
 
 
 # Called when the node enters the scene tree for the first time.
@@ -13,9 +13,3 @@ func _process(delta: float) -> void:
 
 func _on_timer_timeout() -> void:
 	pass # Replace with function body.
-
-
-func _on_projectile_body_entered(body: Node2D) -> void:
-	if body is Player:
-		body.takeDamage(1)
-		queue_free()

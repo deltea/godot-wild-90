@@ -6,19 +6,16 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_yn6lt"]
 radius = 13.0
 
-[node name="golem projectile" type="Node2D" unique_id=1347694980]
+[node name="golem projectile" type="Area2D" unique_id=395846012]
 script = ExtResource("1_uw1q5")
 
 [node name="Timer" type="Timer" parent="." unique_id=1547973929]
 
-[node name="projectile" type="Area2D" parent="." unique_id=1021282760]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="projectile" unique_id=1554532505]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1554532505]
 shape = SubResource("CircleShape2D_yn6lt")
 
-[node name="Circle512" type="Sprite2D" parent="projectile" unique_id=205561135]
+[node name="Circle512" type="Sprite2D" parent="." unique_id=205561135]
 scale = Vector2(0.05, 0.05)
 texture = ExtResource("2_dsmd7")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
-[connection signal="body_entered" from="projectile" to="." method="_on_projectile_body_entered"]
