@@ -1,9 +1,19 @@
 [gd_scene format=3 uid="uid://bt15g0e8lpja4"]
 
 [ext_resource type="Shader" uid="uid://c2r6bqsdgdb8g" path="res://scenes/mainMenu/background.gdshader" id="1_8jkg5"]
+[ext_resource type="Script" uid="uid://dgrr4yfxs6xd6" path="res://scenes/mainMenu/backgkround.gd" id="2_0ma31"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0ma31"]
 shader = ExtResource("1_8jkg5")
+shader_parameter/innerColor = Color(0.52817667, 0.60508186, 0.62947136, 1)
+shader_parameter/outerColor = Color(1, 1, 1, 1)
+shader_parameter/scale = 3.0
+shader_parameter/timeMod = 0.1
+shader_parameter/pixelation = 3.0
+shader_parameter/bold = 4.0
+shader_parameter/sharp = 3.0
+shader_parameter/moveSpeed = 1.0
+shader_parameter/focusPoint = Vector2(0.5, 0.5)
 
 [node name="main_menu" type="Node2D" unique_id=624232534]
 
@@ -16,6 +26,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("2_0ma31")
 
 [node name="Button" type="Button" parent="CanvasLayer" unique_id=704913326]
 offset_left = 112.0
