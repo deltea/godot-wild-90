@@ -4,12 +4,11 @@ var state = "idle"
 var agroMove = "straight"
 
 var agroRange = 300
-var attackRange = 200
+var attackRange = 120
 
 var speed = 100
 var mood = 0
 
-var attacking = false
 
 var idlePosition = Vector2.ZERO
 
@@ -19,7 +18,7 @@ func _ready() -> void:
 	speed += randi_range(-10,10)
 var moodSwing
 func _physics_process(delta: float) -> void:
-	if (state != "attackActive" or state != "recovery"):
+	if (true):
 		if RoomManager.current_room.get_node("Player").position.x > position.x:
 			$Sprite2D.flip_h = true
 		else:
@@ -54,10 +53,6 @@ func knockback(force):
 
 
 func attack():
-	state = "attackActive"
-	var playerPos = RoomManager.current_room.player.position
-	# linear_velocity += (playerPos-position).normalized() * speed * 10
-	apply_central_impulse((playerPos-position).normalized() * 200 * mass)
 	$attackTimer.start()
 
 func stateUpdate() -> void:
@@ -70,9 +65,9 @@ func stateUpdate() -> void:
 		else:
 			agroMove = "straight"
 
-	if state == "attackInactive":
+	if state == "attack":
 		if moodSwing < 50:
-			attacking =true
+			
 			attack()
 	elif state == "recovery":
 		if moodSwing < 50:
@@ -85,20 +80,12 @@ func stateUpdate() -> void:
 			if state == "agro":
 				#just entered attack
 				linear_velocity = Vector2.ZERO
-			state = "attackInactive"
+			state = "attack"
 	else:
 		if moodSwing < 80:
 			state = "idle"
 
 
 
-
 func attackOver() -> void:
-	linear_velocity = Vector2.ZERO
 	state="recover"
-	attacking=false
-
-func _on_body_entered(body: Node) -> void:
-	if body is Player and state == "attackActive":
-		body.takeDamage(damage)
-		knockback((position - body.position).normalized() * 200)
