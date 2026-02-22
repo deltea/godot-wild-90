@@ -9,7 +9,7 @@ var upgrade = preload("res://assets/sfx/upgrade.wav")
 var dash = preload("res://assets/sfx/click.wav")
 var hurt = preload("res://assets/sfx/hurt.wav")
 var death = preload("res://assets/sfx/death.wav")
-var xp = preload("res://assets/sfx/xp.wav")
+var xp = preload("res://assets/sfx/pickupCoin (1).wav")
 
 # var music = preload("res://assets/music.mp4")
 

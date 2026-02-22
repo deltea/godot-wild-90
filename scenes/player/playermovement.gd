@@ -59,10 +59,10 @@ func levelUp(attribute,magnitude):
 		2:
 			dashSpeed += 0.6 * magnitude
 		3:
-			attackCDtime *= 0.95
+			attackCDtime *= pow(0.95,magnitude)
 			$attack.wait_time = attackCDtime
 		4:
-			regenAmt+=0.002
+			regenAmt+=0.002*magnitude
 		5:
 			heavySpeed+=0.5*magnitude
 			
